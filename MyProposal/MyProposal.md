@@ -3,20 +3,21 @@ https://old.reddit.com/
 
 
 **// Proposal //**
-- Minimum Viable Product
+- Minimum Viable Product  - DONE
 
 - DB Schema
 
-- API Endpoints
+- API Endpoints  - DONE
 
-- React Component Structure
+- React Component Structure - ?
 
 - Example State
 
-- Wireframes
+- Wireframes  - DONE
 
 - Implementation Timeline/Schedule
 
 
 
 - Trello board
+  - see secret.md for link.
