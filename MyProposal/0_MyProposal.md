@@ -9,9 +9,9 @@ https://old.reddit.com/
 
 - API Endpoints  - DONE
 
-- React Component Structure - (? but DONE)
+- React Component Structure - (?, but DONE)
 
-- Example State
+- Example State - DONE
 
 - Wireframes - DONE
 
@@ -24,6 +24,9 @@ https://old.reddit.com/
   - see secret.md for link.
 
 
+
+
+------------------------------------------
 **// My gitignore //**
 
   (.gitignore file has:
