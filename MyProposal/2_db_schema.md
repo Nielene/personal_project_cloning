@@ -1,99 +1,91 @@
 # Schema
 
 ## posts
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-post_title      | string    | not null, indexed, unique
-votes           | string    | not null, indexed, unique
-comments        | string    | not null
-type            | integer   | not null
-user_id         | integer   | not null
-image/gif       | string    | not null
-orientation     | string    | not null
+column name          | data type | details
+---------------------|-----------|-----------------------
+id                   | integer   | not null, primary key
+post_title           | string    | not null, indexed, unique
+user_id              | integer   | not null, foreign key
+date_created         | integer   | not null
+votes                | string    | not null
+comments             | string    | not null
+type (gif, v, text)  | string    | not null
+image/gif            | string    | not null
 
-
+*post belongs to a single user*
+*post belongs to a single subreddit*
+*posts have many users, many comments*
 
 ## user profiles
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-username         | text      |
-karma_points | text      |
-subreddit_ids(many)         | text      |
-comments_ids       | text      |
-posts_ids      | text      |
-thinking_about  | text      |
-fri_night       | text      |
-message_if      | text      |
-user_id         | integer   | not null, foreign key
+column name          | data type | details
+---------------------|-----------|-----------------------
+id                   | integer   | not null, primary key
+username             | text      |
+karma_points         | text      |
+<!-- subreddit_ids(many)  | text      | -->
+<!-- comments_ids         | text      | -->
+<!-- posts_ids            | text      | -->
 
 *profile belongs to a user*
-*user has a profile, many messages, many threads through messages,*
-*many answers*
-
-
-## user/post joined table
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer      |
-post_id         | integer      |
-
-## user/comments joined table
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer   | not null, primary key
-comments_ids    | integer   | not null, primary key
-
-## user/subreddits joined table
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer   | not null, primary key
-subreddit_id    | integer   | not null, primary key
-
-
+*user has a profile, many posts, many threads through comments,*
+*many subreddits*
 
 ## subreddits
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-update_time     | string    | not null
+date_created    | string    | not null
+creator_id      | integer   | not null, foreign key (user_id)
+<!-- moderator_ids   | integer   | not null, foreign key (user_id) -->
+num_of_users    | integer   | not null
+num_of_posts    | integer   | not null
 
-*threads have many messages, belong to user through messages*
+*subreddits have many posts, many comments*
+*belong to user/creator through post*
+*has many moderators*
 
 ## comments
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-message_text    | text      | not null
+comment_text    | text      | not null
+subreddit_id    | integer   | not null, foreign key
+post_id         | integer   | not null, foreign key
 user_id         | integer   | not null, foreign key
-thread_id       | integer   | not null, foreign key
 
-*messages belong to threads and users*
+*comments belong to subreddits, posts and users*
 
-## upvotes /downvotes
+## upvotes /downvotes ##?????
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-question_text   | string    | not null
-answer_one_txt  | string    | not null
-answer_two_txt  | string    | not null
-answer_three_txt| string    |
-answer_four_txt | string    |
 
 *questions have many answers*
 
-## answers
+## user/post joined table
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-answer_num      | integer   | not null
-accepted_answers| string    | not null
-importance      | integer   | not null
-question_id     | integer   | not null, foreign key
 user_id         | integer   | not null, foreign key
+post_id         | integer   | not null, foreign key
 
-*answers belong to questions, users*
+## user/comments joined table
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id         | integer   | not null, foreign key
+comments_id     | integer   | not null, foreign key
+
+## user/subreddits joined table
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+creator_id      | integer   | not null, foreign key (user_id)
+subreddit_id    | integer   | not null, foreign key
+
+## subreddit/moderators joined table  **????**
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+subreddit_id       | integer   | not null, foreign key
+moderator_id       | integer   | not null, foreign key (user_id)
