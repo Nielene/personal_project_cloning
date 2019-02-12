@@ -47,3 +47,39 @@ https://www.youtube.com/watch?v=g4oljFEvsiI
 
 old subreddit:
 https://old.reddit.com/
+
+https://mashable.com/2012/06/06/reddit-for-beginners/#ZW2mr22g9Eq3
+
+draw.io
+wireframe.cc
+
+
+
+Jung the Great [11:23 AM]
+Also if you are curious about API route for Reddit, check this out
+https://www.reddit.com/dev/api#GET_best
+reddit.com
+reddit.com: api documentation
+Reddit gives you the best of the internet in one place. Get a constantly updating feed of breaking news, fun stories, pics, memes, and videos just for you. Passionate about something niche? Reddit has thousands of vibrant communities with people that share your interests. Alternatively, find out what’s trending across all of Reddit on r/popular. Reddit is also anonymous so you can be yourself, with your Reddit profile and persona disconnected from your real-world identity.
+
+
+
+crymall 'redux 1A' codesandbox  upvotes/downvotes
+https://codesandbox.io/s/2lkk7484y
+
+
+JinSoo [11:11 AM]
+https://www.reddit.com/r/django/comments/7czebj/how_does_reddit_implement_its_upvotedownvote/
+reddit
+r/django - How does Reddit implement its upvote/downvote system?
+
+
+Mateo [10:02 AM]
+for db schema visualization:
+https://dbdiagram.io/
+dbdiagram.io
+A Free Database Designer for Developers and Analysts
+Quick and simple free tool to help you draw your database relationship diagrams and flow quickly using just keyboard
+
+Alejandro:
+Regarding the timeline: Look at Trello for my most current project for a reference if you need to https://trello.com/b/VcQgZhci/foobar

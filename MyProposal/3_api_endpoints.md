@@ -40,11 +40,15 @@
   * Posts index
 * `GET /api/post/:post_id`
   * Fetches single post
+* `POST /api/post`
+  * Add a post
 * `DELETE /api/post`
   * Deletes post if uses chooses to
 
-### Upvotes / Downvotes
+### Upvotes / Downvotes       ??????
 * `GET /api/upvote`
   * Calls function that adds +1 to total votes
 * `DELETE /api/upvote`
   * Calls function that adds -1 to total votes
+
+###

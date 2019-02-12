@@ -1,6 +1,10 @@
 will be using the old reddit:
 https://old.reddit.com/
 
+**// Possible Names //**
+- SomeoneReddit
+- SomeReddit
+-
 
 **// Proposal //**
 - Minimum Viable Product - DONE
@@ -21,12 +25,12 @@ https://old.reddit.com/
 **// Trello //**
 
 - Trello board
-  - see secret.md for link.
+  - https://trello.com/invite/b/SvRk1wCR/1bfb95deaf58f2499828369531ae4cb5/reddit
 
 
 
 
-------------------------------------------
+//------------------ scrap: ------------------------
 **// My gitignore //**
 
   (.gitignore file has:

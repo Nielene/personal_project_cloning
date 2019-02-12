@@ -11,11 +11,11 @@ this.state = {
     votes: 80234,
   },
   comments: {
-    id: 190,
+  190: {  id: 190,
     commentBody: {error: "Body can't be blank"},
     date_created: '1503280698794',
     post_id: 1,
-    comment_id: 26, (the comment user is commenting on),
+    comment_id: 26, (the comment user is commenting on)},
   },
   user: {
     id: 5,
@@ -25,3 +25,6 @@ this.state = {
 }
 
 ```
+Object.values(state.comments)
+
+* Example State => Good, maybe comments will be a list of some sort since you know you will have multiple comments on a post. Also, think about the properties of these objects and how they should correlate to your table's columns.
