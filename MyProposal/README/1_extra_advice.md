@@ -83,3 +83,8 @@ Quick and simple free tool to help you draw your database relationship diagrams 
 
 Alejandro:
 Regarding the timeline: Look at Trello for my most current project for a reference if you need to https://trello.com/b/VcQgZhci/foobar
+
+Xavier:
+- clicked. take current count. update it. make another get request to
+on click. click send put requrest to change vote count.
+run 2nd get request to run 2nd vote count. (2 get requrest back to back)

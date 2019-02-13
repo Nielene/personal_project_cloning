@@ -44,7 +44,7 @@ user_id         | integer   | not null, foreign key
 
 *comments belong to subreddits, posts and users*
 
-## user/comments joined table      **????????**
+## user/comments joined table      **????????** XXXXXXXX  **?????????**
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -59,6 +59,7 @@ id           | integer                    | not null, primary key
 post_id      | integer                    | not null, foreign key
 type         | boolean: Upvote/Downvote   | default null
 
+// update it to your store.
 
 //------------ Recall BOOL: --------------//
 ```sql
