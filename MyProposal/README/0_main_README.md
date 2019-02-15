@@ -18,3 +18,7 @@ Post page:
 Extra features:
 - add votes
 - improve karma
+- a subreddit creator can choose their own background image/color from a display (inline flex) list. click on the image picture displayed in the Image section and that will be the new background-image.
+or in the Color section, click on the color and that is the new background-color.
+there must be an npm for background imagery (like faker)
+  - see redux_1 notes from 0207 RandomColor.js

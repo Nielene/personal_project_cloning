@@ -86,5 +86,23 @@ Regarding the timeline: Look at Trello for my most current project for a referen
 
 Xavier:
 - clicked. take current count. update it. make another get request to
-on click. click send put requrest to change vote count.
-run 2nd get request to run 2nd vote count. (2 get requrest back to back)
+on click. click send put request to change vote count.
+run 2nd get request to run 2nd vote count. (2 get request back to back)
+
+
+reed [5:47 PM]
+small note: It's not just TIMESTAMP in sql, it's TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+Reed:
+- need USER AUTHENTICATION.
+- EXAMPLE USER Login BUTTON for testing.
+
+
+reed [2:59 PM] Tues Feb 12th 2019
+http://youtu.be/J6Gi8jGOGCk
+YouTubeReed Gaines
+Database Review
+
+
+coreyladovsky [3:29 PM] Tues Feb 12th 2019
+https://www.postgresql.org/docs/9.1/datatype-character.html The docs
