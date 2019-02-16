@@ -13,6 +13,7 @@ type (gif, v, text)  | string    | not null
 image/gif            | string    | not null
 subreddit_title      | string    | not null     - yes
 
+make query that gets all posts from a subreddit title.
 
 *post belongs to a single user*
 *post belongs to a single subreddit*
@@ -44,12 +45,6 @@ user_id         | integer   | not null, foreign key
 
 *comments belong to subreddits, posts and users*
 
-## user/comments joined table      **????????** XXXXXXXX  **?????????**
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer   | not null, foreign key
-comments_id     | integer   | not null, foreign key
 
 
 ## upvotes /downvotes           
@@ -75,6 +70,14 @@ CREATE TABLE species (
 
 
 //================== Discards: ====================================
+
+
+## user/comments joined table      **????????** XXXXXXXX  **?????????** not commenting on a user
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id         | integer   | not null, foreign key
+comments_id     | integer   | not null, foreign key
 
 ## user/post joined table                   XXXXXXXXX
 column name     | data type | details

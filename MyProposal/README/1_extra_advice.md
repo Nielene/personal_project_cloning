@@ -106,3 +106,82 @@ Database Review
 
 coreyladovsky [3:29 PM] Tues Feb 12th 2019
 https://www.postgresql.org/docs/9.1/datatype-character.html The docs
+
+
+xpectro/JonA:
+
+- pwd
+- express backend
+- cd backend
+- npm install
+- create-react-app frontend     (inside backend)
+- cd frontend/
+- npm install react-redux react axios react-dom redux-logger redux-thunk redux react-router-dom
+
+latergram - express
+backend: warmUp - class0204 - corey - latergram.
+package manager - faker, reddit,
+frontend: help, unit4 practice (only partially)
+
+
+someone_reddit
+disc_reddit
+read_it
+disc_reddit
+re_reddit
+
+Isa:
+animate.css
+
+Alejandro:
+get random record sql
+https://stackoverflow.com/questions/19412/how-to-request-a-random-row-in-sql
+db.any("SELECT * FROM posts WHERE post_type = 'img' ORDER BY RANDOM() ")    *DB.ANY RETURNS A PROMISE. SO, USE .THEN*
+.then ( post => {
+  res.status(200).json(
+    'status':
+    'message':
+    )
+  })
+
+  CAN ONLY USER SINGLE QUOTES IN SQL.
+  THE OUTER QUOTES CAN ONLY BE DOUBLE QUOTES
+  SELECT
+
+
+Me:
+
+faker.date.between: https://github.com/Marak/faker.js/issues/344
+https://stackoverflow.com/questions/35235318/how-to-use-faker-date-between-faker-js
+```js
+self.between = function (from, to) {
+  var fromMilli = Date.parse(from);
+  var dateOffset = faker.random.number(Date.parse(to) - fromMilli);
+
+  var newDate = new Date(fromMilli + dateOffset);
+
+  return newDate;
+};
+```
+
+Alejandro/Isa:
+background-image css :
+inside teh database, where the SELECT .
+
+<div classname= .. style={ {backgroundImage: `url("${this.state.img}")` } } > </div>
+
+
+PSequel:
+in Query tab of whatever database:
+```SQL
+UPDATE posts SET body='something new' WHERE id=3;
+```
+
+
+db.none("INSERT INTO posts (post_title,post_body, image_url, date_created, votes) VALUES " + posts + ";")
+.then(() => {
+  db.none("INSERT INTO up_down_votes (initial_count, type, post_id) VALUES " + up_down_votes + ";")
+})
+.catch(err => {
+  console.log(err);
+})
