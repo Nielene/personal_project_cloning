@@ -1,28 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import './css/App.css';
+import { Route, Switch } from 'react-router-dom';
+
+import { getPosts } from './util/util';
+import { NavBar } from './components/NavBar';
+import { Home } from './components/Home';
+import PostsContainer from './components/posts/PostsContainer';
+// import { Posts } from './components/posts/Posts';
+
 
 class App extends Component {
+  // state = {
+  //   posts: [],
+  // }
+
+  // componentDidMount() {
+  //   axios.get('/posts')
+  //   .then(res => {
+  //     console.log(res.data.posts);
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar />
+        <h2>Posts</h2>
+        <PostsContainer />
+        <main>
+          <Route exact path = '/' component = { Home } />
+        </main>
       </div>
     );
   }
 }
 
 export default App;
+
+
+// <Route exact path = '/posts' component = { PostsContainer } />

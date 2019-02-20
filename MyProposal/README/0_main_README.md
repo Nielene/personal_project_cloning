@@ -23,3 +23,12 @@ or in the Color section, click on the color and that is the new background-color
 there must be an npm for background imagery (like faker)
   - see redux_1 notes from 0207 RandomColor.js
   - make an AXIOS call for it sometime later using FAKER! :(). not in the seed file. IMG_URL .
+
+1. cd into personal_project/backend/db
+1. psql -f re_reddit.sql
+2. new tab and cd into db
+2. node seed.js
+3. new tab and cd backend
+3. nodemon bin/www
+4. cd frontend
+4. npm start

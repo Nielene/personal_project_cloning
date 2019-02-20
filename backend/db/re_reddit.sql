@@ -12,12 +12,12 @@ CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   post_title TEXT NOT NULL,
   post_body TEXT,
-  image_url TEXT NOT NULL,
+  image_url TEXT,
   date_created TEXT NOT NULL,
   votes INT NOT NULL,
   -- comments TEXT NOT NULL,
-  type VARCHAR NOT NULL,
-  subreddit_title TEXT NOT NULL
+  post_type VARCHAR NOT NULL,
+  my_subreddit_title TEXT NOT NULL
 );
 
 CREATE TABLE users (
@@ -37,6 +37,6 @@ CREATE TABLE comments (
 CREATE TABLE up_down_votes (
   id SERIAL PRIMARY KEY,
   initial_count INT,
-  type BOOL NOT NULL DEFAULT false,
+  -- vote_type BOOL DEFAULT false,
   post_id INT NOT NULL REFERENCES posts(id) ON DELETE CASCADE
 );

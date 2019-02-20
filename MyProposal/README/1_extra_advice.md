@@ -185,3 +185,13 @@ db.none("INSERT INTO posts (post_title,post_body, image_url, date_created, votes
 .catch(err => {
   console.log(err);
 })
+
+
+
+
+Math.random from an array for post_type:
+https://stackoverflow.com/questions/1516695/js-math-random-for-array
+
+
+username:
+let username = faker.hacker.adjective().concat(faker.name.jobDescriptor().concat(faker.hacker.noun()));
