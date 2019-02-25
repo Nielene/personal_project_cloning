@@ -25,6 +25,8 @@ class Posts extends Component {
       <div key={post.id}>
         <h3>{post.post_title}</h3>
         <p>{post.post_body}</p>
+        <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+        <p>votes: {Math.floor(Math.random() * 10000)}</p>
       </div>
     ))
     return (

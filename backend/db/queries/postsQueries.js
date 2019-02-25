@@ -49,7 +49,7 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   }
 
   db.none(
-    "INSERT INTO posts(post_title, post_body, image_url, date_created, votes, post_type, my_subreddit_title ) VALUES(${post_title}, ${post_body}, ${image_url}, ${date_created}, ${votes}, ${post_type}, ${my_subreddit_title})",
+    "INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES(${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title})",
     req.body
   )
   .then(() => {

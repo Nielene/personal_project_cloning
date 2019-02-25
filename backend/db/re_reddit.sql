@@ -13,10 +13,7 @@ CREATE TABLE posts (
   post_title TEXT NOT NULL,
   post_body TEXT,
   image_url TEXT,
-  date_created TEXT,
-  votes INT,
   -- comments TEXT NOT NULL,
-  post_type VARCHAR,
   my_subreddit_title TEXT
 );
 

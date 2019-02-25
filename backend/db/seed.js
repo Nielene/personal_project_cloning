@@ -6,13 +6,9 @@ for (let i = 0; i < 100; i++) {
   let post_title = faker.lorem.sentence();
   let post_body = faker.lorem.sentences();
   let image_url = faker.image.imageUrl();
-  let date_created = faker.date.between('2014-01-01', '2019-02-16');
-  let votes = Math.floor(Math.random() * 1000000);
-    let type = ['gif', 'video', 'text', 'wiki', 'image']
-  let post_type = type[Math.floor(Math.random() * type.length)];
     let my_subreddit = ['WHYWERETHEYFILMING', 'YESYESYESNO', 'YESYESYESYESNO', 'FUNNYANDSAD', 'HOLDMYCOSMO', 'CONFUSING_PERSPECTIVE']
   let my_subreddit_title = my_subreddit[Math.floor(Math.random() * my_subreddit.length)];
-  let str = `('${post_title}', '${post_body}', '${image_url}', '${date_created}', ${votes}, '${post_type}', '${my_subreddit_title}' )`
+  let str = `('${post_title}', '${post_body}', '${image_url}', '${my_subreddit_title}' )`
   posts.push(str)
 }
 
@@ -49,7 +45,7 @@ users = users.join(', ')
 comments = comments.join(', ')
 up_down_votes = up_down_votes.join(', ')
 
-db.none("INSERT INTO posts (post_title,post_body, image_url, date_created, votes, post_type, my_subreddit_title) VALUES " + posts + ";")
+db.none("INSERT INTO posts (post_title, post_body, image_url, my_subreddit_title) VALUES " + posts + ";")
 .then(() => {
   db.none("INSERT INTO users(username, post_id, karma_points) VALUES " + users + ";")
   .then(() => {
