@@ -15,8 +15,8 @@ class Posts extends React.Component {
   };
 
   render() {
-    if (this.props.posts !== {}) {
-      console.log('this.props.posts', this.props.posts)
+    console.log('this.props.posts', this.props.posts)
+    if (this.props.posts) {
       let posts = Object.values(this.props.posts).map(post => {
         return (
           <div>
