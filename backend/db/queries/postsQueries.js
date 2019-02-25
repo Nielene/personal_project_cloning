@@ -38,6 +38,16 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
 }
 
 const createNewPostInSingleSubreddit = (req, res, next) => {
+  let queryStringArray = [];
+  let bodyKeys = Object.keys(req.body);
+  bodyKeys.forEach(key => {
+    queryStringArray.push(key + "=${" + key + "}");
+  })
+  let queryString = queryStringArray.join(', ');
+  if (req.body.post_title && req.body.post) {
+
+  }
+
   db.none(
     "INSERT INTO posts(post_title, post_body, image_url, date_created, votes, post_type, my_subreddit_title ) VALUES(${post_title}, ${post_body}, ${image_url}, ${date_created}, ${votes}, ${post_type}, ${my_subreddit_title})",
     req.body
@@ -50,6 +60,7 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   })
   .catch(err => next(err));
 }
+
 
 const deleteOwnPost = (req, res, next) => {
   let post_id = parseInt(req.params.id);

@@ -32,3 +32,12 @@ there must be an npm for background imagery (like faker)
 3. nodemon bin/www
 4. cd frontend
 4. npm start
+
+3 backend terminal tabs:
+1. backend/db : psql -f re_reddit.sql
+2. backend/db : node seed.js
+3. backend : nodemon bin/www
+
+
+used:
+frontend : npm install --save axios

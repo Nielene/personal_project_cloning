@@ -13,11 +13,11 @@ CREATE TABLE posts (
   post_title TEXT NOT NULL,
   post_body TEXT,
   image_url TEXT,
-  date_created TEXT NOT NULL,
-  votes INT NOT NULL,
+  date_created TEXT,
+  votes INT,
   -- comments TEXT NOT NULL,
-  post_type VARCHAR NOT NULL,
-  my_subreddit_title TEXT NOT NULL
+  post_type VARCHAR,
+  my_subreddit_title TEXT
 );
 
 CREATE TABLE users (

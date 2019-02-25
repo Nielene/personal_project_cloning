@@ -10,10 +10,10 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://jsonplaceholder.typicode.com/posts')
+    axios.get('/posts')
     .then(res => {
-      console.log(res.data);
-      this.setState({posts: res.data})
+      console.log(res.data.posts);
+      this.setState({posts: res.data.posts})
     })
     // fetch('http://jsonplaceholder.typicode.com/posts')
     // .then(res => res.json())
@@ -23,8 +23,8 @@ class Posts extends Component {
   render () {
     const postItems = this.state.posts.map(post => (
       <div key={post.id}>
-        <h3>{post.title}</h3>
-        <p>{post.body}</p>
+        <h3>{post.post_title}</h3>
+        <p>{post.post_body}</p>
       </div>
     ))
     return (
