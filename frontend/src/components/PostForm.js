@@ -29,10 +29,11 @@ class PostForm extends Component {
     const addPost = {
       post_title: this.state.title,
       post_body: this.state.body,
+      image_url: this.state.image_url,
       my_subreddit_title: this.state.subreddit_title,
     }
 // debugger
-    axios.post('/posts', { addPost })
+    axios.post('/posts',  addPost )
     .then(res => {
       console.log(res);
       debugger
@@ -43,27 +44,6 @@ class PostForm extends Component {
     //   console.log(res);
     //   debugger
     // })
-
-
-
-
-
-    // const addPost = {
-    //   title: this.state.title,
-    //   body: this.state.body,
-    // }
-    //
-    // fetch('/posts', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(addPost)
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log(data))
-
-
 
 
     // const addPost = {
