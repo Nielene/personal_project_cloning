@@ -38,20 +38,18 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
 }
 
 const createNewPostInSingleSubreddit = (req, res, next) => {
-  let queryStringArray = [];
-  let bodyKeys = Object.keys(req.body);
-  bodyKeys.forEach(key => {
-    queryStringArray.push(key + "=${" + key + "}");
-  })
-  let queryString = queryStringArray.join(', ');
-  if (req.body.post_title && req.body.post) {
 
+  let queryString = "INSERT INTO posts ";
+
+  if (req.body.image_url) {
+    queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )" 
+  } else if (req.body.post_body) {
+    queryString +=   "(post_body, post_title, my_subreddit_title) VALUES(${post_body}, ${post_title}, ${my_subreddit_title} )"
   }
 
-  db.none(
-    "INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES(${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title})",
-    req.body
-  )
+  db.none(queryString, req.body)
+  // db.none("INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES( ${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title} )",
+  //   req.body)
   .then(() => {
     res.status(200).json({
       status: 'success',
