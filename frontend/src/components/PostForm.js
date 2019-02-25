@@ -26,40 +26,19 @@ class PostForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const addPost = {
+
+    axios.post('/posts',  {
       post_title: this.state.title,
       post_body: this.state.body,
       image_url: this.state.image_url,
-      my_subreddit_title: this.state.subreddit_title,
-    }
-// debugger
-    axios.post('/posts',  addPost )
+      my_subreddit_title: this.state.subreddit_title
+  } )
     .then(res => {
-      console.log(res);
-      debugger
+      console.log('res', res.data.body);
+      // debugger
     })
 
-    // axios.post('http://jsonplaceholder.typicode.com/posts', {title: this.state.title, body: this.state.body})
-    // .then(res => {
-    //   console.log(res);
-    //   debugger
-    // })
 
-
-    // const addPost = {
-    //   title: this.state.title,
-    //   body: this.state.body,
-    // }
-    //
-    // fetch('http://jsonplaceholder.typicode.com/posts', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(addPost)
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log(data))
   }
 
   render () {
@@ -90,3 +69,52 @@ class PostForm extends Component {
 }
 
 export default PostForm;
+
+
+
+
+
+
+//=================
+
+// const addPost = {
+//   post_title: this.state.title,
+//   post_body: this.state.body,
+//   image_url: this.state.image_url,
+//   my_subreddit_title: this.state.subreddit_title,
+// }
+// // debugger
+//
+// axios.post('/posts',  addPost )
+// .then(res => {
+//   console.log(res);
+//   // debugger
+// })
+
+
+//=================
+
+// axios.post('http://jsonplaceholder.typicode.com/posts', {title: this.state.title, body: this.state.body})
+// .then(res => {
+//   console.log(res);
+//   // debugger
+// })
+
+//========================
+
+// const addPost = {
+//   title: this.state.title,
+//   body: this.state.body,
+// }
+//
+// fetch('http://jsonplaceholder.typicode.com/posts', {
+//   method: 'POST',
+//   headers: {
+//     'content-type': 'application/json'
+//   },
+//   body: JSON.stringify(addPost)
+// })
+// .then(res => res.json())
+// .then(data => console.log(data))
+
+//========================

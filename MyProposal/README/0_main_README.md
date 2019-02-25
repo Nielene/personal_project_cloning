@@ -41,3 +41,18 @@ there must be an npm for background imagery (like faker)
 
 used:
 frontend : npm install --save axios
+
+to install the redux things:
+- stop the frontend server from running.
+-
+
+
+
+
+
+
+
+//==========================
+
+ToDo:
+1. PostForm: need to give id to new Post being added.

@@ -42,7 +42,7 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   let queryString = "INSERT INTO posts ";
 
   if (req.body.image_url) {
-    queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )" 
+    queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )"
   } else if (req.body.post_body) {
     queryString +=   "(post_body, post_title, my_subreddit_title) VALUES(${post_body}, ${post_title}, ${my_subreddit_title} )"
   }
@@ -53,7 +53,8 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   .then(() => {
     res.status(200).json({
       status: 'success',
-      message: 'NEW POST CREATED IN A SINGLE SUBREDDIT!'
+      message: 'NEW POST CREATED IN A SINGLE SUBREDDIT!',
+      body: req.body,
     })
   })
   .catch(err => next(err));
