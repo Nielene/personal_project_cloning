@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/postActions';
+// import axios from 'axios'
 
 class Posts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-    }
-  }
+
+//---------------moved to postActions------------------------
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     posts: [],
+  //   }
+  // }
+  //
+  // componentDidMount() {
+  //   axios.get('/posts')
+  //   .then(res => {
+  //     console.log('res.data.posts', res.data.posts);
+  //     this.setState({posts: res.data.posts})
+  //   })
+  //   // fetch('http://jsonplaceholder.typicode.com/posts')
+  //   // .then(res => res.json())
+  //   // .then(data => console.log(data))
+  // }
+  //---------------------------------------
 
   componentDidMount() {
-    axios.get('/posts')
-    .then(res => {
-      console.log(res.data.posts);
-      this.setState({posts: res.data.posts})
-    })
-    // fetch('http://jsonplaceholder.typicode.com/posts')
-    // .then(res => res.json())
-    // .then(data => console.log(data))
+    this.props.fetchPosts();
   }
 
   render () {
-    const postItems = this.state.posts.map(post => (
+    const postItems = this.props.posts.map(post => (
       <div key={post.id}>
         <h3>{post.post_title}</h3>
         <p>{post.post_body}</p>
@@ -39,4 +49,13 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+Posts.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+  posts: PropTypes.array.isRequired   
+}
+
+const mapStateToProps = state => ({
+  posts: state.posts.items
+})
+
+export default connect(mapStateToProps, { fetchPosts } )(Posts);

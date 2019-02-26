@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const faker = require('faker');
+// const faker = require('faker');
 
 class PostForm extends Component {
   constructor(props) {
