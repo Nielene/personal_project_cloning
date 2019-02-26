@@ -52,3 +52,4 @@ frontend : npm install --save axios
 
 ToDo:
 1. PostForm: need to give id to new Post being added.
+2. 500 error if no Body text is given in the form in the browser.

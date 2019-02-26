@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { createPost } from '../actions/postActions'//our action;
+
+// import axios from 'axios';
 // const faker = require('faker');
 
 class PostForm extends Component {
@@ -26,18 +31,15 @@ class PostForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-
-    axios.post('/posts',  {
+    const addPost = {
       post_title: this.state.title,
       post_body: this.state.body,
       image_url: this.state.image_url,
-      my_subreddit_title: this.state.subreddit_title
-  } )
-    .then(res => {
-      console.log('res', res.data.body);
-      // debugger
-    })
+      my_subreddit_title: this.state.subreddit_title,
+    }
 
+    // Call Action (postActions)
+    this.props.createPost(addPost)
 
   }
 
@@ -68,7 +70,11 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+PostForm.propTypes = {
+  createPost: PropTypes.func.isRequired
+}
+
+export default connect(null, { createPost })(PostForm);
 
 
 

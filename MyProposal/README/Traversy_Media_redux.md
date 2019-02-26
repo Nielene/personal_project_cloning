@@ -139,4 +139,28 @@ our posts are coming in from our redux state.
 
 (52:36/1:09:22)
 
-- now implememnting the redux chrome extension.
+- now implementing the redux chrome extension.
+- go to store.js
+- and add redux devtools extension as an enhancer.
+- so bring in 'compose' from redux;
+- wrap the 'applyMiddleware' in 'compose'.
+- end in a comma
+- now implement the redux dev tools.
+- //
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+- //
+
+    - postActions
+- create a new action.
+- will take in some argument, bc we are submitting it.
+- remove this axios call. go to PostForm and use that fetch request.
+- once we make the request we'll get back the data, which will be a single item!
+- THINGS CHANGED. ADDED. (58:03)
+
+    - postReducer
+- add a new case. since will dispactch to ... (58:32)
+- NOW postReducer should be done.
+- close it.
+
+    - postForm
+- 
