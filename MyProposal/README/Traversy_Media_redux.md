@@ -163,4 +163,10 @@ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 - close it.
 
     - postForm
-- 
+-
+
+(1:03:15/1:09:22) - alls well and working with my project. it is matching what he sees in devTools. (smile)
+
+    - Posts.js
+- mapStateToProps - gives single source of truth;
+- Posts.propTypes - gives single source of truth;

@@ -3,17 +3,14 @@ import axios from 'axios';
 
 export const fetchPosts = () => dispatch => {
   console.log('fetching action is beign called');
-  // return function(dispatch) {
     axios.get('/posts')
     .then(res => {
       console.log('res.data.posts', res.data.posts);
-      // this.setState({posts: res.data.posts})
       dispatch ({
         type: FETCH_POSTS,
         payload: res.data.posts
       })
     })
-  // }
 }
 
 export const createPost = (postData) => dispatch => {
@@ -21,25 +18,13 @@ export const createPost = (postData) => dispatch => {
   axios.post('/posts',  postData)
   .then(post => {
     // debugger
-    // console.log('res', res.data.body);
     dispatch ({
       type: NEW_POST,
       payload: post.data.body
     })
     // debugger
   })
-  // console.log('fetching action is beign called');
-  // // return function(dispatch) {
-  //   axios.get('/posts')
-  //   .then(res => {
-  //     console.log('res.data.posts', res.data.posts);
-  //     // this.setState({posts: res.data.posts})
-  //     dispatch ({
-  //       type: FETCH_POSTS,
-  //       payload: res.data.posts
-  //     })
-  //   })
-  // // }
+
 }
 
 //payload: now go to postReducer: action.payload refers to this 'payload';
