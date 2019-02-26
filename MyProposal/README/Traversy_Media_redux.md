@@ -129,4 +129,14 @@ our posts are coming in from our redux state.
 - we also have our posts property, bc we had mapped the items in the state to the post property.
 - so, 'posts: PropTypes.array (bc remember it is an array) and (.isRequired)'
 
-//
+// Reed:
+  - store.js
+- Reed removed
+    // i added line 5:
+    // : import initialState from './reducers/index.js'
+  and initial State from
+    // : const store = createStore(rootReducer, 'initialState', applyMiddleware(...middleware));
+
+(52:36/1:09:22)
+
+- now implememnting the redux chrome extension.
