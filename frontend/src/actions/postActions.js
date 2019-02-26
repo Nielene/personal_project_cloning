@@ -18,14 +18,13 @@ export const fetchPosts = () => dispatch => {
 
 export const createPost = (postData) => dispatch => {
   console.log('action called');
-  axios.post('/posts',  {
-    post_body: postData
-  })
+  axios.post('/posts',  postData)
   .then(post => {
+    // debugger
     // console.log('res', res.data.body);
     dispatch ({
       type: NEW_POST,
-      payload: post.data.posts
+      payload: post.data.body
     })
     // debugger
   })
