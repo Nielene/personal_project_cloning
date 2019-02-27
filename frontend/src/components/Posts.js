@@ -6,26 +6,6 @@ import { fetchPosts } from '../actions/postActions';
 
 class Posts extends Component {
 
-//---------------moved to postActions------------------------
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     posts: [],
-  //   }
-  // }
-  //
-  // componentDidMount() {
-  //   axios.get('/posts')
-  //   .then(res => {
-  //     console.log('res.data.posts', res.data.posts);
-  //     this.setState({posts: res.data.posts})
-  //   })
-  //   // fetch('http://jsonplaceholder.typicode.com/posts')
-  //   // .then(res => res.json())
-  //   // .then(data => console.log(data))
-  // }
-  //---------------------------------------
-
   componentDidMount() {
     this.props.fetchPosts();
   }
