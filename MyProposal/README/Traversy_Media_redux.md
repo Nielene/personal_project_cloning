@@ -153,7 +153,7 @@ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     - postActions
 - create a new action.
 - will take in some argument, bc we are submitting it.
-- remove this axios call. go to PostForm and use that fetch request.
+- remove this axios call. go to PostFormText and use that fetch request.
 - once we make the request we'll get back the data, which will be a single item!
 - THINGS CHANGED. ADDED. (58:03)
 
@@ -162,7 +162,7 @@ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 - NOW postReducer should be done.
 - close it.
 
-    - postForm
+    - PostFormText
 -
 
 (1:03:15/1:09:22) - alls well and working with my project. it is matching what he sees in devTools. (smile)

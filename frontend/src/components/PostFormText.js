@@ -7,7 +7,7 @@ import { createPost } from '../actions/postActions'//our action;
 // import axios from 'axios';
 // const faker = require('faker');
 
-class PostForm extends Component {
+class PostFormText extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,25 +44,30 @@ class PostForm extends Component {
   }
 
   render () {
+
     return (
       <div>
-        <h1>Add Post</h1>
+        <h3>Submit a new text post</h3>
         <form onSubmit={this.onSubmit}>
+
           <div>
-            <label>Title: </label><br />
+            <label>title: </label><br />
             <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
           </div>
           <br />
+
           <div>
-            <label>Body: </label><br />
+            <label>text: </label><br />
             <textarea name='body' onChange={this.onChange} value={this.state.body} />
           </div>
           <br />
+
           <div>
             <label>choose where to post: </label><br />
             <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} />
           </div>
           <br />
+
           <button type='submit'>Submit</button>
         </form>
       </div>
@@ -70,11 +75,11 @@ class PostForm extends Component {
   }
 }
 
-PostForm.propTypes = {
+PostFormText.propTypes = {
   createPost: PropTypes.func.isRequired
 }
 
-export default connect(null, { createPost })(PostForm);
+export default connect(null, { createPost })(PostFormText);
 
 
 
