@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Posts from './components/Posts';
 import PostFormText from './components/PostFormText';
+import SinglePost from './components/SinglePost';
 // import PostFormLink from './components/PostFormLink';
 
 import store from './store'
@@ -19,7 +20,9 @@ class App extends Component {
 
           <Switch>
             <Route path="/submit" component={PostFormText} />
-            <Route path="/" component={Posts} />
+            <Route exact path="/" component={Posts} />
+            <Route exact path='/post/:id' component={SinglePost} />
+
           </Switch>
 
 
@@ -30,6 +33,10 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
 
 // <Switch>
 //   <Route path = '/posts/new/text' component = {PostFormText} />

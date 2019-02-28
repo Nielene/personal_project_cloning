@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { createPost } from '../actions/postActions'//our action;
 
+import { NavLink } from 'react-router-dom'
+
 // import axios from 'axios';
 // const faker = require('faker');
 
@@ -47,6 +49,8 @@ class PostFormText extends Component {
 
     return (
       <div>
+        <NavLink to={'/'}>ReReddit</NavLink>
+
         <h3>Submit a new text post</h3>
         <form onSubmit={this.onSubmit}>
 

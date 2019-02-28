@@ -1,8 +1,10 @@
 import { FETCH_POSTS, NEW_POST } from './types';
 import axios from 'axios';
 
+// import, FETCH_SINGLE_POST
+
 export const fetchPosts = () => dispatch => {
-  console.log('fetching action is beign called');
+  console.log('postActions.js: fetching action is beign called');
     axios.get('/posts')
     .then(res => {
       console.log('res.data.posts', res.data.posts);
@@ -13,8 +15,21 @@ export const fetchPosts = () => dispatch => {
     })
 }
 
+// export const fetchSinglePost = () => dispatch => {
+//   console.log('fetching Single Post');
+  //   axios.get('/posts')
+  //   .then(res => {
+  //     console.log('res.data.posts.id', res.data.posts.id);
+  //     debugger
+  //     dispatch ({
+  //       type: FETCH_SINGLE_POST,
+  //       payload: res.data.posts.id
+  //     })
+  //   })
+// }
+
 export const createPost = (postData) => dispatch => {
-  console.log('action called');
+  console.log('postActions.js: post created: action called');
   axios.post('/posts',  postData)
   .then(post => {
     // debugger

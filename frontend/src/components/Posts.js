@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
 // import axios from 'axios'
 
-import { Route, Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class Posts extends Component {
 
   componentDidMount() {
+    console.log('Posts.js');
     this.props.fetchPosts();
   }
 
@@ -20,9 +20,12 @@ class Posts extends Component {
   }
 
   render () {
+    console.log('Posts.js: {postItems}');
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
-        <h3>{post.post_title}</h3>
+
+        <Link to={'/post/'+ post.id}>{post.post_title}</Link>
+
         <p>{post.image_url}</p>
         <p>{post.post_body}</p>
         <p>{post.my_subreddit_title}</p>
@@ -33,9 +36,9 @@ class Posts extends Component {
     return (
       <div>
 
-        <NavLink to={'/submit'}>Submit a new text post</NavLink>
+        <Link to={'/submit'}>Submit a new text post</Link>
         <br />
-        <NavLink to={'/submit'}>Submit a new link</NavLink>
+        <Link to={'/submit'}>Submit a new link</Link>
 
         <h1>Posts</h1>
         {postItems}

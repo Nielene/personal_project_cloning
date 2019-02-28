@@ -44,6 +44,40 @@ frontend : npm install --save axios
 
 (see Traversy_Media_redux.md)
 
+//-----------
+Backend user auth:
+//-----------
+
+"bcryptjs": "^2.4.3",
+"body-parser": "~1.18.2",
+"express-session": "^1.15.6",
+"nodemon": "^1.14.12",
+"passport": "^0.4.0",
+"passport-local": "^1.0.0",
+"serve-favicon": "~2.4.5"
+
+(along with the others.) In total:
+
+"dependencies": {
+  "cookie-parser": "~1.4.3",
+  "debug": "~2.6.9",
+  "express": "~4.16.0",
+  "faker": "^4.1.0",
+  "http-errors": "~1.6.2",
+  "jade": "~1.11.0",
+  "morgan": "~1.9.0",
+  "pg-promise": "^8.5.5",
+  "bcryptjs": "^2.4.3",
+  "body-parser": "~1.18.2",
+  "express-session": "^1.15.6",
+  "nodemon": "^1.14.12",
+  "passport": "^0.4.0",
+  "passport-local": "^1.0.0",
+  "serve-favicon": "~2.4.5"
+}
+
+
+
 
 
 

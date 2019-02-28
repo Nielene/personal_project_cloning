@@ -14,6 +14,20 @@ const getAllPosts = (req, res, next) => {
   .catch(err => next(err));
 }
 
+
+const getSinglePost = (req, res, next) => {
+  let postId = parseInt(req.params.id);
+  db.one('SELECT * FROM posts WHERE id=$1', [postId])
+  .then(data => {
+    res.status(200)
+    .json({
+      status: 'success',
+      message: 'You got your Post.',
+      body: data
+    })
+  }).catch(err => next(err))
+}
+
 const getAllPostsfromSingleSubreddit = (req, res, next) => {
   let my_subreddit_title = req.params.my_subreddit_title;
   db.any(
@@ -79,4 +93,4 @@ const deleteOwnPost = (req, res, next) => {
   })
 }
 
-module.exports = { getAllPosts, getAllPostsfromSingleSubreddit, createNewPostInSingleSubreddit, deleteOwnPost }
+module.exports = { getAllPosts, getSinglePost, getAllPostsfromSingleSubreddit, createNewPostInSingleSubreddit, deleteOwnPost }
