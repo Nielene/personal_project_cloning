@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST } from './types';
+import { FETCH_POSTS, FETCH_SINGLE_POST, NEW_POST } from './types';
 import axios from 'axios';
 
 // import, FETCH_SINGLE_POST
@@ -15,18 +15,18 @@ export const fetchPosts = () => dispatch => {
     })
 }
 
-// export const fetchSinglePost = () => dispatch => {
-//   console.log('fetching Single Post');
-  //   axios.get('/posts')
-  //   .then(res => {
-  //     console.log('res.data.posts.id', res.data.posts.id);
-  //     debugger
-  //     dispatch ({
-  //       type: FETCH_SINGLE_POST,
-  //       payload: res.data.posts.id
-  //     })
-  //   })
-// }
+export const fetchSinglePost = () => dispatch => {
+  console.log('fetching Single Post');
+    // axios.get('/posts')
+    // .then(res => {
+    //   console.log('res.data.posts.id', res.data.posts.id);
+    //   debugger
+    //   dispatch ({
+    //     type: FETCH_SINGLE_POST,
+    //     payload: res.data.posts.id
+    //   })
+    // })
+}
 
 export const createPost = (postData) => dispatch => {
   console.log('postActions.js: post created: action called');

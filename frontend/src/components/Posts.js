@@ -25,7 +25,6 @@ class Posts extends Component {
       <div key={post.id}>
 
         <Link to={'/post/'+ post.id}>{post.post_title}</Link>
-
         <p>{post.image_url}</p>
         <p>{post.post_body}</p>
         <p>{post.my_subreddit_title}</p>

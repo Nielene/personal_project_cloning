@@ -48,8 +48,7 @@ class PostFormLink extends Component {
   render () {
     return (
       <div>
-        <NavLink to={'/'}>ReReddit</NavLink>
-        
+
         <h3>Submit a new link</h3>
         <form onSubmit={this.onSubmit}>
           <div>

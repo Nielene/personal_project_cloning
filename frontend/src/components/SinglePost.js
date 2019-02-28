@@ -1,19 +1,19 @@
-// import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { fetchSinglePost } from '../actions/postActions';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchSinglePost } from '../actions/postActions';
 // // import axios from 'axios'
 //
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //
-// class SinglePost extends Component {
+class SinglePost extends Component {
 //
 //   componentDidMount() {
 //     this.props.fetchSinglePost();
 //   }
 //
 //
-//   render () {
+  render () {
 //     const singlePostItem = this.props.posts.filter(post => (
 //       <div key={post.id}>
 //
@@ -26,29 +26,32 @@
 //         <p>votes: {Math.floor(Math.random() * 10000)}</p>
 //       </div>
 //     ))
-//     return (
-//       <div>
-//
+    return (
+      <div>
+      {/* <Link to={'/'}>ReReddit</Link>*/}
+
+{/*
 //         <Link to={'/submit'}>Submit a new text post</Link>
 //         <br />
 //         <Link to={'/submit'}>Submit a new link</Link>
 //
 //         <h1>{post.post_title}</h1>
 //         {postItems}
-//       </div>
-//     )
-//   }
-// }
-//
+*/}
+      </div>
+    )
+  }
+}
+
 // Posts.propTypes = {
 //   fetchSinglePost: PropTypes.func.isRequired,
 //   posts: PropTypes.array.isRequired,
 //   newPost: PropTypes.object
 // }
+
+const mapStateToProps = state => ({
+  posts: state.posts.items,
+  newPost: state.posts.item
+})
 //
-// const mapStateToProps = state => ({
-//   posts: state.posts.items,
-//   newPost: state.posts.item
-// })
-//
-// export default connect(mapStateToProps, { fetchSinglePost } )(SinglePost);
+export default connect(mapStateToProps, { fetchSinglePost } )(SinglePost);

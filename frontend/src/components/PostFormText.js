@@ -49,7 +49,6 @@ class PostFormText extends Component {
 
     return (
       <div>
-        <NavLink to={'/'}>ReReddit</NavLink>
 
         <h3>Submit a new text post</h3>
         <form onSubmit={this.onSubmit}>
