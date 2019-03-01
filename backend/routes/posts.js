@@ -10,7 +10,7 @@ const { getAllPosts, getSinglePost, getAllPostsfromSingleSubreddit, createNewPos
 
 router.get('/', getAllPosts );
 router.get('/singlePost/:id', getSinglePost);
-router.get('/:subreddit_title/posts', getAllPostsfromSingleSubreddit );
+router.get('/:subreddit_title/', getAllPostsfromSingleSubreddit );
 router.post('/', createNewPostInSingleSubreddit);
 router.delete('/:post_id', deleteOwnPost);
 

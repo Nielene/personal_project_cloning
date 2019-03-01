@@ -29,14 +29,16 @@ const getSinglePost = (req, res, next) => {
 }
 
 const getAllPostsfromSingleSubreddit = (req, res, next) => {
-  let my_subreddit_title = req.params.my_subreddit_title;
+  let subredditId = parseInt(req.params.id);
   db.any(
-    "SELECT * FROM posts WHERE my_subreddit_title =$1", [my_subreddit_title]
+    "SELECT posts.*, subreddits.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
+      id: subredditId
+    }
   )
-  .then(posts => {
+  .then(data => {
     res.status(200).json({
       status: 'success',
-      posts: posts,
+      posts: data,
       message: 'ALL POSTS FROM THIS SUBREDDIT!'
     })
   })

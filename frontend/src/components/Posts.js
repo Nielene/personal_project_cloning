@@ -27,7 +27,7 @@ class Posts extends Component {
         <Link to={'/post/'+ post.id}>{post.post_title}</Link>
         <p>{post.image_url}</p>
         <p>{post.post_body}</p>
-        <p>{post.my_subreddit_title}</p>
+        <p>{post.subreddit_id}</p>
         <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
         <p>votes: {Math.floor(Math.random() * 10000)}</p>
       </div>
