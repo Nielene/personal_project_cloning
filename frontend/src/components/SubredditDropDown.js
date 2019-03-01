@@ -37,7 +37,7 @@ class Subreddits extends Component {
 }
 
 Subreddits.propTypes = {
-  fetchSubreddits: PropTypes.func.isRequired,
+  fetchMySubreddits: PropTypes.func.isRequired,
   subreddits: PropTypes.array.isRequired,
   newPost: PropTypes.object
 }

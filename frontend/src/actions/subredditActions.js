@@ -2,7 +2,7 @@ import { FETCH_SUBREDDITS } from './types';
 import axios from 'axios';
 
 export const fetchMySubreddits = () => dispatch => {
-  console.log('subredditActions.js: fetchSubreddits');
+  console.log('subredditActions.js: fetchMySubreddits');
   axios.get ('/subreddits')
   .then(res => {
     console.log('res.data.posts.my_subreddit_title', res.data.subreddits);
