@@ -1,5 +1,7 @@
 const { db } = require('../index.js');
 
+// Postman: http://localhost:3000/posts
+
 const getAllPosts = (req, res, next) => {
   db.any(
     'SELECT * FROM posts'
@@ -17,7 +19,7 @@ const getAllPosts = (req, res, next) => {
 
 const getSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.id);
-  db.one('SELECT * FROM posts WHERE id=$1', [postId])
+  db.one('SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id=subreddits.id WHERE id=$1', [postId])
   .then(data => {
     res.status(200)
     .json({

@@ -8,10 +8,11 @@ const { getAllPosts, getSinglePost, getAllPostsfromSingleSubreddit, createNewPos
 //getSomeRandomPosts
 // router.post('/submit?selftext=true')
 
-router.get('/', getAllPosts );
-router.get('/singlePost/:id', getSinglePost);
-router.get('/:subreddit_title/', getAllPostsfromSingleSubreddit );
-router.post('/', createNewPostInSingleSubreddit);
+router.get('/', getAllPosts );    // http://localhost:3000/posts/
+
+router.get('/:id', getSinglePost);
 router.delete('/:post_id', deleteOwnPost);
+
+router.post('/', createNewPostInSingleSubreddit);
 
 module.exports = router;
