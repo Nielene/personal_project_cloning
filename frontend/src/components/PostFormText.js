@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { createPost } from '../actions/postActions'//our action;
 
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 
 // import axios from 'axios';
 // const faker = require('faker');

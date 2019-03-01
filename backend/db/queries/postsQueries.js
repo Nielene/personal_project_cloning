@@ -3,7 +3,7 @@ const { db } = require('../index.js');
 // Postman: http://localhost:3000/posts
 const getAllPosts = (req, res, next) => {
   db.any(
-    'SELECT * FROM posts'
+    'SELECT posts.*, subreddits.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
   )
   .then(posts => {
     res.status(200).json({
