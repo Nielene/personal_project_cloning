@@ -15,12 +15,12 @@ export const fetchPosts = () => dispatch => {
     })
 }
 
-export const fetchSinglePost = () => dispatch => {
+export const fetchSinglePost = (id) => dispatch => {
   console.log('postActions.js: fetching Single Post');
-    axios.get('/posts/:id')
+    axios.get(`/posts/${id}`)
     .then(res => {
-      console.log('res.data.posts.id', res.data.body);
-      debugger
+      console.log('res.data.body', res.data.body);
+      // debugger
       dispatch ({
         type: FETCH_SINGLE_POST,
         payload: res.data.body

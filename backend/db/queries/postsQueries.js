@@ -3,7 +3,7 @@ const { db } = require('../index.js');
 // Postman: http://localhost:3000/posts
 const getAllPosts = (req, res, next) => {
   db.any(
-    'SELECT posts.*, subreddits.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
+    'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
   )
   .then(posts => {
     res.status(200).json({
@@ -23,7 +23,7 @@ const getSinglePost = (req, res, next) => {
     res.status(200)
     .json({
       status: 'success',
-      message: 'You got your Post.',
+      message: 'You got your Post.@@@@@@@',
       body: data
     })
   }).catch(err => next(err))

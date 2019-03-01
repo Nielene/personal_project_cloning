@@ -23,8 +23,8 @@ class App extends Component {
           <hr />
           <Switch>
             <Route path="/submit" component={PostFormText} />
-            <Route exact path="/" component={Posts} />
-            <Route exact path='/post/:id' component={SinglePost} />
+            <Route exact path="/" render={ (props) => <Posts {...props}/>} />
+            <Route exact path='/post/:id' render={(props)=><SinglePost {...props}/>} />
 
           </Switch>
 
