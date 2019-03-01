@@ -3,10 +3,16 @@ CREATE DATABASE re_reddit;
 
 \c re_reddit;
 
+DROP TABLE IF EXISTS subreddits;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS up_down_votes;
+
+CREATE TABLE subreddits (
+  id SERIAL PRIMARY KEY,
+  my_subreddit_title TEXT
+);
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
@@ -14,7 +20,7 @@ CREATE TABLE posts (
   post_body TEXT,
   image_url TEXT,
   -- comments TEXT NOT NULL,
-  my_subreddit_title TEXT
+  subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
 );
 
 CREATE TABLE users (

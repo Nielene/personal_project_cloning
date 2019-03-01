@@ -14,7 +14,7 @@ class SubredditDropDown extends Component {
   render() {
     console.log('SubredditDropDown.js: render');
     // const subredditListItems = this.props.posts.my_subreddit_title.map(title => {
-      // return <option key={title.id} value={title.id}>{title}</option>
+    //   return <option key={title.id} value={title.id}>{title}</option>
     // })
 
     return (

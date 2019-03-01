@@ -1,14 +1,21 @@
 const { db } = require('./index.js')
 const faker = require('faker');
 
+let subreddits = ['WHYWERETHEYFILMING', 'YESYESYESNO', 'YESYESYESYESNO', 'FUNNYANDSAD', 'HOLDMYCOSMO', 'CONFUSING_PERSPECTIVE']
+let my_subreddit_title = subreddits[Math.floor(Math.random() * subreddits.length)];
+let subredditsSql = [];
+for (let i = 0; i < subreddits.length; i++) {
+  subredditsSql.push( `('${subreddits[i]}')` )
+
+}
+
 let posts = [];
 for (let i = 0; i < 100; i++) {
   let post_title = faker.lorem.sentence();
   let post_body = faker.lorem.sentences();
   let image_url = faker.image.imageUrl();
-    let my_subreddit = ['WHYWERETHEYFILMING', 'YESYESYESNO', 'YESYESYESYESNO', 'FUNNYANDSAD', 'HOLDMYCOSMO', 'CONFUSING_PERSPECTIVE']
-  let my_subreddit_title = my_subreddit[Math.floor(Math.random() * my_subreddit.length)];
-  let str = `('${post_title}', '${post_body}', '${image_url}', '${my_subreddit_title}' )`
+  let subreddit_id = Math.floor(Math.random() * subredditsSql.length);
+  let str = `('${post_title}', '${post_body}', '${image_url}', '${subreddit_id}' )`
   posts.push(str)
 }
 
@@ -40,16 +47,20 @@ for (let i = 0; i < 100; i++) {
   up_down_votes.push(str)
 }
 
+subredditsSqlString = subredditsSql.join(', ')
 posts = posts.join(', ')
 users = users.join(', ')
 comments = comments.join(', ')
 up_down_votes = up_down_votes.join(', ')
 
-db.none("INSERT INTO posts (post_title, post_body, image_url, my_subreddit_title) VALUES " + posts + ";")
+db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSqlString + ";")
 .then(() => {
-  db.none("INSERT INTO users(username, post_id, karma_points) VALUES " + users + ";")
+  db.none("INSERT INTO posts (post_title, post_body, image_url, subreddit_id) VALUES " + posts + ";")
   .then(() => {
-    db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
+    db.none("INSERT INTO users(username, post_id, karma_points) VALUES " + users + ";")
+    .then(() => {
+      db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
+    })
   })
 })
 .catch(err => {
