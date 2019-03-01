@@ -6,7 +6,6 @@ let my_subreddit_title = subreddits[Math.floor(Math.random() * subreddits.length
 let subredditsSql = [];
 for (let i = 0; i < subreddits.length; i++) {
   subredditsSql.push( `('${subreddits[i]}')` )
-
 }
 
 let posts = [];
@@ -38,6 +37,14 @@ for (let i = 0; i < 1000; i++) {
   comments.push(str)
 }
 
+let subredditPosts = [];
+for (let i = 0; i < 100; i++) {
+  let post_id = Math.floor(Math.random() * 100) + 1;
+  let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
+  let str = `(  ${post_id}, ${subreddit_id} )`
+  subredditPosts.push(str)
+}
+
 let up_down_votes = [];
 for (let i = 0; i < 100; i++) {
   let initial_count = Math.floor(Math.random() * 1000) + 1;
@@ -61,6 +68,9 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSql + "
     db.none("INSERT INTO users(username, post_id, karma_points) VALUES " + users + ";")
     .then(() => {
       db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
+      .then(() => {
+        db.none("INSERT INTO subredditPosts(post_id, subreddit_id) VALUES " + subredditPosts + ";")
+      })
     })
   })
 })

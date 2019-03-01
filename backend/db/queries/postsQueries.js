@@ -16,10 +16,10 @@ const getAllPosts = (req, res, next) => {
   .catch(err => next(err));
 }
 
-
+// http://localhost:3000/posts/1
 const getSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.id);
-  db.one('SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id=subreddits.id WHERE id=$1', [postId])
+  db.one('SELECT * FROM posts WHERE id=$1', [postId])
   .then(data => {
     res.status(200)
     .json({
@@ -28,31 +28,6 @@ const getSinglePost = (req, res, next) => {
       body: data
     })
   }).catch(err => next(err))
-}
-
-const getAllPostsfromSingleSubreddit = (req, res, next) => {
-  let subredditId = parseInt(req.params.id);
-  db.any(
-    "SELECT posts.*, subreddits.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
-      id: subredditId
-    }
-  )
-  .then(data => {
-    res.status(200).json({
-      status: 'success',
-      posts: data,
-      message: 'ALL POSTS FROM THIS SUBREDDIT!'
-    })
-  })
-  .catch(err => {
-    res.status(400)
-    .json({
-      status: 'error',
-      message: 'YOU ARE NOT GETTING ALL POSTS FROM THIS SUBREDDIT!'
-    })
-    console.log(err);
-    next();
-  });
 }
 
 const createNewPostInSingleSubreddit = (req, res, next) => {
@@ -97,4 +72,32 @@ const deleteOwnPost = (req, res, next) => {
   })
 }
 
-module.exports = { getAllPosts, getSinglePost, getAllPostsfromSingleSubreddit, createNewPostInSingleSubreddit, deleteOwnPost }
+module.exports = { getAllPosts, getSinglePost, createNewPostInSingleSubreddit, deleteOwnPost }
+
+// , getAllPostsfromSingleSubreddit
+
+
+// const getAllPostsfromSingleSubreddit = (req, res, next) => {
+//   let subredditId = parseInt(req.params.id);
+//   db.any(
+//     "SELECT posts.*, subreddits.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
+//       id: subredditId
+//     }
+//   )
+//   .then(data => {
+//     res.status(200).json({
+//       status: 'success',
+//       posts: data,
+//       message: 'ALL POSTS FROM THIS SUBREDDIT!'
+//     })
+//   })
+//   .catch(err => {
+//     res.status(400)
+//     .json({
+//       status: 'error',
+//       message: 'YOU ARE NOT GETTING ALL POSTS FROM THIS SUBREDDIT!'
+//     })
+//     console.log(err);
+//     next();
+//   });
+// }
