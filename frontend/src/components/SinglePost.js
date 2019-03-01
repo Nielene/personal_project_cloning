@@ -8,46 +8,39 @@ import { Link } from 'react-router-dom';
 //
 class SinglePost extends Component {
 //
-//   componentDidMount() {
-//     this.props.fetchSinglePost();
-//   }
+  componentDidMount() {
+    this.props.fetchSinglePost();
+  }
 //
 //
   render () {
-//     const singlePostItem = this.props.posts.filter(post => (
-//       <div key={post.id}>
-//
-//         <Link to={'/singlePost/'+ post.id}>{post.post_title}</Link>
-//
-//         <p>{post.image_url}</p>
-//         <p>{post.post_body}</p>
-//         <p>{post.my_subreddit_title}</p>
-//         <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-//         <p>votes: {Math.floor(Math.random() * 10000)}</p>
-//       </div>
-//     ))
+    const singlePostItem = this.props.posts.filter(post => (
+      <div key={post.id}>
+
+        <Link to={'/post/'+ post.id}>{post.post_title}</Link>
+        <p>{post.image_url}</p>
+        <p>{post.post_body}</p>
+        <p>{post.my_subreddit_title}</p>
+        <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+        <p>votes: {Math.floor(Math.random() * 10000)}</p>
+      </div>
+    ))
     return (
       <div>
-      {/* <Link to={'/'}>ReReddit</Link>*/}
 
-{/*
-//         <Link to={'/submit'}>Submit a new text post</Link>
-//         <br />
-//         <Link to={'/submit'}>Submit a new link</Link>
-//
-//         <h1>{post.post_title}</h1>
-//         {postItems}
-*/}
+        {/*// <h1>{posts.post_title}</h1> */}
+        {singlePostItem}
+
       </div>
     )
   }
 }
 
-// Posts.propTypes = {
-//   fetchSinglePost: PropTypes.func.isRequired,
-//   posts: PropTypes.array.isRequired,
-//   newPost: PropTypes.object
-// }
+SinglePost.propTypes = {
+  fetchSinglePost: PropTypes.func.isRequired,
+  posts: PropTypes.array.isRequired,
+  newPost: PropTypes.object
+}
 
 const mapStateToProps = state => ({
   posts: state.posts.items,

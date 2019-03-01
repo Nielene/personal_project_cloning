@@ -1,5 +1,6 @@
 const { db } = require('../index.js');
 
+// http://localhost:3000/subreddits
 const getAllSubreddits = (req, res, next) => {
   db.any(
     'SELECT * FROM subreddits'

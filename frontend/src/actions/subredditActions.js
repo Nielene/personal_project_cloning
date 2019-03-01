@@ -3,12 +3,12 @@ import axios from 'axios';
 
 export const fetchMySubreddits = () => dispatch => {
   console.log('subredditActions.js: fetchSubreddits');
-  axios.get ('/posts')
+  axios.get ('/subreddits')
   .then(res => {
-    console.log('res.data.posts.my_subreddit_title', res.data.posts.my_subreddit_title);
+    console.log('res.data.posts.my_subreddit_title', res.data.subreddits);
     dispatch ({
       type: FETCH_SUBREDDITS,
-      payload: res.data.posts.my_subreddit_title
+      payload: res.data.subreddits
     })
   })
 }

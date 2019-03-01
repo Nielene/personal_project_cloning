@@ -23,7 +23,6 @@ class Posts extends Component {
     console.log('Posts.js: {postItems}');
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
-
         <Link to={'/post/'+ post.id}>{post.post_title}</Link>
         <p>{post.image_url}</p>
         <p>{post.post_body}</p>

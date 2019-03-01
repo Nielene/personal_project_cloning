@@ -2,47 +2,49 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMySubreddits } from '../actions/subredditActions';
+// import axios from 'axios'
 
+// import { Link } from 'react-router-dom';
 
-class SubredditDropDown extends Component {
+class Subreddits extends Component {
 
   componentDidMount() {
-    console.log('SubredditDropDown.js: componentDidMount');
-    // this.props.fetchMySubreddits();
+    console.log('Subreddits.js');
+    this.props.fetchMySubreddits();
   }
 
-  render() {
-    console.log('SubredditDropDown.js: render');
-    // const subredditListItems = this.props.posts.my_subreddit_title.map(title => {
-    //   return <option key={title.id} value={title.id}>{title}</option>
-    // })
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.newPost) {
+  //     this.props.subreddits.unshift(nextProps.newPost)
+  //   }
+  // }
 
+  render () {
+    console.log('Subreddits.js: {subredditItems}');
+    const subredditItems = this.props.subreddits.map(subreddit => (
+        <option key={subreddit.id} value={subreddit.id}>{subreddit.my_subreddit_title}</option>
+    ))
     return (
-      <div>
+      <div className="subreddits">
         <select>
-          <option>My Subreddits</option>
+          <option>my subreddits</option>
+          {subredditItems}
         </select>
       </div>
+
     )
   }
 }
 
-//{/*
-  // Subreddit Drop Down
-  // <select onChange={this.renderSubredditPage} value={this.props.SOMETHING} >
-  //   <option value="My Subreddits" />
-  //   {subredditListItems}
-  // </select>
-//  */}
+Subreddits.propTypes = {
+  fetchSubreddits: PropTypes.func.isRequired,
+  subreddits: PropTypes.array.isRequired,
+  newPost: PropTypes.object
+}
 
-// SubredditDropDown.propTypes = {
-//   fetchMySubreddits: PropTypes.func.isRequired,  //? where from?
-// }
+const mapStateToProps = state => ({
+  subreddits: state.subreddits.items,
+  newPost: state.subreddits.item
+})
 
-// const mapStateToProps = state => ({
-//   posts: state.posts.items
-// })
-
-// export default connect(mapStateToProps, { SubredditDropDown } );
-
-export default SubredditDropDown;
+export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);

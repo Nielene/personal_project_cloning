@@ -7,7 +7,7 @@ export const fetchPosts = () => dispatch => {
   console.log('postActions.js: fetching action is beign called');
     axios.get('/posts')
     .then(res => {
-      console.log('res.data.posts', res.data.posts);
+      console.log('postActions.js: res.data.posts', res.data.posts);
       dispatch ({
         type: FETCH_POSTS,
         payload: res.data.posts
@@ -16,16 +16,16 @@ export const fetchPosts = () => dispatch => {
 }
 
 export const fetchSinglePost = () => dispatch => {
-  console.log('fetching Single Post');
-    // axios.get('/posts')
-    // .then(res => {
-    //   console.log('res.data.posts.id', res.data.posts.id);
-    //   debugger
-    //   dispatch ({
-    //     type: FETCH_SINGLE_POST,
-    //     payload: res.data.posts.id
-    //   })
-    // })
+  console.log('postActions.js: fetching Single Post');
+    axios.get('/posts/:id')
+    .then(res => {
+      console.log('res.data.posts.id', res.data.body);
+      debugger
+      dispatch ({
+        type: FETCH_SINGLE_POST,
+        payload: res.data.body
+      })
+    })
 }
 
 export const createPost = (postData) => dispatch => {
