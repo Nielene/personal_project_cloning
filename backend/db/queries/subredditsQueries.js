@@ -1,12 +1,18 @@
 const { db } = require('../index.js');
 
-// Postman: http://localhost:3000/subreddits/yesyesyesno
-// "SELECT subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id=posts.subreddit_id WHERE subreddit_id =${id}", {
-// "SELECT * FROM subredditPosts WHERE subreddit_id = ${id}", {
-// "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
-//   subreddit_id: subredditId
-// }
-// "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
+const getAllSubreddits = (req, res, next) => {
+  db.any(
+    'SELECT * FROM subreddits'
+  )
+  .then(data => {
+    res.status(200).json({
+      status: 'success',
+      subreddits: data,
+      message: 'All Subreddits Received!'
+    })
+  })
+  .catch(err => next(err));
+}
 
 //Postman: http://localhost:3000/subreddits/4
 const getAllPostsfromSingleSubreddit = (req, res, next) => {
@@ -56,6 +62,16 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
 
 
 
-module.exports = { getAllPostsfromSingleSubreddit }
+module.exports = { getAllSubreddits, getAllPostsfromSingleSubreddit }
 
 // , createNewPostInSingleSubreddit
+
+// SCRAP:
+// Postman: http://localhost:3000/subreddits/yesyesyesno
+// "SELECT subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id=posts.subreddit_id WHERE subreddit_id =${id}", {
+// "SELECT * FROM subredditPosts WHERE subreddit_id = ${id}", {
+// "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
+//   subreddit_id: subredditId
+// }
+// "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
+// END SCRAP.

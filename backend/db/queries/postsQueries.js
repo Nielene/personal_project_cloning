@@ -1,7 +1,6 @@
 const { db } = require('../index.js');
 
 // Postman: http://localhost:3000/posts
-
 const getAllPosts = (req, res, next) => {
   db.any(
     'SELECT * FROM posts'
