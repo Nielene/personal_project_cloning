@@ -14,7 +14,8 @@ for (let i = 0; i < 100; i++) {
   let post_title = faker.lorem.sentence();
   let post_body = faker.lorem.sentences();
   let image_url = faker.image.imageUrl();
-  let subreddit_id = Math.floor(Math.random() * subredditsSql.length);
+  // let subreddit_id =
+  let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   let str = `('${post_title}', '${post_body}', '${image_url}', '${subreddit_id}' )`
   posts.push(str)
 }
@@ -47,13 +48,13 @@ for (let i = 0; i < 100; i++) {
   up_down_votes.push(str)
 }
 
-subredditsSqlString = subredditsSql.join(', ')
+subredditsSql = subredditsSql.join(', ')
 posts = posts.join(', ')
 users = users.join(', ')
 comments = comments.join(', ')
 up_down_votes = up_down_votes.join(', ')
 
-db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSqlString + ";")
+db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSql + ";")
 .then(() => {
   db.none("INSERT INTO posts (post_title, post_body, image_url, subreddit_id) VALUES " + posts + ";")
   .then(() => {
