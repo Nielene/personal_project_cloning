@@ -6,11 +6,13 @@ const { db } = require('../index.js');
 // "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =${id}", {
 //   subreddit_id: subredditId
 // }
+// "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
+
 //Postman: http://localhost:3000/subreddits/4
 const getAllPostsfromSingleSubreddit = (req, res, next) => {
   let subredditId = parseInt(req.params.subreddit_id);
   db.any(
-    "SELECT subredditPosts.*, subreddits.* FROM subredditPosts JOIN subreddits ON subredditPosts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
+    "SELECT subreddits.*, posts.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
   .then(data => {
     res.status(200).json({
       status: 'success',
