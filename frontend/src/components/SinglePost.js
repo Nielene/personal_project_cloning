@@ -14,19 +14,22 @@ class SinglePost extends Component {
 
   render() {
     console.log('PARAMS??', this.props)
-    if (this.props.post.id) {
+    return (
+      <div>single post</div>
+    )
+    // if (this.props.post.id) {
+    //   return (
+    //     <div>
+    //       <h2><Link to=''>{this.props.post.post_title}</Link></h2>
+    //       <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div>No post found. Sorry.</div>
+    //   )
+    // }
 
-      return (
-        <div>
-          <h2><Link to=''>{this.props.post.post_title}</Link></h2>
-          <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
-        </div>
-      )
-    } else {
-      return (
-        <div>No post found. Sorry.</div>
-      )
-    }
 
     // if(!!post) {
     //   return (
@@ -56,4 +59,10 @@ const mapStateToProps = state => ({
   post: state.posts.item
 })
 
-export default connect(mapStateToProps, { fetchSinglePost })(SinglePost);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSinglePost: () => dispatch(fetchSinglePost)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);

@@ -18,10 +18,14 @@ class Posts extends Component {
     this.props.fetchPosts();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.newPost) {
-      this.props.posts.unshift(nextProps.newPost)
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.newPost) {
+  //     this.props.posts.unshift(nextProps.newPost)
+  //   }
+  // }
+
+  updatePost = e => {
+    this.props.history.push('/' + e.target.value )
   }
 
   render () {
@@ -45,7 +49,9 @@ class Posts extends Component {
         <Link to={'/submit'}>Submit a new link</Link>
 
         <h1>Posts</h1>
-        {postItems}
+        <div onChange={this.updatePost}>
+          {postItems}
+        </div>
       </div>
     )
   }
@@ -56,6 +62,10 @@ class Posts extends Component {
 //   posts: PropTypes.array.isRequired,
 //   newPost: PropTypes.object
 // }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPosts: () => dispatch(fetchPosts())
+  }
+}
 
-
-export default connect(mapStateToProps, { fetchPosts } )(Posts);
+export default connect(mapStateToProps, mapDispatchToProps )(Posts);
