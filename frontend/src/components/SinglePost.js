@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     // fetchSinglePost: () => dispatch(fetchSinglePost)
-    fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
+    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
+    fetchSinglePost: (id) => dispatch(fetchSinglePost(id))
   }
 }
 
@@ -21,7 +22,9 @@ class SinglePost extends Component {
   // console.log('@', props, props.post)
   // const post = props.post;
   componentDidMount() {
-    this.props.fetchSinglePost(this.props.match.params.id);
+    // this.props.fetchSinglePost(this.props.match.params.id);
+    // fetchSinglePost(this.props.match.params.id)
+    this.props.fetchSinglePost(this.props.match.params.id)
   }
 
   render() {
