@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSinglePost: () => dispatch(fetchSinglePost)
+    // fetchSinglePost: () => dispatch(fetchSinglePost)
+    fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
   }
 }
 
