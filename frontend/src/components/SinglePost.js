@@ -18,15 +18,15 @@ class SinglePost extends Component {
 
       return (
         <div>
-          <div>single post</div>
+          <h2><Link to=''>{this.props.post.post_title}</Link></h2>
+          <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
         </div>
       )
     } else {
       return (
-        <div>no post found. sorry.</div>
+        <div>No post found. Sorry.</div>
       )
     }
-
 
     // if(!!post) {
     //   return (
