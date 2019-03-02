@@ -4,18 +4,6 @@ import { connect } from 'react-redux';
 import { fetchSinglePost } from '../actions/postActions';
 
 
-const mapStateToProps = state => ({
-  post: state.posts.item
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    // fetchSinglePost: () => dispatch(fetchSinglePost)
-    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
-    fetchSinglePost: (id) => dispatch(fetchSinglePost(id))
-  }
-}
-
 
 class SinglePost extends Component {
   // console.log('SinglePost.js: display single post');
@@ -48,6 +36,19 @@ class SinglePost extends Component {
         <div>Single post is not displaying</div>
       )
     }
+  }
+}
+
+
+const mapStateToProps = state => ({
+  post: state.posts.item
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // fetchSinglePost: () => dispatch(fetchSinglePost)
+    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
+    fetchSinglePost: (id) => dispatch(fetchSinglePost(id))
   }
 }
 

@@ -6,10 +6,6 @@ import { fetchPosts } from '../actions/postActions';
 
 import { Link } from 'react-router-dom';
 
-const mapStateToProps = state => ({
-  posts: state.posts.items,
-  newPost: state.posts.item
-})
 
 class Posts extends Component {
 
@@ -58,6 +54,13 @@ class Posts extends Component {
 //   posts: PropTypes.array.isRequired,
 //   newPost: PropTypes.object
 // }
+
+
+const mapStateToProps = state => ({
+  posts: state.posts.items,
+  newPost: state.posts.item
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPosts: () => dispatch(fetchPosts())
