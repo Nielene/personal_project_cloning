@@ -4,6 +4,17 @@ import { connect } from 'react-redux';
 import { fetchSinglePost } from '../actions/postActions';
 
 
+const mapStateToProps = state => ({
+  post: state.posts.item
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSinglePost: () => dispatch(fetchSinglePost(this.props.match.params.id))
+  }
+}
+
+
 class SinglePost extends Component {
   // console.log('SinglePost.js: display single post');
   // console.log('@', props, props.post)
@@ -14,21 +25,25 @@ class SinglePost extends Component {
 
   render() {
     console.log('PARAMS??', this.props)
-    return (
-      <div>single post</div>
-    )
-    // if (this.props.post.id) {
-    //   return (
-    //     <div>
-    //       <h2><Link to=''>{this.props.post.post_title}</Link></h2>
-    //       <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
-    //     </div>
-    //   )
-    // } else {
-    //   return (
-    //     <div>No post found. Sorry.</div>
-    //   )
-    // }
+    console.log('PARAMS??2', this.props.post)
+    console.log('PARAMS??3', this.props.match.params.id)
+
+    // return (
+    //   <div>single post</div>
+    // )
+
+    if (this.props.post.id) {
+      return (
+        <div>
+          <h2><Link to=''>{this.props.post.post_title}</Link></h2>
+          <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
+        </div>
+      )
+    } else {
+      return (
+        <div>No post found. Sorry.</div>
+      )
+    }
 
 
     // if(!!post) {
@@ -55,14 +70,6 @@ class SinglePost extends Component {
 
 
 
-const mapStateToProps = state => ({
-  post: state.posts.item
-})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchSinglePost: () => dispatch(fetchSinglePost)
-  }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);

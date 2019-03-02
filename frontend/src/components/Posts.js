@@ -24,12 +24,8 @@ class Posts extends Component {
   //   }
   // }
 
-  updatePost = e => {
-    this.props.history.push('/' + e.target.value )
-  }
-
   render () {
-    console.log('Posts.js: {postItems}');
+    console.log('Posts.js: {postItems}', this.props.posts);
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
         <Link to={'/post/'+ post.id}>{post.post_title}</Link>
@@ -49,7 +45,7 @@ class Posts extends Component {
         <Link to={'/submit'}>Submit a new link</Link>
 
         <h1>Posts</h1>
-        <div onChange={this.updatePost}>
+        <div>
           {postItems}
         </div>
       </div>
