@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMySubreddits } from '../actions/subredditActions';
+
+import { SingleSubredditPosts } from './SingleSubredditPosts'
 // import axios from 'axios'
 
 // import { Link } from 'react-router-dom';
@@ -26,17 +28,20 @@ class Subreddits extends Component {
   render () {
     console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subreddits.map(subreddit => (
-        <option key={subreddit.id} value={subreddit.id}>{subreddit.my_subreddit_title}</option>
+        <option key={subreddit.id} value={'/subreddits/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
     ))
     return (
       <div className="subreddits">
         <select onChange={this.updateSubreddit} value={this.props.selectedId} >
+        {/* // <select onChange='window.location.href=this.value'> */}
           <option>MY SUBREDDITS</option>
           {subredditItems}
           <hr />
           <option>EDIT SUBSCRIPTIONS</option>
         </select>
       </div>
+
+
 
     )
   }

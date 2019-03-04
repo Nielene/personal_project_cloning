@@ -1,4 +1,4 @@
-import { FETCH_SUBREDDITS } from '../actions/types';
+import { FETCH_SUBREDDITS, FETCH_SUBREDDIT_POSTS } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -13,10 +13,17 @@ export default function(state = initialState, action) {
         ...state,
         items: action.payload
       }
+    case FETCH_SUBREDDIT_POSTS:
+      return {
+        ...state,
+        item: action.payload
+      }
     default:
       return state;
   }
 }
+
+
 
 // action.type and action.payload both came from postActions.
 // now, need to implement this in the Post component.

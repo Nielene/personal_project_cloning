@@ -1,4 +1,4 @@
-import { FETCH_SUBREDDITS } from './types';
+import { FETCH_SUBREDDITS, FETCH_SUBREDDIT_POSTS } from './types';
 import axios from 'axios';
 
 export const fetchMySubreddits = () => dispatch => {
@@ -12,6 +12,20 @@ export const fetchMySubreddits = () => dispatch => {
     })
   })
 }
+
+export const fetchSubredditPosts = (subreddit_id) => dispatch => {
+  console.log('subredditActions.js: fetching action is beign called');
+  axios.get(`/subreddits/${subreddit_id}`)
+  .then(res => {
+    console.log('subredditActions.js: res.data.subreddits', res.data.subreddits);
+    dispatch ({
+      type: FETCH_SUBREDDIT_POSTS,
+      payload: res.data.subreddits_posts
+    })
+  })
+}
+
+
 
 // NEED IT FROM THE BACKEND: POSTS QUERIES SECTION
 

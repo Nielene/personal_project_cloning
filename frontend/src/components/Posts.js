@@ -5,6 +5,7 @@ import { fetchPosts } from '../actions/postActions';
 // import axios from 'axios'
 
 import { Link } from 'react-router-dom';
+import SearchForm from './SearchForm';
 
 
 class Posts extends Component {
@@ -24,11 +25,14 @@ class Posts extends Component {
     console.log('Posts.js: {postItems}', this.props.posts);
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
-        <img src={post.image_url} alt='' height='42' width='42' />
+        <div>
+          <img src={post.image_url} alt='' height='50' width='50' />
+        </div>
+        <div>
+        </div>
         <Link to={'/post/'+ post.id}>{' '}{post.post_title}</Link>
         {/*<p>{post.post_body}</p>*/}
-        <h5>{post.my_subreddit_title}</h5>
-        <h6>'submitted ' + {Math.floor(Math.random() * 24) + ' hours ago by **USER** to **SUBREDDIT TITLE**'} </h6>
+        <h6>submitted {Math.floor(Math.random() * 24)}  hours ago by <Link to=''>**USER**</Link> to <Link to=''>{post.my_subreddit_title}</Link> </h6>
         <div>
           <h6>votes: {Math.floor(Math.random() * 10000)}</h6>
           <h6>comments</h6>
@@ -38,10 +42,14 @@ class Posts extends Component {
     ))
     return (
       <div>
-
-        <Link to={'/submit'}>Submit a new text post</Link>
+        <SearchForm />
         <br />
-        <Link to={'/submit'}>Submit a new link</Link>
+        <div>
+          <Link to={'/submit'}>Submit a new text post</Link>
+          <br />
+          <Link to={'/submit'}>Submit a new link</Link>
+        </div>
+
 
         <h1>Posts</h1>
         <div>
