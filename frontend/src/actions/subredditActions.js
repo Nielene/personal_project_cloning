@@ -14,10 +14,10 @@ export const fetchMySubreddits = () => dispatch => {
 }
 
 export const fetchSubredditPosts = (subreddit_id) => dispatch => {
-  console.log('subredditActions.js: fetching action is beign called');
+  console.log('SUB REDDIT ID', subreddit_id);
   axios.get(`/subreddits/${subreddit_id}`)
   .then(res => {
-    console.log('subredditActions.js: res.data.subreddits', res.data.subreddits);
+    console.log('FETCH SUBREDDIT ACTION', res.data.subreddits);
     dispatch ({
       type: FETCH_SUBREDDIT_POSTS,
       payload: res.data.subreddits_posts
