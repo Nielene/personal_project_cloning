@@ -24,14 +24,17 @@ class Posts extends Component {
     console.log('Posts.js: {postItems}', this.props.posts);
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
-        <Link to={'/post/'+ post.id}>{post.post_title}</Link>
-        <p>{post.image_url}</p>
-        <p>{post.post_body}</p>
-        <p>{post.my_subreddit_title}</p>
-        <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-        <p>votes: {Math.floor(Math.random() * 10000)}</p>
+        <img src={post.image_url} alt='' height='42' width='42' />
+        <Link to={'/post/'+ post.id}>{' '}{post.post_title}</Link>
+        {/*<p>{post.post_body}</p>*/}
+        <h5>{post.my_subreddit_title}</h5>
+        <h6>'submitted ' + {Math.floor(Math.random() * 24) + ' hours ago by **USER** to **SUBREDDIT TITLE**'} </h6>
+        <div>
+          <h6>votes: {Math.floor(Math.random() * 10000)}</h6>
+          <h6>comments</h6>
+        </div>
         <br />
-    </div>
+      </div>
     ))
     return (
       <div>

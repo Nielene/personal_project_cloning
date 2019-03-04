@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchComments } from '../actions/commentActions';
 
 // import PropTypes from 'prop-types';
@@ -11,9 +12,9 @@ import CommentForm from './CommentForm';
 class Comments extends Component {
 
   componentDidMount() {
-    console.log('Comments.js', );
+    console.log('MY COMMENT ID', this.props);
     // this.props.fetchComments(this.props.match.params.post_id);
-    this.props.fetchComments();
+    this.props.fetchComments(this.props.match.params.id);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -29,24 +30,24 @@ class Comments extends Component {
 
 
       const commentItems = this.props.comments.map(comment => (
-        {/*
+        // {/*
       <div key={comment.id}>
-          // <p>{comment.comment_body}</p>
-          // <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-          // <p>votes: {Math.floor(Math.random() * 10000)}</p>
-          // <br />
+          <p>{comment.comment_body}</p>
+          <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+          <p>votes: {Math.floor(Math.random() * 10000)}</p>
+          <br />
       </div>
-      */}
+      // */}
       ))
 
 
     // if (this.props.post.id) {
-
       return (
         <div>
 
           <h1>Comments</h1>
           <div>
+
             <CommentForm />
             {commentItems}
 
@@ -78,8 +79,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     // fetchComments: (post_id) => dispatch(fetchComments(post_id))
-    fetchComments: () => dispatch(fetchComments())
+    fetchComments: (id) => dispatch(fetchComments(id))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(Comments);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps )(Comments));
