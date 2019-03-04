@@ -2,7 +2,8 @@ import { FETCH_SUBREDDITS, FETCH_SUBREDDIT_POSTS } from '../actions/types';
 
 const initialState = {
   items: [],
-  item: {}
+  item: {},
+  // subreddit_posts: [],
 }
 
 export default function(state = initialState, action) {

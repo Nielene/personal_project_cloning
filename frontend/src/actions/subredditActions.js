@@ -14,13 +14,11 @@ export const fetchMySubreddits = () => dispatch => {
 }
 
 export const fetchSubredditPosts = (subreddit_id) => dispatch => {
-  console.log('SUB REDDIT ID', subreddit_id);
   axios.get(`/subreddits/${subreddit_id}`)
   .then(res => {
-    console.log('FETCH SUBREDDIT ACTION', res.data.subreddits);
     dispatch ({
       type: FETCH_SUBREDDIT_POSTS,
-      payload: res.data.subreddits_posts
+      payload: res.data.subreddit_posts
     })
   })
 }

@@ -14,14 +14,14 @@ import { fetchSubredditPosts } from '../actions/subredditActions';
 class SingleSubredditPosts extends Component {
 
   componentDidMount() {
-    console.log('this.props.match.params.id', this.props.match.params.id);
-    this.props.fetchSubredditPosts(this.props.match.params.id)
+    console.log('this.props.match.params.id', this.props.match.params.subreddit_id);
+    // debugger
+    this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
   }
 
   render () {
     console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
-    const postItems = this.props.posts.map(post => (
-
+    const postItems = this.props.subreddits.map(post => (
 
       <div key={post.id}>
         <img src={post.image_url} alt='' height='42' width='42' />
@@ -38,25 +38,6 @@ class SingleSubredditPosts extends Component {
       </div>
     ))
 
-{/*
-
-  // handleSubmit = (event) => {
-  //     event.preventDefault()
-  //     let SearchResult = this.state.allPeople.filter(person => {
-  //       // return person.name.toLowerCase() === (this.state.searchInput.toLowerCase())
-  //       return person.name.toLowerCase().includes(this.state.searchInput.toLowerCase())
-  //     })
-  //     this.setState({
-  //       searchInput: '',
-  //       selectedPerson: SearchResult
-  //     })
-  //     // console.log('selectedPerson', this.state.selectedPerson);
-  //   }
-  */}
-
-
-
-
     return (
       <div>
 
@@ -72,8 +53,8 @@ class SingleSubredditPosts extends Component {
 
 
 const mapStateToProps = state => ({
-  posts: state.posts.items,
-  my_subreddit_title: state.posts.item
+  subreddits: state.subreddits.items,
+  // my_subreddit_title: state.posts.items
 })
 
 const mapDispatchToProps = dispatch => {
@@ -86,6 +67,27 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSubredditPosts);
 
 //---------------------------
+
+
+
+
+
+
+
+  // handleSubmit = (event) => {
+  //     event.preventDefault()
+  //     let SearchResult = this.state.allPeople.filter(person => {
+  //       // return person.name.toLowerCase() === (this.state.searchInput.toLowerCase())
+  //       return person.name.toLowerCase().includes(this.state.searchInput.toLowerCase())
+  //     })
+  //     this.setState({
+  //       searchInput: '',
+  //       selectedPerson: SearchResult
+  //     })
+  //     // console.log('selectedPerson', this.state.selectedPerson);
+  //   }
+
+
 
 // if(!!post) {
 //   return (
