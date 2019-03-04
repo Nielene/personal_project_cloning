@@ -38,6 +38,8 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
   });
 }
 
+
+// const createNewSubreddit = (req, res, next) => {
 // const createNewPostInSingleSubreddit = (req, res, next) => {
 //
 //   let queryString = "INSERT INTO posts ";

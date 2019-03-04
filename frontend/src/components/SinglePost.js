@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSinglePost } from '../actions/postActions';
 
+import Comments from '../components/Comments'
 
 
 class SinglePost extends Component {
@@ -29,6 +30,7 @@ class SinglePost extends Component {
         <div>
           <h2><Link to=''>{this.props.post.post_title}</Link></h2>
           <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
+          {Comments}
         </div>
       )
     } else {

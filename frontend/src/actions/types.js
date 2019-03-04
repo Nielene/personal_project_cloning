@@ -3,3 +3,6 @@ export const FETCH_SINGLE_POST = 'FETCH_SINGLE_POST';
 export const NEW_POST = 'NEW_POST';
 
 export const FETCH_SUBREDDITS = 'FETCH_SUBREDDITS';
+
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
+export const NEW_COMMENT = 'NEW_COMMENT';

@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var postsRouter = require('./routes/posts')
 var subredditsRouter = require('./routes/subreddits')
 var usersRouter = require('./routes/users');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/', indexRouter);
 app.use('/posts', postsRouter)
 app.use('/subreddits', subredditsRouter)
 app.use('/users', usersRouter);
+app.use('/comments', commentsRouter);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
