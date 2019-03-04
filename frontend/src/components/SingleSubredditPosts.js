@@ -24,8 +24,10 @@ class SingleSubredditPosts extends Component {
       <div key={post.id}>
         <img src={post.image_url} alt='' height='42' width='42' />
         <Link to={'/post/'+ post.id}>{' '}{post.post_title}</Link>
-        {/*<p>{post.post_body}</p>*/}
-        <h6>submitted {Math.floor(Math.random() * 24)} hours ago by **USER** to {post.my_subreddit_title} </h6>
+        <div className='inOneLine'>
+          <h6>submitted {Math.floor(Math.random() * 24)} hours ago by **USER** to </h6>
+          <Link to={'/subredditPosts/' + post.subreddit_id}><h6>{post.my_subreddit_title}</h6></Link>
+        </div>
         <div>
           <h6>votes: {Math.floor(Math.random() * 10000)}</h6>
           <h6>comments</h6>

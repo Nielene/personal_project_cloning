@@ -33,7 +33,7 @@ class Posts extends Component {
         </div>
         <Link to={'/post/'+ post.id}>{' '}{post.post_title}</Link>
         {/*<p>{post.post_body}</p>*/}
-        <h6>submitted {Math.floor(Math.random() * 24)}  hours ago by <Link to=''>**USER**</Link> to <Link to=''>{post.my_subreddit_title}</Link> </h6>
+        <h6>submitted {Math.floor(Math.random() * 24)}  hours ago by <Link to=''>**USER**</Link> to <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link> </h6>
         <div>
           <h6>votes: {Math.floor(Math.random() * 10000)}</h6>
           <h6>comments</h6>
