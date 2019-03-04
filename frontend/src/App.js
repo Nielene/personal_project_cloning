@@ -9,6 +9,7 @@ import { NavBar } from "./components/NavBar";
 import Posts from './components/Posts';
 import PostFormText from './components/PostFormText';
 import SinglePost from './components/SinglePost';
+import SingleSubredditPosts from './components/SingleSubredditPosts';
 // import PostFormLink from './components/PostFormLink';
 
 import store from './store'
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/submit" component={PostFormText} />
             <Route exact path="/" render={ (props) => <Posts {...props}/>} />
             <Route exact path='/post/:id' render={(props)=><SinglePost {...props}/>} />
+            <Route exact path='/subredditPosts/:subreddit_id' render= {(props) => <SingleSubredditPosts {...props} /> } />
 
           </Switch>
 

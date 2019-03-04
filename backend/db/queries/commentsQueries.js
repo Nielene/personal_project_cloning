@@ -27,6 +27,7 @@ const getAllCommentsForSinglePost = (req, res, next) => {
 
 // POST http://localhost:3000/comments/
 // router.post('/', createCommentForSinglePost);
+// WANT TO USER POST_ID AS A PARAMS ??????
 const createCommentForSinglePost = (req, res, next) => {
 
   let queryString = "INSERT INTO comments ";

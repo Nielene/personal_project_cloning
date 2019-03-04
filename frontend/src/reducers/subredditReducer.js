@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
     case FETCH_SUBREDDIT_POSTS:
       return {
         ...state,
-        item: action.payload
+        items: action.payload
       }
     default:
       return state;

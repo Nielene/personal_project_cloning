@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import { fetchMySubreddits } from '../actions/subredditActions';
 
-import { SingleSubredditPosts } from './SingleSubredditPosts'
+// import { SingleSubredditPosts } from './SingleSubredditPosts'
 // import axios from 'axios'
 
 // import { Link } from 'react-router-dom';
@@ -11,7 +13,7 @@ import { SingleSubredditPosts } from './SingleSubredditPosts'
 class Subreddits extends Component {
 
   componentDidMount() {
-    console.log('Subreddits.js');
+    console.log('SubredditDropDown.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
@@ -22,13 +24,14 @@ class Subreddits extends Component {
   // }
 
   updateSubreddit = e => {
-    this.props.history.push('/subreddits/' + e.target.value)
+    console.log('e.target.value', e.target.value);
+    this.props.history.push(e.target.value)
   }
 
   render () {
     console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subreddits.map(subreddit => (
-        <option key={subreddit.id} value={'/subreddits/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
+        <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
     ))
     return (
       <div className="subreddits">
@@ -66,4 +69,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 // export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);
-export default connect(mapStateToProps, mapDispatchToProps )(Subreddits);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps )(Subreddits));

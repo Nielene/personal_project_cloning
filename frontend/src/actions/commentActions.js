@@ -30,7 +30,7 @@ export const fetchComments = (post_id) => dispatch => {
 
 export const createComment = (commentData) => dispatch => {
   console.log('commentActions.js: comment created: action called');
-  axios.post('/comments',  commentData)
+  axios.post(`/comments/`,  commentData)
   .then(comment => {
     // debugger
     dispatch ({

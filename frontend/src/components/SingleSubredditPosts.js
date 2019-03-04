@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+// import { withRouter } from 'react-router-dom';
 import { fetchSubredditPosts } from '../actions/subredditActions';
 
 // import Comments from '../components/Comments'
@@ -9,6 +10,7 @@ import { fetchSubredditPosts } from '../actions/subredditActions';
 class SingleSubredditPosts extends Component {
 
   componentDidMount() {
+    console.log('this.props.match.params.id', this.props.match.params.id);
     this.props.fetchSubredditPosts(this.props.match.params.id)
   }
 
@@ -43,7 +45,7 @@ class SingleSubredditPosts extends Component {
 
 
 const mapStateToProps = state => ({
-  post: state.posts.item
+  posts: state.posts.items,
 })
 
 const mapDispatchToProps = dispatch => {
