@@ -30,30 +30,23 @@ class Subreddits extends Component {
 
   render () {
     console.log('Subreddits.js: {subredditItems}');
-
-    console.log('SUBREDDIT POST', this.props.subreddits)
-    if (this.props.subreddits) {
-      const subredditItems = () => {
-          return this.props.subreddits.map(subreddit => (
-          <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
-      ))}
-      return (
-        <div className="subreddits">
-          <select onChange={this.updateSubreddit} value={this.props.selectedId} >
-          {/* // <select onChange='window.location.href=this.value'> */}
-            <option>MY SUBREDDITS</option>
-            {subredditItems()} 
-            <hr />
-            <option>EDIT SUBSCRIPTIONS</option>
-          </select>
-        </div>
+    const subredditItems = this.props.subreddits.map(subreddit => (
+        <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
+    ))
+    return (
+      <div className="subreddits">
+        <select onChange={this.updateSubreddit} value={this.props.selectedId} >
+        {/* // <select onChange='window.location.href=this.value'> */}
+          <option>MY SUBREDDITS</option>
+          {subredditItems}
+          <hr />
+          <option>EDIT SUBSCRIPTIONS</option>
+        </select>
+      </div>
 
 
 
-      )
-    }
-    return null
-
+    )
   }
 }
 
