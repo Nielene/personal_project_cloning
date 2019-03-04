@@ -15,7 +15,7 @@ class SingleSubredditPosts extends Component {
   }
 
   render () {
-    console.log('SingleSubredditPosts.js: {postItems}', this.props.posts);
+    console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
         <img src={post.image_url} alt='' height='42' width='42' />
@@ -50,12 +50,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchSinglePost: () => dispatch(fetchSinglePost)
-    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
     fetchSubredditPosts: (id) => dispatch(fetchSubredditPosts(id))
   }
 }
-
 
 // export default connect(mapStateToProps, {fetchSinglePost})(SinglePost);
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSubredditPosts);
