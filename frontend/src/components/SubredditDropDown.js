@@ -19,6 +19,10 @@ class Subreddits extends Component {
   //   }
   // }
 
+  updateSubreddit = e => {
+    this.props.history.push('/subreddits/' + e.target.value)
+  }
+
   render () {
     console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subreddits.map(subreddit => (
@@ -26,9 +30,11 @@ class Subreddits extends Component {
     ))
     return (
       <div className="subreddits">
-        <select>
-          <option>my subreddits</option>
+        <select onChange={this.updateSubreddit} value={this.props.selectedId} >
+          <option>MY SUBREDDITS</option>
           {subredditItems}
+          <hr />
+          <option>EDIT SUBSCRIPTIONS</option>
         </select>
       </div>
 
@@ -42,9 +48,17 @@ Subreddits.propTypes = {
   newPost: PropTypes.object
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   subreddits: state.subreddits.items,
-  newPost: state.subreddits.item
+  newPost: state.subreddits.item,
+  // selectedId: ownProps.match.params.id
 })
 
-export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchMySubreddits: (id) => dispatch(fetchMySubreddits(id))
+  }
+}
+
+// export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);
+export default connect(mapStateToProps, mapDispatchToProps )(Subreddits);

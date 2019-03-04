@@ -10,9 +10,9 @@ const { getAllCommentsForSinglePost, createCommentForSinglePost, deleteComment }
 
 router.get('/:post_id', getAllCommentsForSinglePost );    // http://localhost:3000/posts/
 
-// router.get('/:id', getSinglePost);    // http://localhost:3000/posts/1
+router.post('/', createCommentForSinglePost);  // POST http://localhost:3000/comments/
+// router.post('/:post_id', createCommentForSinglePost);
 router.delete('/:comment_id', deleteComment);
 
-router.post('/:post_id', createCommentForSinglePost);
 
 module.exports = router;

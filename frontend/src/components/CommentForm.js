@@ -49,15 +49,15 @@ class CommentForm extends Component {
   }
 
   render () {
-
+    // console.log(this.state);
     return (
       <div>
 
         <form onSubmit={this.onSubmit}>
 
           <div>
-            <label>text: </label><br />
-            <textarea name='body' onChange={this.onChange} value={this.state.body} />
+            <label> </label><br />
+            <textarea name='body' onChange={this.onChange} value={this.state.body} rows="8" cols="80" />
           </div>
           <br />
 

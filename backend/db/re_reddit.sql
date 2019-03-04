@@ -33,9 +33,9 @@ CREATE TABLE users (
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
-  comment_body TEXT NOT NULL,
-  post_id INT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-  user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  comment_body TEXT,
+  post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE up_down_votes (

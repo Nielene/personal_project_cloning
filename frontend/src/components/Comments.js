@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchComments } from '../actions/commentActions';
+
+// import PropTypes from 'prop-types';
 // import axios from 'axios'
 
-// import { Link } from 'react-router-dom';
 import CommentForm from './CommentForm';
 
 
 class Comments extends Component {
 
   componentDidMount() {
-    console.log('Comments.js');
+    console.log('Comments.js', );
+    // this.props.fetchComments(this.props.match.params.post_id);
     this.props.fetchComments();
   }
 
@@ -22,36 +23,43 @@ class Comments extends Component {
   // }
 
   render () {
-    console.log('Comments.js: {commentItems}', this.props.comments);
+    console.log('Comments.js: {commentItems} this.props', this.props);
+    console.log('Comments.js: {commentItems} this.props.comments', this.props.comments);
+    // console.log('Comments.js: {commentItems} this.props.match.params.post_id', this.props.match.params.post_id);
 
-    // const commentItems = this.props.comments.map(comment => (
-    //   <div key={comment.id}>
-    //     <textarea></textarea>
-    //     <p>{comment.comment_body}</p>
-    //     <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-    //     <p>votes: {Math.floor(Math.random() * 10000)}</p>
-    //     <br />
-    // </div>
-    // ))
 
-    return (
-      <div>
-
+      const commentItems = this.props.comments.map(comment => (
         {/*
-        }// <Link to={'/submit'}>Submit a new text comment</Link>
-        // <br />
-        // <Link to={'/submit'}>Submit a new link</Link>
-        */}
-
-        <h1>Comments</h1>
-        <div>
-          {CommentForm}
-          {/*
-          // {commentItems}
-          */}
-        </div>
+      <div key={comment.id}>
+          // <p>{comment.comment_body}</p>
+          // <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+          // <p>votes: {Math.floor(Math.random() * 10000)}</p>
+          // <br />
       </div>
-    )
+      */}
+      ))
+
+
+    // if (this.props.post.id) {
+
+      return (
+        <div>
+
+          <h1>Comments</h1>
+          <div>
+            <CommentForm />
+            {commentItems}
+
+
+          </div>
+        </div>
+      )
+    // } else {
+    //   return (
+    //     <div>Comments for this post are not displaying</div>
+    //   )
+    // }
+
   }
 }
 
@@ -69,6 +77,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    // fetchComments: (post_id) => dispatch(fetchComments(post_id))
     fetchComments: () => dispatch(fetchComments())
   }
 }
