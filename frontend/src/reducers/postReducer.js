@@ -15,6 +15,7 @@ export default function(state = initialState, action) {
       }
     case FETCH_SINGLE_POST:  // ?
       return {
+        items: [...state.items],
         item: action.payload
       }
     case NEW_POST:

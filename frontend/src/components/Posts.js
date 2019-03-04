@@ -22,7 +22,8 @@ class Posts extends Component {
   // }
 
   render () {
-    console.log('Posts.js: {postItems}', this.props.posts);
+    // console.log('Posts.js: {postItems}', this.props.posts);
+    console.log("ALL PROPS: ", this.props)
     const postItems = this.props.posts.map(post => (
       <div key={post.id}>
         <div>
