@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SubredditDropDown from './SubredditDropDown'
+import SubredditDropDown from './subreddits/SubredditDropDown'
 
 export const NavBar = () => {
   return (
