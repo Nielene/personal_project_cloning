@@ -8,6 +8,7 @@ import { NavBar } from "./components/NavBar";
 
 import Posts from './components/posts/Posts';
 import PostFormText from './components/posts/PostFormText';
+import PostFormLink from './components/posts/PostFormLink';
 import SinglePost from './components/posts/SinglePost';
 import SingleSubredditPosts from './components/subreddits/SingleSubredditPosts';
 // import PostFormLink from './components/PostFormLink';

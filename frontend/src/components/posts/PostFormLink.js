@@ -48,7 +48,7 @@ class PostFormLink extends Component {
 
   render () {
     return (
-      <div>
+      <div className = 'formDiv'>
 
         <h3>Submit a new link</h3>
         <form onSubmit={this.onSubmit}>

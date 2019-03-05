@@ -1,3 +1,11 @@
+/* comment form div (for <CommentForm /> component) */
+
+.commentFormDiv {
+  margin-bottom: 30px;
+}
+
+/* list of comments */
+
 .userVotesAndTime {
   display: flex;
   flex-direction: row;

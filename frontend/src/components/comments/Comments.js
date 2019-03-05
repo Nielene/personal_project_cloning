@@ -51,10 +51,11 @@ class Comments extends Component {
       return (
         <div>
 
-          <h1>Comments</h1>
+          {/* // <h1>Comments</h1> */}
           <div>
-
-            <CommentForm />
+            <div className= 'commentFormDiv'>
+              <CommentForm />
+            </div>
             {commentItems}
 
 

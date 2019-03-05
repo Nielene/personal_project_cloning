@@ -23,28 +23,37 @@ class SingleSubredditPosts extends Component {
 
   render () {
     console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
+
+    const subredditTitle = <Link to={'/subredditPosts/' + this.props.subreddits.subreddit_id}><h6>{this.props.subreddits.my_subreddit_title}</h6></Link>
+
     const postItems = this.props.subreddits.map(post => (
 
-      <div key={post.id}>
-        <img src={post.image_url} alt='' height='42' width='42' />
-        <Link to={'/post/'+ post.id}>{' '}{post.post_title}</Link>
-        <div className='inOneLine'>
-          <h6>submitted {Math.floor(Math.random() * 24)} hours ago by **USER** to </h6>
-          <Link to={'/subredditPosts/' + post.subreddit_id}><h6>{post.my_subreddit_title}</h6></Link>
+      <div key={post.id} className ='eachPostItemDiv'>
+        <div className='postItemCount'>
+          <h3> # </h3>
         </div>
-        <div>
-          <h6>votes: {Math.floor(Math.random() * 10000)}</h6>
-          <h6>comments</h6>
+
+        <div className='postItemVotes'>
+          <h3>{Math.floor(Math.random() * 10000)}</h3>
         </div>
-        <br />
+        <div className='postItemImage'>
+          <img src={post.image_url} alt='' height='42' width='42' />
+        </div>
+
+        <div className='postItemBody'>
+          <Link to={'/post/'+ post.id}> <p>{post.post_title}</p> </Link>
+          <h6>submitted {Math.floor(Math.random() * 24)} hours ago by <Link to=''>**USER**</Link> to <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link></h6>
+        </div>
+
       </div>
     ))
+
 
     return (
       <div>
 
-        <h1>Posts belonging to this Subreddit</h1>
         <div>
+          SUBREDDIT TITLE HERE!!!!!!!!!!{subredditTitle}
           {postItems}
         </div>
       </div>
@@ -71,6 +80,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(SingleSubredditPosts
 //---------------------------
 
 
+
+// <div className='inOneLine'>
+  // <Link to={'/subredditPosts/' + post.subreddit_id}><h6>{post.my_subreddit_title}</h6></Link>
+// </div>
 
 
 

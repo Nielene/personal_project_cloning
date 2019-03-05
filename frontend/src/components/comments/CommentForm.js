@@ -51,6 +51,7 @@ class CommentForm extends Component {
 
   render () {
     console.log(this.state);
+    const placeholderText = "We'd appreciate if you remain polite with your comments."
     return (
       <div>
 
@@ -58,7 +59,7 @@ class CommentForm extends Component {
 
           <div>
             <label> </label><br />
-            <textarea name='body' onChange={this.onChange} value={this.state.body} rows="8" cols="80" />
+            <textarea name='body' onChange={this.onChange} value={this.state.body} placeholder={placeholderText} rows="8" cols="80" />
           </div>
           <br />
 

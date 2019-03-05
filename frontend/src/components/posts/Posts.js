@@ -26,6 +26,7 @@ class Posts extends Component {
     // console.log('Posts.js: {postItems}', this.props.posts);
     console.log("ALL PROPS: ", this.props)
     const postItems = this.props.posts.map(post => (
+
       <div key={post.id} className='eachPostItemDiv'>
         <div className='postItemCount'>
           <h3> # </h3>
@@ -51,7 +52,7 @@ class Posts extends Component {
     ))
     return (
       <div className='LinksAndSearch_PostItems_Div'>
-        
+
         <div className='LinksAndSearchDiv'>
           <div className='LinksAndSearch'>
             <SearchForm />

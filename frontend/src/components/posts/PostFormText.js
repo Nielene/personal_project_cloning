@@ -49,30 +49,29 @@ class PostFormText extends Component {
   render () {
 
     return (
-      <div>
+      <div className='formDiv'>
 
-        <h3>Submit a new text post</h3>
+        <h3>Text</h3>
         <form onSubmit={this.onSubmit}>
 
-          <div>
-            <label>title: </label><br />
+          <div className='inputs title'>
+            <label>Title: </label><br />
             <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
           </div>
-          <br />
 
-          <div>
-            <label>text: </label><br />
+          <div className='inputs text'>
+            <label>Text: </label><br />
             <textarea name='body' onChange={this.onChange} value={this.state.body} />
           </div>
-          <br />
 
-          <div>
+          <div className='inputs subreddit'>
             <label>choose where to post: </label><br />
-            <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} />
+            <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} placeholder='subreddit title'/>
           </div>
-          <br />
 
-          <button type='submit'>Submit</button>
+          <div className='inputs submit'>
+            <button type='submit'>Submit</button>
+          </div>
         </form>
       </div>
     )

@@ -1,0 +1,47 @@
+.formDiv h3 {
+  margin-left: 20px;
+}
+
+.formDiv form {
+  margin-left: 20px;
+  /* border: 3px solid grey; */
+  border-width: 3px;
+  /* border-style: solid; */
+  border-color: grey;
+  border-style: groove;
+  border-radius: 15px;
+  padding: 15px;
+  width: 500px;
+  background-color: lightblue;
+}
+
+form .inputs {
+  margin-bottom: 15px;
+}
+
+.title input {
+  width: 400px;
+  border-radius: 5px;
+  height: 18px;
+
+}
+
+.text textarea {
+  width: 400px;
+  height: 70px;
+  border-radius: 5px;
+
+}
+
+.subreddit input {
+  width: 200px;
+  border-radius: 5px;
+  height: 18px;
+  
+}
+
+.submit button {
+  height: 25px;
+  border-style: outset;
+  border-radius: 5px;
+}
