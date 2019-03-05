@@ -10,12 +10,13 @@ export const NavBar = () => {
     <nav>
       <SubredditDropDown />
       <div className = 'NavLinkDiv' >
-        <NavLink to={'/'}>
           <div className='logoReReddit_usernameAndLogin'>
-            <div className='logoReReddit'>
-              <img alt='' height='50' width='50' src='http://i.imgur.com/sdO8tAw.png' />
-              <h4>ReReddit</h4>
-            </div>
+            <NavLink to={'/'}>
+              <div className='logoReReddit'>
+                <img alt='' height='50' width='50' src='http://i.imgur.com/sdO8tAw.png' />
+                <h4>ReReddit</h4>
+              </div>
+            </NavLink>
 
             <div className='usernameAndLogin'>
               <div>
@@ -26,9 +27,6 @@ export const NavBar = () => {
               </div>
             </div>
           </div>
-
-
-        </NavLink>
       </div>
     </nav>
   )
