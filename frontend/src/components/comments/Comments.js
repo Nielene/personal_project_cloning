@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchComments } from '../../actions/commentActions';
 import '../../css/comments/Comments.css';
+import { Link } from 'react-router-dom';
 
 // import PropTypes from 'prop-types';
 // import axios from 'axios'
@@ -31,14 +32,18 @@ class Comments extends Component {
 
 
       const commentItems = this.props.comments.map(comment => (
-        // {/*
       <div key={comment.id}>
-          <p>{comment.comment_body}</p>
+
+        <div className='userVotesAndTime'>
+          <Link to=''><h6>**USERS**</h6></Link>
+          <p>{Math.floor(Math.random() * 10000)} points</p>
           <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-          <p>votes: {Math.floor(Math.random() * 10000)}</p>
-          <br />
-      </div>
-      // */}
+        </div>
+        <div className='commentBody'>
+          <p>{comment.comment_body}</p>
+        </div>
+
+        </div>
       ))
 
 

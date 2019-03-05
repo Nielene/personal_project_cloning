@@ -55,6 +55,7 @@
 
 .enlargedPostImage img {
   grid-column: 3;
+  margin-top: 10px;
   width: 600px;
   height: auto;
 }

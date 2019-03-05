@@ -1,0 +1,24 @@
+.userVotesAndTime {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0px;
+  /* justify-content: space-between; */
+}
+.userVotesAndTime h6 {
+  display: flex;
+  font-size: 10px;
+  margin: 0px;
+  margin-right: 5px;
+}
+.userVotesAndTime p {
+  font-size: 10px;
+  margin: 0px;
+  margin-right: 5px;
+  padding: 0px;
+}
+
+.commentBody p {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
