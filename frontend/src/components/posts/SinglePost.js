@@ -29,17 +29,33 @@ class SinglePost extends Component {
     if (this.props.post.id) {
       return (
         <div >
-          <div className='singlePostAtTop'>
-            <div >
-              <h2><Link to={'this.props.posts.image_url'}>{this.props.post.post_title}</Link></h2>
+          <div className='eachPostItemDiv'>
+
+            <div className='postItemVotes'>
+              <h3>{Math.floor(Math.random() * 10000)}</h3>
             </div>
-            <div>
-              <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
-            </div>
+
             <div className='postItemImage'>
               <img src={this.props.post.image_url} alt='' height='50' width='50' />
             </div>
+
+            <div className='postItemBody'>
+              <h2><Link to=''>{this.props.post.post_title}</Link></h2>
+              <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by ' } <Link to=''>**USER**</Link> </h5>
+
+              <div>
+                <Link to=''> <h6>{Math.floor(Math.random() * 1000)} comments</h6> </Link>
+              </div>
+
+            </div>
+
+            <div className='enlargedPostImage'>
+              <img src={this.props.post.image_url} alt='' height='50' width='50' />
+            </div>
+            
           </div>
+
+
           <div className='commentsComponentDiv'>
             <Comments />
           </div>
