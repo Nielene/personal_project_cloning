@@ -18,11 +18,11 @@ class Subreddits extends Component {
     this.props.fetchMySubreddits();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.newPost) {
-      this.props.subredditList.unshift(nextProps.newPost)
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   // if (nextProps.newPost) {
+  //   //   this.props.subredditList.unshift(nextProps.newPost)
+  //   // }
+  // }
 
   updateSubreddit = e => {
     console.log('e.target.value', e.target.value);

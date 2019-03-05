@@ -15,6 +15,14 @@ import '../../css/subreddits/SingleSubredditPosts.css';
 
 class SingleSubredditPosts extends Component {
 
+  componentDidUpdate(prevProps) {
+    console.log('CURRENT PROPS', this.props);
+    console.log('PREVIOUS PROPS', prevProps)
+    if (prevProps.match.params.subreddit_id !== this.props.match.params.subreddit_id) {
+      this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
+    }
+  }
+
   componentDidMount() {
     console.log('this.props.match.params.id', this.props.match.params.subreddit_id);
     // debugger
