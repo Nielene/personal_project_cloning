@@ -40,7 +40,7 @@ class Subreddits extends Component {
           <option>MY SUBREDDITS</option>
           {subredditItems}
           <hr />
-          <option>EDIT SUBSCRIPTIONS</option>
+          <option value={'/allSubreddits/'}>EDIT SUBSCRIPTIONS</option>
         </select>
       </div>
 

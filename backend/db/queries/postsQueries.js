@@ -29,6 +29,30 @@ const getSinglePost = (req, res, next) => {
   }).catch(err => next(err))
 }
 
+// const getAllCommentsBySingleUser = (req, res, next) => {
+const getAllPostsBySingleUser = (req, res, next) => {
+  let userId = parseInt(req.params.post_id);
+  db.any(
+    "SELECT users.*, posts.* FROM posts JOIN users ON posts.user_id = users.id WHERE user_id =$1", [userId])
+  .then(data => {
+    res.status(200).json({
+      status: 'success',
+      user_comments: data,
+      message: 'ALL POSTS BY THIS USER!'
+    })
+  })
+  .catch(err => {
+    res.status(400)
+    .json({
+      status: 'error',
+      message: 'YOU ARE NOT GETTING ALL POSTS FOR THIS USER!'
+    })
+    console.log(err);
+    next();
+  });
+}
+
+
 const createNewPostInSingleSubreddit = (req, res, next) => {
 
   let queryString = "INSERT INTO posts ";
@@ -71,7 +95,7 @@ const deleteOwnPost = (req, res, next) => {
   })
 }
 
-module.exports = { getAllPosts, getSinglePost, createNewPostInSingleSubreddit, deleteOwnPost }
+module.exports = { getAllPosts, getSinglePost, getAllPostsBySingleUser, createNewPostInSingleSubreddit, deleteOwnPost }
 
 // , getAllPostsfromSingleSubreddit
 

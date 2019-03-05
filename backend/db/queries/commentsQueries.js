@@ -25,6 +25,29 @@ const getAllCommentsForSinglePost = (req, res, next) => {
   });
 }
 
+
+const getAllCommentsBySingleUser = (req, res, next) => {
+  let userId = parseInt(req.params.user_id);
+  db.any(
+    "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
+  .then(data => {
+    res.status(200).json({
+      status: 'success',
+      user_comments: data,
+      message: 'ALL COMMENTS BY THIS USER!'
+    })
+  })
+  .catch(err => {
+    res.status(400)
+    .json({
+      status: 'error',
+      message: 'YOU ARE NOT GETTING ALL COMMENTS FOR THIS USER!'
+    })
+    console.log(err);
+    next();
+  });
+}
+
 // POST http://localhost:3000/comments/
 // router.post('/', createCommentForSinglePost);
 // WANT TO USER POST_ID AS A PARAMS ??????
@@ -51,32 +74,6 @@ const createCommentForSinglePost = (req, res, next) => {
   .catch(err => next(err));
 }
 
-
-
-  // const createNewPostInSingleSubreddit = (req, res, next) => {
-  //
-  //   let queryString = "INSERT INTO posts ";
-  //
-  //   if (req.body.image_url) {
-  //     queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )"
-  //   } else if (req.body.post_body) {
-  //     queryString +=   "(post_body, post_title, my_subreddit_title) VALUES(${post_body}, ${post_title}, ${my_subreddit_title} )"
-  //   }
-  //
-  //   db.none(queryString, req.body)
-  //   // db.none("INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES( ${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title} )",
-  //   //   req.body)
-  //   .then(() => {
-  //     res.status(200).json({
-  //       status: 'success',
-  //       message: 'NEW POST CREATED IN A SINGLE SUBREDDIT!',
-  //       body: req.body,
-  //     })
-  //   })
-  //   .catch(err => next(err));
-  // }
-
-
 // router.delete('/:comment_id', deleteComment);
 const deleteComment = (req, res, next) => {
   let comment_id = parseInt(req.params.id);
@@ -96,8 +93,32 @@ const deleteComment = (req, res, next) => {
   })
 }
 
-module.exports = { getAllCommentsForSinglePost, createCommentForSinglePost, deleteComment }
+module.exports = { getAllCommentsForSinglePost, getAllCommentsBySingleUser, createCommentForSinglePost, deleteComment }
 
+
+
+// const createNewPostInSingleSubreddit = (req, res, next) => {
+//
+//   let queryString = "INSERT INTO posts ";
+//
+//   if (req.body.image_url) {
+//     queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )"
+//   } else if (req.body.post_body) {
+//     queryString +=   "(post_body, post_title, my_subreddit_title) VALUES(${post_body}, ${post_title}, ${my_subreddit_title} )"
+//   }
+//
+//   db.none(queryString, req.body)
+//   // db.none("INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES( ${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title} )",
+//   //   req.body)
+//   .then(() => {
+//     res.status(200).json({
+//       status: 'success',
+//       message: 'NEW POST CREATED IN A SINGLE SUBREDDIT!',
+//       body: req.body,
+//     })
+//   })
+//   .catch(err => next(err));
+// }
 
 
 
