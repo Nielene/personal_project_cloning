@@ -1,0 +1,51 @@
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.NavLinkDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: lightblue;
+}
+
+.logoReReddit {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  height: 60px;
+}
+
+.logoReReddit img {
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+.logoReReddit h4 {
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+
+.LinksAndSearch {
+  display: flex;
+  align-items: flex-end;
+}
+
+/*  both logoRereddit link AND username and login  */
+.logoReReddit_usernameAndLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* --- username and login links --- */
+.usernameAndLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

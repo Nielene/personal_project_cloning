@@ -1,0 +1,30 @@
+/* in one line */
+.searchBox{
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+
+.searchInput input {
+  border-radius: 5px;
+  height: 30px;
+  width: 300px;
+  margin-right: 5px;
+  padding-left: 10px;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.searchButton input{
+  border-radius: 5px;
+  height: 35px;
+  width: 100px;
+  font-family: monospace;
+  font-size: 20px;
+  background-color: lightblue;
+}
+
+/* not working */
+.searchButton button: hover{
+  background-color: yellow;
+}

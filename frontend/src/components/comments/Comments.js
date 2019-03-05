@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchComments } from '../actions/commentActions';
+import { fetchComments } from '../../actions/commentActions';
+import '../../css/comments/Comments.css';
 
 // import PropTypes from 'prop-types';
 // import axios from 'axios'

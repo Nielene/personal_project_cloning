@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSinglePost } from '../actions/postActions';
+import { fetchSinglePost } from '../../actions/postActions';
 
-import Comments from '../components/Comments'
+import Comments from '../comments/Comments'
+import '../../css/posts/SinglePost.css';
 
 
 class SinglePost extends Component {
@@ -27,10 +28,22 @@ class SinglePost extends Component {
 
     if (this.props.post.id) {
       return (
-        <div>
-          <h2><Link to=''>{this.props.post.post_title}</Link></h2>
-          <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
-          <Comments />
+        <div >
+          <div className='singlePostAtTop'>
+            <div >
+              <h2><Link to={'this.props.posts.image_url'}>{this.props.post.post_title}</Link></h2>
+            </div>
+            <div>
+              <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by **USER**' } </h5>
+            </div>
+            <div className='postItemImage'>
+              <img src={this.props.post.image_url} alt='' height='50' width='50' />
+            </div>
+          </div>
+          <div className='commentsComponentDiv'>
+            <Comments />
+          </div>
+
         </div>
       )
     } else {

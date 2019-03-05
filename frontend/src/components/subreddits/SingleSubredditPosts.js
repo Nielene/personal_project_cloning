@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { withRouter } from 'react-router-dom';
-import { fetchSubredditPosts } from '../actions/subredditActions';
+import { fetchSubredditPosts } from '../../actions/subredditActions';
+import '../../css/subreddits/SingleSubredditPosts.css';
+
 
 // import Comments from '../components/Comments'
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import '../../css/subreddits/SubredditDropDown.css';
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
 
@@ -17,11 +18,11 @@ class Subreddits extends Component {
     this.props.fetchMySubreddits();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.newPost) {
-  //     this.props.subreddits.unshift(nextProps.newPost)
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.newPost) {
+      this.props.subreddits.unshift(nextProps.newPost)
+    }
+  }
 
   updateSubreddit = e => {
     console.log('e.target.value', e.target.value);
@@ -32,16 +33,19 @@ class Subreddits extends Component {
     console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subreddits.map(subreddit => (
         <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
-    ))
+      ))
+      // debugger
     return (
-      <div className="subreddits">
-        <select onChange={this.updateSubreddit} value={this.props.selectedId} >
-        {/* // <select onChange='window.location.href=this.value'> */}
-          <option>MY SUBREDDITS</option>
-          {subredditItems}
-          <hr />
-          <option value={'/allSubreddits/'}>EDIT SUBSCRIPTIONS</option>
-        </select>
+      <div className='subredditDropDownDiv'>
+        <div className="subredditDropDownDiv2">
+          <select className="subredditDropDown" onChange={this.updateSubreddit} value={this.props.selectedId} >
+            {/* // <select onChange='window.location.href=this.value'> */}
+            <option>MY SUBREDDITS</option>
+            {subredditItems}
+            <hr />
+            <option value={'/allSubreddits/'}>EDIT SUBSCRIPTIONS</option>
+          </select>
+        </div>
       </div>
 
 

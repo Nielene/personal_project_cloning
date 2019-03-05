@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import { Provider } from 'react-redux';
 
 import { Route, Switch } from 'react-router-dom';
 
 import { NavBar } from "./components/NavBar";
 
-import Posts from './components/Posts';
-import PostFormText from './components/PostFormText';
-import SinglePost from './components/SinglePost';
-import SingleSubredditPosts from './components/SingleSubredditPosts';
+import Posts from './components/posts/Posts';
+import PostFormText from './components/posts/PostFormText';
+import SinglePost from './components/posts/SinglePost';
+import SingleSubredditPosts from './components/subreddits/SingleSubredditPosts';
 // import PostFormLink from './components/PostFormLink';
 
 import store from './store'
@@ -21,7 +21,6 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <NavBar />
-          <hr />
           <Switch>
             <Route path="/submit" component={PostFormText} />
             <Route exact path="/" render={ (props) => <Posts {...props}/>} />

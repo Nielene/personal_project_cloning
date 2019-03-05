@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { createPost } from '../actions/postActions'//our action;
+import { createPost } from '../../actions/postActions'//our action;
+import '../../css/search/SearchForm.css';
 
 // import { NavLink } from 'react-router-dom'
 
@@ -51,9 +52,13 @@ class SearchForm extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <br />
-          <div>
-            <input type='text' name='searchText' onChange={this.onChange} value={this.state.searchText} placeholder='Search' />
-            <button type='submit'>Search</button>
+          <div className='searchBox'>
+            <div className='searchInput'>
+              <input type='text' name='searchText' onChange={this.onChange} value={this.state.searchText} placeholder='Search' />
+            </div>
+            <div className='searchButton'>
+              <input type='submit' name='submit' value='submit' />
+            </div>
           </div>
         </form>
       </div>

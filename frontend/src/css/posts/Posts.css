@@ -1,0 +1,120 @@
+/* ---- LinksAndSearchDiv plus PostItems ---- */
+
+.LinksAndSearch_PostItems_Div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* --- the link tags in the Post component ---- */
+
+.postFormLinks{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  width: 200px;
+
+
+  text-align: center;
+  /* justify-content: center; */
+}
+
+.postFormTextLink{
+  border-style: groove;
+  margin-bottom: 10px;
+  background-color: lightblue;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+}
+
+.postFormLinkLink{
+  border-style: groove;
+  background-color: lightblue;
+  height: 30px;
+
+  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+}
+
+/* --- the searchBar and the 2 Link tags ---  */
+
+.LinksAndSearch {
+  display: flex;
+  flex-direction: column;
+  border-style: ridge;
+  width: 450px;
+  height: 200px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  align-items: flex-start;
+  background-color: lightyellow;
+}
+
+.LinksAndSearchDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+/* ----  postItems  -----  */
+
+.allPostItemsDiv {
+  margin-left: 10px;
+}
+
+.eachPostItemDiv {
+  display: grid;
+  grid-template-columns: 20px 50px 80px 1fr;
+  /* display: flex;
+  flex-direction: row; */
+  margin: 15px;
+}
+
+.postItemCount {
+  grid-column: 1;
+  padding-right: 10px;
+}
+
+.postItemVotes {
+  grid-column: 2;
+
+  margin-right: 10px;
+
+}
+
+.postItemImage img {
+  grid-column: 3;
+
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.postItemBody {
+  grid-column: 4;
+
+  margin-left: 15px;
+}
+
+.postItemBody p {
+  margin: 0px;
+  margin-bottom: 5px;
+  font-family: monospace;
+  font-stretch: extra-expanded;
+  font-size: 18px;
+}
+
+.postItemBody h6 {
+  margin: 0px;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+
+/*  -----------  */

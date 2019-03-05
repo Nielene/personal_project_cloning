@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { createPost } from '../actions/postActions'//our action;
+import { createPost } from '../../actions/postActions'//our action;
+import '../../css/posts/PostFormLink.css';
 
 // import { NavLink } from 'react-router-dom'
 
 // import axios from 'axios';
 // const faker = require('faker');
 
-class PostFormText extends Component {
+class PostFormLink extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,22 +47,20 @@ class PostFormText extends Component {
   }
 
   render () {
-
     return (
       <div>
 
-        <h3>Submit a new text post</h3>
+        <h3>Submit a new link</h3>
         <form onSubmit={this.onSubmit}>
-
           <div>
-            <label>title: </label><br />
-            <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
+            <label>url: </label><br />
+            <input type='text' name='image_url' onChange={this.onChange} value={this.state.image_url} />
           </div>
           <br />
 
           <div>
-            <label>text: </label><br />
-            <textarea name='body' onChange={this.onChange} value={this.state.body} />
+            <label>title: </label><br />
+            <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
           </div>
           <br />
 
@@ -78,11 +77,11 @@ class PostFormText extends Component {
   }
 }
 
-PostFormText.propTypes = {
+PostFormLink.propTypes = {
   createPost: PropTypes.func.isRequired
 }
 
-export default connect(null, { createPost })(PostFormText);
+export default connect(null, { createPost })(PostFormLink);
 
 
 
