@@ -20,7 +20,7 @@ class Subreddits extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
-      this.props.subreddits.unshift(nextProps.newPost)
+      this.props.subredditList.unshift(nextProps.newPost)
     }
   }
 
@@ -31,7 +31,7 @@ class Subreddits extends Component {
 
   render () {
     console.log('Subreddits.js: {subredditItems}');
-    const subredditItems = this.props.subreddits.map(subreddit => (
+    const subredditItems = this.props.subredditList.map(subreddit => (
         <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
       ))
       // debugger
@@ -62,7 +62,7 @@ Subreddits.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  subreddits: state.subreddits.items,
+  subredditList: state.subreddits.subredditList,
   newPost: state.subreddits.item,
   // selectedId: ownProps.match.params.id
 })

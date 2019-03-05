@@ -24,9 +24,9 @@ class SingleSubredditPosts extends Component {
   render () {
     console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
 
-    const subredditTitle = <Link to={'/subredditPosts/' + this.props.subreddits.subreddit_id}><h6>{this.props.subreddits.my_subreddit_title}</h6></Link>
+    const subredditTitle = <Link to={'/subredditPosts/' + this.props.subredditPosts.subreddit_id}><h6>{this.props.subredditPosts.my_subreddit_title}</h6></Link>
 
-    const postItems = this.props.subreddits.map(post => (
+    const postItems = this.props.subredditPosts.map(post => (
 
       <div key={post.id} className ='eachPostItemDiv'>
         <div className='postItemCount'>
@@ -64,7 +64,7 @@ class SingleSubredditPosts extends Component {
 
 
 const mapStateToProps = state => ({
-  subreddits: state.subreddits.items,
+  subredditPosts: state.subreddits.subredditPosts,
   // my_subreddit_title: state.posts.items
 })
 

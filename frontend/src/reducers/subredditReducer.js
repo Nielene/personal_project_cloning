@@ -1,7 +1,8 @@
 import { FETCH_SUBREDDITS, FETCH_SUBREDDIT_POSTS } from '../actions/types';
 
 const initialState = {
-  items: [],
+  subredditList: [],
+  subredditPosts: [],
   item: {},
   // subreddit_posts: [],
 }
@@ -12,12 +13,12 @@ export default function(state = initialState, action) {
       console.log('subredditReducer: FETCH_SUBREDDITS: reducer');
       return {
         ...state,
-        items: action.payload
+        subredditList: action.payload
       }
     case FETCH_SUBREDDIT_POSTS:
       return {
         ...state,
-        items: action.payload
+        subredditPosts: action.payload
       }
     default:
       return state;
