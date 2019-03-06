@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_SINGLE_POST, NEW_POST } from './types';
+import { FETCH_POSTS, FETCH_SINGLE_POST, FETCH_USER_POSTS, NEW_POST } from './types';
 import axios from 'axios';
 
 // import, FETCH_SINGLE_POST
@@ -26,6 +26,16 @@ export const fetchSinglePost = (id) => dispatch => {
         payload: res.data.body
       })
     })
+}
+
+export const fetchUserPosts = (user_id) => dispatch => {
+  axios.get(`/posts/${user_id}`)
+  .then(res => {
+    dispatch ({
+      type: FETCH_USER_POSTS,
+      payload: res.data.user_posts
+    })
+  })
 }
 
 export const createPost = (postData) => dispatch => {

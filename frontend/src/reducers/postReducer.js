@@ -1,8 +1,10 @@
-import { FETCH_POSTS, FETCH_SINGLE_POST, NEW_POST } from '../actions/types';
+import { FETCH_POSTS, FETCH_SINGLE_POST, FETCH_USER_POSTS, NEW_POST } from '../actions/types';
 
 const initialState = {
   items: [],
-  item: {}
+  item: {},
+  userPosts: [],
+  newPost: {},
 }
 
 export default function(state = initialState, action) {
@@ -13,15 +15,20 @@ export default function(state = initialState, action) {
         ...state,
         items: action.payload
       }
-    case FETCH_SINGLE_POST:  // ?
+    case FETCH_SINGLE_POST:  // note
       return {
         items: [...state.items],
         item: action.payload
       }
+    case FETCH_USER_POSTS:
+      return {
+        ...state,
+        userPosts: action.payload
+      }
     case NEW_POST:
       return {
         ...state,
-        item: action.payload
+        newPost: action.payload
       }
     default:
       return state;

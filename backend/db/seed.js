@@ -13,8 +13,9 @@ for (let i = 0; i < 50; i++) {
   let username = faker.internet.userName();
   // let post_id = Math.floor(Math.random() * 100) + 1;
   let karma_points = Math.floor(Math.random() * 1000);
+  let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   // let str = `( '${username}', ${post_id}, ${karma_points} )`
-  let str = `( '${username}', ${karma_points} )`
+  let str = `( '${username}', ${karma_points}, ${subreddit_id} )`
   users.push(str)
 }
 
@@ -66,7 +67,7 @@ up_down_votes = up_down_votes.join(', ')
 
 db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSql + ";")
 .then(() => {
-  db.none("INSERT INTO users(username, karma_points) VALUES " + users + ";")
+  db.none("INSERT INTO users(username, karma_points, subreddit_id) VALUES " + users + ";")
   .then(() => {
     db.none("INSERT INTO posts (post_title, post_body, image_url, subreddit_id, user_id) VALUES " + posts + ";")
     .then(() => {

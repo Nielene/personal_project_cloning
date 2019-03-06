@@ -9,7 +9,7 @@ const { getAllCommentsForSinglePost, getAllCommentsBySingleUser, createCommentFo
 // router.post('/submit?selftext=true')
 
 router.get('/:post_id', getAllCommentsForSinglePost );    // http://localhost:3000/posts/
-router.get('/user/:user_id', getAllCommentsBySingleUser)
+router.get('/user/:user_id', getAllCommentsBySingleUser);   // http://localhost:3000/comments/user/1
 
 router.post('/', createCommentForSinglePost);  // POST http://localhost:3000/comments/
 // router.post('/:post_id', createCommentForSinglePost);

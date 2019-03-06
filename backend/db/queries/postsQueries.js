@@ -3,7 +3,10 @@ const { db } = require('../index.js');
 // Postman: http://localhost:3000/posts
 const getAllPosts = (req, res, next) => {
   db.any(
-    'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
+    // 'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
+'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id'
+// SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id
+
   )
   .then(posts => {
     res.status(200).json({
@@ -29,15 +32,15 @@ const getSinglePost = (req, res, next) => {
   }).catch(err => next(err))
 }
 
-// const getAllCommentsBySingleUser = (req, res, next) => {
+// http://localhost:3000/posts/user/1
 const getAllPostsBySingleUser = (req, res, next) => {
-  let userId = parseInt(req.params.post_id);
+  let userId = parseInt(req.params.user_id);
   db.any(
     "SELECT users.*, posts.* FROM posts JOIN users ON posts.user_id = users.id WHERE user_id =$1", [userId])
   .then(data => {
     res.status(200).json({
       status: 'success',
-      user_comments: data,
+      user_posts: data,
       message: 'ALL POSTS BY THIS USER!'
     })
   })
@@ -52,6 +55,10 @@ const getAllPostsBySingleUser = (req, res, next) => {
   });
 }
 
+// SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id
+
+/*SELECT t1.col, t3.col FROM table1 JOIN table2 ON table1.primarykey = table2.foreignkey
+                                  JOIN table3 ON table2.primarykey = table3.foreignkey*/
 
 const createNewPostInSingleSubreddit = (req, res, next) => {
 
@@ -96,6 +103,26 @@ const deleteOwnPost = (req, res, next) => {
 }
 
 module.exports = { getAllPosts, getSinglePost, getAllPostsBySingleUser, createNewPostInSingleSubreddit, deleteOwnPost }
+
+//---------------------------------------------
+// localhost:3000/posts/  GIVES ME THIS:
+// {
+//     "status": "success",
+//     "posts": [
+//         {
+//             "id": 1,
+//             "username": "Adrian_Emard71",
+//             "karma_points": 885,
+//             "subreddit_id": 6,
+//             "my_subreddit_title": "CONFUSING_PERSPECTIVE",
+//             "post_title": "Omnis consequatur voluptatum dolor architecto non.",
+//             "post_body": "Occaecati beatae possimus. Fugit accusamus ratione rerum possimus occaecati officia aperiam tempore. Rerum harum quis nobis quo praesentium rerum vero ab. Atque aperiam modi et aperiam sed dignissimos nostrum. Enim sed eius libero voluptas ut. Quo quo molestiae quos id.",
+//             "image_url": "http://lorempixel.com/640/480/city",
+//             "user_id": 42
+//         },
+//---------------------------------------------
+
+
 
 // , getAllPostsfromSingleSubreddit
 

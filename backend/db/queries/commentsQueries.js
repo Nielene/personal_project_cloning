@@ -25,7 +25,8 @@ const getAllCommentsForSinglePost = (req, res, next) => {
   });
 }
 
-
+// router.get('/user/:user_id', getAllCommentsBySingleUser)
+// http://localhost:3000/comments/user/1
 const getAllCommentsBySingleUser = (req, res, next) => {
   let userId = parseInt(req.params.user_id);
   db.any(

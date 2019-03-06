@@ -3,11 +3,10 @@ let router = express.Router();
 const db = require('../db/queries/usersQueries');
 
 
-router.get('/', db.getAllUsers );
-router.delete('/:id', db.deleteSingleUser);
+router.get('/', db.getAllUsers );     // http://localhost:3000/users
+router.delete('/:id', db.deleteSingleUser);   // DELETE   http://localhost:3000/users/1
 
 router.get('/:user_id', db.getSingleUser);
-// router.get('/allPosts/:user_id', db.getAllPostsBySingleUser);
 
 module.exports = router;
 

@@ -14,21 +14,21 @@ const getAllUsers = (req, res, next) => {
   .catch(err => next(err));
 }
 
-
+// http://localhost:3000/users/2
 const getSingleUser = (req, res, next) => {
-  let userId = parseInt(req.params.id);
+  let userId = parseInt(req.params.user_id);
   db.one('SELECT * FROM users WHERE id=$1', [userId])
   .then(data => {
     res.status(200)
     .json({
       status: 'success',
-      message: 'You got your Users.',
+      message: 'You got your Single User.',
       body: data
     })
   }).catch(err => next(err))
 }
 
-
+// http://localhost:3000/users/1
 const deleteSingleUser = ( req, res, next ) => {
   let user_id = parseInt(req.params.id);
   db.result('DELETE FROM users WHERE users.id =$1', [user_id])

@@ -19,7 +19,8 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(240),
   -- post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-  karma_points INT
+  karma_points INT,
+  subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
 );
 
 CREATE TABLE posts (
