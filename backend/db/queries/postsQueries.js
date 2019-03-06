@@ -36,7 +36,9 @@ const getSinglePost = (req, res, next) => {
 const getAllPostsBySingleUser = (req, res, next) => {
   let userId = parseInt(req.params.user_id);
   db.any(
-    "SELECT users.*, posts.* FROM posts JOIN users ON posts.user_id = users.id WHERE user_id =$1", [userId])
+    // "SELECT users.*, posts.* FROM posts JOIN users ON posts.user_id = users.id WHERE user_id =$1", [userId])
+    'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id WHERE user_id =$1', [userId])
+
   .then(data => {
     res.status(200).json({
       status: 'success',

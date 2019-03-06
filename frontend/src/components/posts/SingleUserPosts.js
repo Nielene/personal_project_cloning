@@ -15,39 +15,61 @@ const mapDispatchToProps = dispatch => {
 };
 
 class SingleUserPosts extends Component {
+
+  // componentDidUpdate(prevProps) {
+  //   console.log('CURRENT PROPS', this.props);
+  //   console.log('PREVIOUS PROPS', prevProps)
+  //   if (prevProps.match.params.user_id !== this.props.match.params.user_id) {
+  //     this.props.fetchUserPosts(this.props.match.params.user_id)
+  //   }
+  // }
+
   componentDidMount() {
     this.props.fetchUserPosts(this.props.match.params.user_id);
   }
 
   render() {
+    {/*
 
-    const postItems = this.props.userPosts.map(post => (
-      <div key={post.id} className="eachPostItemDiv">
-        <div className="postTitle">
-          <Link to={"/post/" + post.id}>
-            {" "}
-            <p>{post.post_title}</p>{" "}
-          </Link>
-          <h6>
-            by <Link to="">**USERNAME**</Link> in{" "}
-            <Link to={"/subredditPosts/" + post.subreddit_id}>
-              {post.my_subreddit_title}
-            </Link>{" "}
-          </h6>
-        </div>
+      // console.log(this.props.userPosts);
+      // // debugger
+      // const postItems = this.props.userPosts.map(post => (
+      //
+      //   <div key={post.id} className="eachPostItemDiv">
+      //
+      //     <div className="postTitle">
+      //       <Link to={"/post/" + post.id}>
+      //         {" "}
+      //         <p>{post.post_title}</p>{" "}
+      //       </Link>
+      //       <h6>
+      //         by <Link to="">**USERNAME**</Link> in{" "}
+      //         <Link to={"/subredditPosts/" + post.subreddit_id}>
+      //           {post.my_subreddit_title}
+      //         </Link>{" "}
+      //       </h6>
+      //     </div>
+      //
+      //     <div className="postItemBody">
+      //       <h6>
+      //         <Link to="">**USERNAME**</Link>{" "}
+      //         <h3>{Math.floor(Math.random() * 10000)}</h3> point{" "}
+      //         {Math.floor(Math.random() * 24)} hours ago{" "}
+      //       </h6>
+      //       <p> **USER S COMMENT TO THIS POST**</p>
+      //     </div>
+      //
+      //   </div>
+      // ));
+      */}
 
-        <div className="postItemBody">
-          <h6>
-            <Link to="">**USERNAME**</Link>{" "}
-            <h3>{Math.floor(Math.random() * 10000)}</h3> point{" "}
-            {Math.floor(Math.random() * 24)} hours ago{" "}
-          </h6>
-          <p> **USER S COMMENT TO THIS POST**</p>
-        </div>
+    return (
+      <div>
+        {/*
+          {postItems}
+          */}
       </div>
-    ));
-
-    return <div>{postItems}</div>;
+    )
   }
 }
 

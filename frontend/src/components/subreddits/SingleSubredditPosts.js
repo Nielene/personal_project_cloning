@@ -24,7 +24,7 @@ class SingleSubredditPosts extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props.match.params.id', this.props.match.params.subreddit_id);
+    console.log('SingleSubredditPosts.js: this.props.match.params.id', this.props.match.params.subreddit_id);
     // debugger
     this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
   }
@@ -45,7 +45,7 @@ class SingleSubredditPosts extends Component {
         <div className='postItemVotes'>
           <h3>{Math.floor(Math.random() * 10000)}</h3>
         </div>
-        
+
         <div className='postItemImage'>
           <img src={post.image_url} alt='' height='42' width='42' />
         </div>
