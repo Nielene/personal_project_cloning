@@ -6,7 +6,9 @@ const { db } = require('../index.js');
 const getAllCommentsForSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.post_id);
   db.any(
-    "SELECT posts.*, comments.* FROM comments JOIN posts ON comments.post_id = posts.id WHERE post_id =$1", [postId])
+    // "SELECT posts.*, comments.* FROM comments JOIN posts ON comments.post_id = posts.id WHERE post_id =$1", [postId])
+    "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1", [postId])
+
   .then(data => {
     res.status(200).json({
       status: 'success',
@@ -30,7 +32,11 @@ const getAllCommentsForSinglePost = (req, res, next) => {
 const getAllCommentsBySingleUser = (req, res, next) => {
   let userId = parseInt(req.params.user_id);
   db.any(
-    "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
+    // "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
+    // "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
+    // "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE comments.user_id =$1", [userId])
+    "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE users.id =$1", [userId])
+
   .then(data => {
     res.status(200).json({
       status: 'success',
@@ -96,6 +102,23 @@ const deleteComment = (req, res, next) => {
 
 module.exports = { getAllCommentsForSinglePost, getAllCommentsBySingleUser, createCommentForSinglePost, deleteComment }
 
+//-------------------------------------------
+// comments/user/3 GIVES ME:
+//  "user_comments": [
+        // {
+        //     "id": 49,
+        //     "username": "Ottis10",
+        //     "karma_points": 494,
+        //     "subreddit_id": 1,
+        //     "comment_body": "Non voluptas minus iusto est qui sed eum velit. Inventore minus nesciunt et quasi libero.",
+        //     "post_id": 49,
+        //     "user_id": 3,
+        //     "post_title": "Et ut doloribus quis eligendi nobis cupiditate error itaque.",
+        //     "post_body": "Qui eius nesciunt totam quae architecto dolore. Velit sint a architecto sit deserunt saepe sit sint. Voluptatem facere labore aut eos labore nihil. Quibusdam odit dicta est qui asperiores harum quam. Numquam ex dolorum est voluptas ratione.",
+        //     "image_url": "http://lorempixel.com/640/480/fashion"
+        // },
+
+//-------------------------------------------
 
 
 // const createNewPostInSingleSubreddit = (req, res, next) => {

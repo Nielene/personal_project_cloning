@@ -50,27 +50,31 @@ class PostFormLink extends Component {
     return (
       <div className = 'formDiv'>
 
-        <h3>Submit a new link</h3>
+        <h3>Link</h3>
         <form onSubmit={this.onSubmit}>
-          <div>
+
+          <div  className='inputs title'>
             <label>url: </label><br />
             <input type='text' name='image_url' onChange={this.onChange} value={this.state.image_url} />
           </div>
           <br />
 
-          <div>
+          <div className='inputs title'>
             <label>title: </label><br />
             <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
           </div>
           <br />
 
-          <div>
-            <label>choose where to post: </label><br />
+          <div className='inputs subreddit'>
+            <label>choose your subreddit: </label><br />
             <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} />
           </div>
           <br />
 
-          <button type='submit'>Submit</button>
+          <div className='inputs submit'>
+            <button type='submit'>Submit</button>
+          </div>
+
         </form>
       </div>
     )

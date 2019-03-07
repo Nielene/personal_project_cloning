@@ -1,3 +1,38 @@
+.theLinks {
+  margin-left: 50px;
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.theLinks .textLink {
+  display: flex;
+  border-width: 3px;
+  border-bottom-width: thin;
+  /* border-right-width: thin; */
+  border-color: grey;
+  border-style: groove;
+  border-radius: 10px;
+  /* padding: 0px; */
+  padding-right: 15px;
+  background-color: lightblue;
+
+}
+
+.theLinks .linkLink {
+  display: flex;
+  border-width: 3px;
+  border-bottom-width: thin;
+  /* border-left-width: thin; */
+  border-color: grey;
+  border-style: groove;
+  border-radius: 10px;
+  padding-right: 15px;
+  background-color: lightblue;
+}
+
 .formDiv h3 {
   margin-left: 20px;
 }
@@ -19,17 +54,33 @@ form .inputs {
   margin-bottom: 15px;
 }
 
+.inputs  {
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 10px; */
+}
+
+label {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
+}
+
 .title input {
   width: 400px;
   border-radius: 5px;
   height: 18px;
-
+  margin-top: 5px;
+  padding-left: 5px;
+  
 }
 
 .text textarea {
   width: 400px;
   height: 70px;
   border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 5px;
 
 }
 
@@ -37,11 +88,17 @@ form .inputs {
   width: 200px;
   border-radius: 5px;
   height: 18px;
-  
+  margin-top: 5px;
+  padding-left: 5px;
 }
 
 .submit button {
   height: 25px;
   border-style: outset;
   border-radius: 5px;
+  margin-top: 15px;
+  background-color: white;
+  font-family: monospace;
+  font-size: 12px;
+  width: 100px;
 }

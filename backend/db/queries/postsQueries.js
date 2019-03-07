@@ -6,7 +6,6 @@ const getAllPosts = (req, res, next) => {
     // 'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
 'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id'
 // SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id
-
   )
   .then(posts => {
     res.status(200).json({
@@ -21,7 +20,7 @@ const getAllPosts = (req, res, next) => {
 // http://localhost:3000/posts/1
 const getSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.id);
-  db.one('SELECT * FROM posts WHERE id=$1', [postId])
+  db.one('SELECT * FROM posts JOIN users ON users.id = posts.user_id WHERE posts.id=$1', [postId])
   .then(data => {
     res.status(200)
     .json({
@@ -37,7 +36,7 @@ const getAllPostsBySingleUser = (req, res, next) => {
   let userId = parseInt(req.params.user_id);
   db.any(
     // "SELECT users.*, posts.* FROM posts JOIN users ON posts.user_id = users.id WHERE user_id =$1", [userId])
-    'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id WHERE user_id =$1', [userId])
+    'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id WHERE posts.user_id =$1', [userId])
 
   .then(data => {
     res.status(200).json({
@@ -67,9 +66,9 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   let queryString = "INSERT INTO posts ";
 
   if (req.body.image_url) {
-    queryString +=   "(image_url, post_title, my_subreddit_title) VALUES(${image_url}, ${post_title}, ${my_subreddit_title} )"
+    queryString +=   "(image_url, post_title, subreddit_id) VALUES(${image_url}, ${post_title}, ${subreddit_id} )"
   } else if (req.body.post_body) {
-    queryString +=   "(post_body, post_title, my_subreddit_title) VALUES(${post_body}, ${post_title}, ${my_subreddit_title} )"
+    queryString +=   "(post_body, post_title, subreddit_id) VALUES(${post_body}, ${post_title}, ${subreddit_id} )"
   }
 
   db.none(queryString, req.body)

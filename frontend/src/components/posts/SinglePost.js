@@ -41,7 +41,7 @@ class SinglePost extends Component {
 
             <div className='postItemBody'>
               <h2><Link to=''>{this.props.post.post_title}</Link></h2>
-              <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by ' } <Link to=''>**USER**</Link> </h5>
+              <h5>{ 'submitted ' + Math.floor(Math.random() * 24) + ' hours ago by ' } <Link to=''>{this.props.post.username}</Link> </h5>
 
               <div>
                 <Link to=''> <h6>{Math.floor(Math.random() * 1000)} comments</h6> </Link>
@@ -52,7 +52,7 @@ class SinglePost extends Component {
             <div className='enlargedPostImage'>
               <img src={this.props.post.image_url} alt='' height='50' width='50' />
             </div>
-            
+
           </div>
 
 

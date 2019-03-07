@@ -35,7 +35,7 @@ class Comments extends Component {
       <div key={comment.id}>
 
         <div className='userVotesAndTime'>
-          <Link to=''><h6>**USERS**</h6></Link>
+          <Link to=''><h6>{comment.username}</h6></Link>
           <p>{Math.floor(Math.random() * 10000)} points</p>
           <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
         </div>

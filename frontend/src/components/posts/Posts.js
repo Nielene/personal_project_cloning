@@ -16,6 +16,7 @@ class Posts extends Component {
     this.props.fetchPosts();
   }
 
+// CAUSES ERROR:
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.newPost) {
   //     this.props.posts.unshift(nextProps.newPost)

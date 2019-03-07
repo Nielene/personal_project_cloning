@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import '../../css/subreddits/SubredditDropDown.css';
+import '../../css/subreddits/Subreddits.css';
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
 
 // import { SingleSubredditPosts } from './SingleSubredditPosts'
 // import axios from 'axios'
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Subreddits extends Component {
 
   componentDidMount() {
-    console.log('SubredditDropDown.js, this.props', this.props);
+    console.log('Subreddits.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
@@ -32,21 +32,30 @@ class Subreddits extends Component {
   render () {
     console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subredditList.map(subreddit => (
-        <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
+      <div className='subscribeButtonAndSubredLink'>
+        <div className='subscribeButton'>
+          <button type='submit'><h4>subscribe</h4></button>
+        </div>
+        <div className='subredditLink'>
+          <h3 key={subreddit.id} value={'/subredditPosts/' + subreddit.id}><Link to=''>{subreddit.my_subreddit_title}</Link></h3>
+        </div>
+      </div>
       ))
       // debugger
     return (
       <div className='subredditDropDownDiv'>
         <div className="subredditDropDownDiv2">
-          <select className="subredditDropDown" onChange={this.updateSubreddit} value={this.props.selectedId} >
+          <div className="subredditDropDown"  >
             {/* // <select onChange='window.location.href=this.value'> */}
-            <option>MY SUBREDDITS</option>
+            <h1>MY SUBREDDITS</h1>
             {subredditItems}
             <hr />
-            <option value={'/Subreddits/'}>EDIT SUBSCRIPTIONS</option>
-          </select>
+          </div>
         </div>
       </div>
+
+
+
 
     )
   }
