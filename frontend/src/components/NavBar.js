@@ -20,10 +20,10 @@ export const NavBar = () => {
 
             <div className='usernameAndLogin'>
               <div>
-                <Link to=''><h4>**USERNAME**</h4></Link>
+                <Link to=''><h4>**username**</h4></Link>
               </div>
               <div>
-                <Link to=''><h4>**LOGOUT**</h4></Link>
+                <Link to=''><h4>**logout**</h4></Link>
               </div>
             </div>
           </div>

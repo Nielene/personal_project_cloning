@@ -60,10 +60,10 @@ class Posts extends Component {
             <br />
             <div className='postFormLinks'>
               <div className='postFormTextLink'>
-                <Link to={'/submit'}>Submit a new text post</Link>
+                <Link to={'/submitText'}>Submit a new text post</Link>
               </div>
               <div className='postFormLinkLink'>
-                <Link to={'/submit'}>Submit a new link</Link>
+                <Link to={'/submitLink'}>Submit a new link</Link>
               </div>
             </div>
           </div>

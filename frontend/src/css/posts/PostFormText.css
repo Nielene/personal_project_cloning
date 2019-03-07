@@ -7,6 +7,10 @@
 
 }
 
+.theLinks h3 {
+
+}
+
 .theLinks .textLink {
   display: flex;
   border-width: 3px;
@@ -18,7 +22,8 @@
   /* padding: 0px; */
   padding-right: 15px;
   background-color: lightblue;
-
+  font-family: monospace;
+  /* height: 30px; */
 }
 
 .theLinks .linkLink {
@@ -31,12 +36,21 @@
   border-radius: 10px;
   padding-right: 15px;
   background-color: lightblue;
+  font-family: monospace;
+  /* height: 30px; */
+}
+
+.submitATextOrLinkHeading h3 {
+  font-family: monospace;
+  font-size: 22px;
+
 }
 
 .formDiv h3 {
   margin-left: 20px;
 }
 
+/* .formDiv #postFormTextForm form { */
 .formDiv form {
   margin-left: 20px;
   /* border: 3px solid grey; */
@@ -72,7 +86,7 @@ label {
   height: 18px;
   margin-top: 5px;
   padding-left: 5px;
-  
+
 }
 
 .text textarea {

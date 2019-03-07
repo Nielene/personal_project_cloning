@@ -43,7 +43,7 @@ class Subreddits extends Component {
       ))
       // debugger
     return (
-      <div className='subredditDropDownDiv'>
+      <div className=''>
         <div className="subredditDropDownDiv2">
           <div className="subredditDropDown"  >
             {/* // <select onChange='window.location.href=this.value'> */}

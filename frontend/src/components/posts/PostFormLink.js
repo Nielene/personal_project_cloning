@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
+import { Link } from 'react-router-dom';
 import { createPost } from '../../actions/postActions'//our action;
 import '../../css/posts/PostFormLink.css';
 
-// import { NavLink } from 'react-router-dom'
+import { fetchMySubreddits } from '../../actions/subredditActions';
+import postFormText from './PostFormText';
 
-// import axios from 'axios';
-// const faker = require('faker');
 
 class PostFormLink extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class PostFormLink extends Component {
     this.state = {
       title: '',
       body: '',
-      subreddit_title: '',
+      subreddit_id: 1,
       image_url: '',
       date_created: Math.floor(Math.random() * 24) + ' hours ago',
       votes: 1,
@@ -25,6 +24,16 @@ class PostFormLink extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('PostFormLink.js, this.props', this.props);
+    this.props.fetchMySubreddits();
+  }
+
+  updateSubreddit = e => {
+    // console.log('e.target.value', e.target.value);
+    // this.props.history.push(e.target.value)
   }
 
   onChange(e) {
@@ -47,29 +56,66 @@ class PostFormLink extends Component {
   }
 
   render () {
-    return (
-      <div className = 'formDiv'>
 
-        <h3>Link</h3>
+    console.log(this.state);
+    const linkToPostFormLink = () => {
+      return (
+
+        <div className='theLinks'>
+          <div className='textLink'>
+            <h3><Link to='/submitText'>Text</Link></h3>
+          </div>
+          <div className='linkLink'>
+            <h3><Link to='/submitLink'>Link</Link></h3>
+          </div>
+        </div>
+      )
+    }
+
+    const subredditItems = this.props.subredditList.map(subreddit => (
+        <option key={subreddit.id} value={subreddit.id}>{subreddit.my_subreddit_title}</option>
+      ))
+
+    return (
+      <div className = 'formDiv' id='postFormLinkForm'>
+
+        {linkToPostFormLink()}
+
         <form onSubmit={this.onSubmit}>
 
+          <div className='submitATextOrLinkHeading'>
+            <h3>Submit a Link</h3>
+          </div>
+
           <div  className='inputs title'>
-            <label>url: </label><br />
+            <label>url: </label>
             <input type='text' name='image_url' onChange={this.onChange} value={this.state.image_url} />
           </div>
-          <br />
+
 
           <div className='inputs title'>
-            <label>title: </label><br />
+            <label>title: </label>
             <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
           </div>
-          <br />
+
 
           <div className='inputs subreddit'>
-            <label>choose your subreddit: </label><br />
-            <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} />
-          </div>
-          <br />
+            <label>choose your subreddit: </label>
+
+              <div className='subredditDropDownDivInSubmitForms'>
+                <div className="subredditDropDownDiv2">
+                  <select className="subredditDropDown" onChange={this.onChange} name='subreddit_id' value={this.props.selectedId} >
+                    {/* // <select onChange='window.location.href=this.value'> */}
+                    <option>MY SUBREDDITS</option>
+                    {subredditItems}
+                    <hr />
+                    <option value={'/Subreddits/'}>EDIT SUBSCRIPTIONS</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
 
           <div className='inputs submit'>
             <button type='submit'>Submit</button>
@@ -81,11 +127,31 @@ class PostFormLink extends Component {
   }
 }
 
-PostFormLink.propTypes = {
-  createPost: PropTypes.func.isRequired
+const mapStateToProps = state => ({
+  // posts: state.posts.items,
+  newPost: state.posts.newPost,
+  subredditList: state.subreddits.subredditList,
+
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: (postData) => dispatch(createPost(postData)),
+    fetchMySubreddits: (id) => dispatch(fetchMySubreddits(id))
+
+  }
 }
 
-export default connect(null, { createPost })(PostFormLink);
+export default connect(mapStateToProps, mapDispatchToProps )(PostFormLink);
+
+
+
+
+// PostFormLink.propTypes = {
+//   createPost: PropTypes.func.isRequired
+// }
+//
+// export default connect(null, { createPost })(PostFormLink);
 
 
 

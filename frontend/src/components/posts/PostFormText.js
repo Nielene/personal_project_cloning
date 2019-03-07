@@ -73,10 +73,10 @@ class PostFormText extends Component {
 
         <div className='theLinks'>
           <div className='textLink'>
-            <h3><Link to=''>Text</Link></h3>
+            <h3><Link to='/submitText'>Text</Link></h3>
           </div>
           <div className='linkLink'>
-            <h3><Link to=''>Link</Link></h3>
+            <h3><Link to='/submitLink'>Link</Link></h3>
           </div>
         </div>
       )
@@ -87,15 +87,15 @@ class PostFormText extends Component {
       ))
 
     return (
-      <div className='formDiv'>
-
-        {/*
-          // <Link><h3>Text</h3></Link>
-          // <Link to=''><h3>Link</h3></Link>
-          */}
+      <div className='formDiv' id='postFormTextForm'>
 
         {linkToPostFormLink()}
+
         <form onSubmit={this.onSubmit}>
+
+          <div className='submitATextOrLinkHeading'>
+            <h3>Submit a Text</h3>
+          </div>
 
           <div className='inputs title'>
             <label>Title: </label>
@@ -110,7 +110,7 @@ class PostFormText extends Component {
           <div className='inputs subreddit'>
             <label>choose your subreddit: </label>
 
-              <div className='subredditDropDownDiv'>
+              <div className='subredditDropDownDivInSubmitForms'>
                 <div className="subredditDropDownDiv2">
                   <select className="subredditDropDown" onChange={this.onChange} name='subreddit_id' value={this.props.selectedId} >
                     {/* // <select onChange='window.location.href=this.value'> */}

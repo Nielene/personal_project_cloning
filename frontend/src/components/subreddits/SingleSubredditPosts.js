@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { withRouter } from 'react-router-dom';
 import { fetchSubredditPosts } from '../../actions/subredditActions';
+import { fetchMySubreddits } from '../../actions/subredditActions';
 import '../../css/subreddits/SingleSubredditPosts.css';
 
 
@@ -27,12 +28,23 @@ class SingleSubredditPosts extends Component {
     console.log('SingleSubredditPosts.js: this.props.match.params.id', this.props.match.params.subreddit_id);
     // debugger
     this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
+    // this.props.fetchMySubreddits()
   }
 
   render () {
     console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
 
-    const subredditTitle = <Link to={'/subredditPosts/' + this.props.subredditPosts.subreddit_id}><h6>{this.props.subredditPosts.my_subreddit_title}</h6></Link>
+    const subredditTitle = this.props.subredditPosts.map(post => (
+      <div key={post.id} className=''>
+        <div>
+          <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link>
+        </div>
+      </div>
+    ))
+
+
+
+    console.log('subredditTitle', subredditTitle);
 
     const postItems = this.props.subredditPosts.map(post => (
 
@@ -74,13 +86,14 @@ class SingleSubredditPosts extends Component {
 
 
 const mapStateToProps = state => ({
-  subredditPosts: state.subreddits.subredditPosts,
-  // my_subreddit_title: state.posts.items
+  subredditPosts: state.subreddits.subredditPosts
+  // subredditList: state.subreddits.subredditList
 })
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchSubredditPosts: (id) => dispatch(fetchSubredditPosts(id))
+    // fetchMySubreddits: () => dispatch(fetchMySubreddits())
   }
 }
 
