@@ -1,14 +1,18 @@
 const passport = require("passport");
-const pgp = require("pg-promise")({});
-const connectionString = "postgres://localhost/userlist";
-const db = pgp(connectionString);
+
+const { db } = require('../db/index.js');
+
+
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
+    console.log('serializeUser', user);
     done(null, user.username);
   });
 
   passport.deserializeUser((username, done) => {
+    console.log('deserializeUser', username);
+
     db.one("SELECT * FROM users WHERE username = ${username}", {
       username: username
     })

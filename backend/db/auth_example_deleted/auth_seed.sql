@@ -1,0 +1,12 @@
+-- DROP DATABASE IF EXISTS userlist;
+-- CREATE DATABASE userlist;
+--
+-- \c userlist;
+--
+-- DROP TABLE IF EXISTS userLogin;
+--
+-- CREATE TABLE userLogin (
+--   id SERIAL PRIMARY KEY,
+--   username VARCHAR NOT NULL UNIQUE,
+--   password_digest VARCHAR NOT NULL
+-- );

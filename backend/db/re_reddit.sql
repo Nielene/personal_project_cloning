@@ -8,19 +8,21 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS up_down_votes;
-DROP TABLE IF EXISTS subredditPosts;
+DROP TABLE IF EXISTS subreddit_posts;
 
 CREATE TABLE subreddits (
   id SERIAL PRIMARY KEY,
   my_subreddit_title TEXT
+
 );
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(240),
+  password_digest VARCHAR NOT NULL,
   -- post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-  karma_points INT,
-  subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
+  karma_points INT
+  -- subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
 );
 
 CREATE TABLE posts (
@@ -47,8 +49,14 @@ CREATE TABLE up_down_votes (
   post_id INT NOT NULL REFERENCES posts(id) ON DELETE CASCADE
 );
 
-CREATE TABLE subredditPosts (
+CREATE TABLE subreddit_posts (
   id SERIAL PRIMARY KEY,
   post_id INT REFERENCES posts(id) ON DELETE SET NULL,
+  subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
+);
+
+CREATE TABLE user_subreddits_subscriptions (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id) ON DELETE SET NULL,
   subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
 );

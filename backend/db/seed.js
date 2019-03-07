@@ -11,11 +11,12 @@ for (let i = 0; i < subreddits.length; i++) {
 let users = [];
 for (let i = 0; i < 50; i++) {
   let username = faker.internet.userName();
+  let password_digest = faker.internet.password();
   // let post_id = Math.floor(Math.random() * 100) + 1;
   let karma_points = Math.floor(Math.random() * 1000);
-  let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
+  // let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   // let str = `( '${username}', ${post_id}, ${karma_points} )`
-  let str = `( '${username}', ${karma_points}, ${subreddit_id} )`
+  let str = `( '${username}', '${password_digest}', ${karma_points} )`
   users.push(str)
 }
 
@@ -41,12 +42,20 @@ for (let i = 0; i < 1000; i++) {
   comments.push(str)
 }
 
-let subredditPosts = [];
+let subreddit_posts = [];
 for (let i = 0; i < 100; i++) {
   let post_id = Math.floor(Math.random() * 100) + 1;
   let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   let str = `(  ${post_id}, ${subreddit_id} )`
-  subredditPosts.push(str)
+  subreddit_posts.push(str)
+}
+
+let user_subreddits_subscriptions = [];
+for (let i = 0; i < 100; i++) {
+  let user_id = Math.floor(Math.random() * 50) + 1;
+  let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
+  let str = `(  ${user_id}, ${subreddit_id} )`
+  user_subreddits_subscriptions.push(str)
 }
 
 let up_down_votes = [];
@@ -64,16 +73,21 @@ posts = posts.join(', ')
 users = users.join(', ')
 comments = comments.join(', ')
 up_down_votes = up_down_votes.join(', ')
+subreddit_posts = subreddit_posts.join(', ')
+user_subreddits_subscriptions = user_subreddits_subscriptions.join(', ')
 
 db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsSql + ";")
 .then(() => {
-  db.none("INSERT INTO users(username, karma_points, subreddit_id) VALUES " + users + ";")
+  db.none("INSERT INTO users(username, password_digest, karma_points) VALUES " + users + ";")
   .then(() => {
     db.none("INSERT INTO posts (post_title, post_body, image_url, subreddit_id, user_id) VALUES " + posts + ";")
     .then(() => {
       db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
       .then(() => {
-        db.none("INSERT INTO subredditPosts(post_id, subreddit_id) VALUES " + subredditPosts + ";")
+        db.none("INSERT INTO subreddit_posts(post_id, subreddit_id) VALUES " + subreddit_posts + ";")
+        .then(() => {
+          db.none("INSERT INTO user_subreddits_subscriptions(user_id, subreddit_id) VALUES " + user_subreddits_subscriptions + ";")
+        })
       })
     })
   })

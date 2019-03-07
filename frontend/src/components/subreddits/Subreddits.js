@@ -40,16 +40,18 @@ class Subreddits extends Component {
         <div className='subscribeButton'>
           <button type='submit'><h4>subscribe</h4></button>
         </div>
-        <div className='subredditLink'>
-          <h3 key={subreddit.id} value={'/subredditPosts/' + subreddit.id}><Link to=''>{subreddit.my_subreddit_title}</Link></h3>
-        </div>
-        <div className='subredditSummary'>
-          <p>
-            <Link to=''>{subreddit.my_subreddit_title}</Link> is the place to {faker.company.catchPhraseNoun()} and {faker.company.bs()}
-          </p>
-        </div>
-        <div className='miniInfoUnderSummary'>
-          <h6>{Math.floor(Math.random() * (20000000 - 700000) + 700000)} subscribers, a community for {Math.floor(Math.random() * (15 - 1) + 1)} years</h6>
+        <div className='titleSummaryMiniInfo'>
+          <div className='subredditLink'>
+            <h3 key={subreddit.id} value={'/subredditPosts/' + subreddit.id}><Link to={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</Link></h3>
+          </div>
+          <div className='subredditSummary'>
+            <p>
+              <Link to={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</Link> is the place to {faker.company.catchPhraseNoun()} and {faker.company.bs()}.
+              </p>
+            </div>
+            <div className='miniInfoUnderSummary'>
+              <h6>{Math.floor(Math.random() * (20000000 - 700000) + 700000)} subscribers, a community for {Math.floor(Math.random() * (15 - 1) + 1)} years</h6>
+            </div>
         </div>
 
       </div>
@@ -57,12 +59,12 @@ class Subreddits extends Component {
       // debugger
     return (
       <div className=''>
-        <div className="">
-          <h4>MY SUBREDDITS</h4>
+        <div className="allSubredditsHeading">
+          <h3>ALL SUBREDDITS</h3>
         </div>
         <div className='subscribeInstructions'>
           <p>
-            click the <div className='subscribeWord'>subscribe</div> or <div className='subscribeWord'>unsubscribe</div> buttons to choose which subreddits appear on the home feed.
+            click the <div className='subscribeWord'>subscribe</div> or <div className='subscribeWord'>unsubscribe</div> <div>buttons</div> <div>to</div> <div>choose</div> <div>which</div> <div>subreddits</div> <div>appear</div> <div>on</div> <div>the</div> <div>home</div> <div>feed</div>.
           </p>
         </div>
         <div className=""  >

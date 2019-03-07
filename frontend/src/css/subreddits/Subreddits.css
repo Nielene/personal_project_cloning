@@ -1,3 +1,7 @@
+.allSubredditsHeading {
+  margin-left: 20px;
+}
+
 .subscribeInstructions p {
   margin-left: 20px;
   display: flex;
@@ -5,10 +9,15 @@
   flex-wrap: wrap;
   border: 1px solid orange;
   background-color: yellow;
-  height: 40px;
-  width: 70%;
+  /* height: 40px; */
+  width: 50%;
   padding: 10px;
 }
+
+.subscribeInstructions p div {
+  margin-right: 5px;
+}
+
 
 .subscribeWord {
   margin-left: 5px;
@@ -25,18 +34,54 @@
   margin: 20px;
 }
 
+.titleSummaryMiniInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+
+}
+
 .subscribeButtonAndSubredLink .subscribeButton {
   display: flex;
   flex-direction: row;
   height: 20px;
   margin: 0px;
 }
+
+.subscribeButtonAndSubredLink .subscribeButton button {
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
 .subscribeButtonAndSubredLink .subscribeButton h4 {
   height: 20px;
   margin: 0px;
 }
 
-.subscribeButtonAndSubredLink .subredditLink h3 {
-  margin-left: 10px;
+div.subredditLink {
+  height: 20;
+}
+
+.subredditLink h3 {
+  /* margin-left: 10px; */
+  margin-top: 0px;
+  margin-bottom: 5px;
   height: 20px;
+}
+
+.subredditSummary {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50%;
+}
+
+.subredditSummary p {
+}
+
+.miniInfoUnderSummary h6 {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

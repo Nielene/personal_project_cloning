@@ -34,15 +34,18 @@ class SingleSubredditPosts extends Component {
   render () {
     console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
 
-    const subredditTitle = this.props.subredditPosts.map(post => (
+    {/*
+      const subredditTitle = this.props.subredditPosts.map(post => (
       <div key={post.id} className=''>
-        <div>
-          <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link>
-        </div>
+      <div>
+      <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link>
       </div>
-    ))
+      </div>
+      ))
 
-    console.log('subredditTitle', subredditTitle);
+      console.log('subredditTitle', subredditTitle);
+      */}
+
 
     const postItems = this.props.subredditPosts.map(post => (
       <div key={post.id} className ='eachPostItemDiv'>
@@ -71,7 +74,9 @@ class SingleSubredditPosts extends Component {
       <div>
 
         <div>
-          SUBREDDIT TITLE HERE!!!!!!!!!!{subredditTitle}
+          {/*
+            SUBREDDIT TITLE HERE!!!!!!!!!!{subredditTitle}
+            */}
           {postItems}
         </div>
       </div>
