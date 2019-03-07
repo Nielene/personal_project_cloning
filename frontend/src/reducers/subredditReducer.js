@@ -26,6 +26,18 @@ export default function(state = initialState, action) {
 }
 
 
+// //NORMALIZE FETCH_SUBREDDIT_POSTS:
+// const normalizeData = arr => {
+//   let obj = {};
+//   arr.forEach(item => {
+//     obj[item.id] = item;
+//   })
+//   return obj
+// }
+//
+// export const normalizedSubredditReducer = (initialState = {}, action)
+
+
 
 // action.type and action.payload both came from postActions.
 // now, need to implement this in the Post component.

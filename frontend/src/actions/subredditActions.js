@@ -26,6 +26,7 @@ export const fetchSubredditPosts = (subreddit_id) => dispatch => {
 }
 
 
+
 // export const faker = require('faker');
 
 
