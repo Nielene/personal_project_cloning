@@ -42,14 +42,10 @@ class SingleSubredditPosts extends Component {
       </div>
     ))
 
-
-
     console.log('subredditTitle', subredditTitle);
 
     const postItems = this.props.subredditPosts.map(post => (
-
       <div key={post.id} className ='eachPostItemDiv'>
-
         <div className='postItemCount'>
           <h3> # </h3>
         </div>

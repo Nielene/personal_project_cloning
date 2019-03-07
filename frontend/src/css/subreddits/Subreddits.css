@@ -1,3 +1,24 @@
+.subscribeInstructions p {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid orange;
+  background-color: yellow;
+  height: 40px;
+  width: 70%;
+  padding: 10px;
+}
+
+.subscribeWord {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: white;
+  /* padding: 0px; */
+  height: 18px;
+}
+
+/*  */
 .subscribeButtonAndSubredLink {
   display: flex;
   flex-direction: row;

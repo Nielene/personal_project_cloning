@@ -1,6 +1,8 @@
 import { FETCH_SUBREDDITS, FETCH_SUBREDDIT_POSTS } from './types';
 import axios from 'axios';
 
+
+
 export const fetchMySubreddits = () => dispatch => {
   console.log('subredditActions.js: fetchMySubreddits');
   axios.get ('/subreddits')
@@ -22,6 +24,9 @@ export const fetchSubredditPosts = (subreddit_id) => dispatch => {
     })
   })
 }
+
+
+// export const faker = require('faker');
 
 
 

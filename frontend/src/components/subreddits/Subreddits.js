@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import '../../css/subreddits/Subreddits.css';
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
+// import faker from '../../actions/subredditActions';
 
 // import { SingleSubredditPosts } from './SingleSubredditPosts'
 // import axios from 'axios'
 
-import { Link } from 'react-router-dom';
 
 class Subreddits extends Component {
 
@@ -31,6 +32,9 @@ class Subreddits extends Component {
 
   render () {
     console.log('Subreddits.js: {subredditItems}');
+    const faker = require('faker');
+
+
     const subredditItems = this.props.subredditList.map(subreddit => (
       <div className='subscribeButtonAndSubredLink'>
         <div className='subscribeButton'>
@@ -39,18 +43,31 @@ class Subreddits extends Component {
         <div className='subredditLink'>
           <h3 key={subreddit.id} value={'/subredditPosts/' + subreddit.id}><Link to=''>{subreddit.my_subreddit_title}</Link></h3>
         </div>
+        <div className='subredditSummary'>
+          <p>
+            <Link to=''>{subreddit.my_subreddit_title}</Link> is the place to {faker.company.catchPhraseNoun()} and {faker.company.bs()}
+          </p>
+        </div>
+        <div className='miniInfoUnderSummary'>
+          <h6>{Math.floor(Math.random() * (20000000 - 700000) + 700000)} subscribers, a community for {Math.floor(Math.random() * (15 - 1) + 1)} years</h6>
+        </div>
+
       </div>
-      ))
+    ))
       // debugger
     return (
       <div className=''>
-        <div className="subredditDropDownDiv2">
-          <div className="subredditDropDown"  >
-            {/* // <select onChange='window.location.href=this.value'> */}
-            <h1>MY SUBREDDITS</h1>
-            {subredditItems}
-            <hr />
-          </div>
+        <div className="">
+          <h4>MY SUBREDDITS</h4>
+        </div>
+        <div className='subscribeInstructions'>
+          <p>
+            click the <div className='subscribeWord'>subscribe</div> or <div className='subscribeWord'>unsubscribe</div> buttons to choose which subreddits appear on the home feed.
+          </p>
+        </div>
+        <div className=""  >
+          {/* // <select onChange='window.location.href=this.value'> */}
+          {subredditItems}
         </div>
       </div>
 
