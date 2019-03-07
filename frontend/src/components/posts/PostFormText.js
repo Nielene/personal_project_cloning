@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { createPost } from '../../actions/postActions'//our action;
 import '../../css/posts/PostFormText.css';
+import { withRouter } from "react-router";
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
 
@@ -152,7 +153,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(PostFormText);
+export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostFormText));
 
 
 

@@ -15,7 +15,7 @@ router.get('/:user_id', db.getSingleUser);
 //auth login:
 router.post("/new", db.createUser);
 router.post("/login", passport.authenticate("local", {}), db.loginUser);
-router.get("/isLoggedIn", db.isLoggedIn);
+router.post("/isLoggedIn", db.isLoggedIn);
 router.post("/logout", loginRequired, db.logoutUser);
 
 
