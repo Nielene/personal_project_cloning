@@ -18,12 +18,15 @@ export const createUser = (userCredentialsObject) => dispatch => {
 
 
 export const login = (user) => dispatch => {
+  // debugger
   axios.post('/users/login', user)
   .then((res) => {
     dispatch ({
       type: RECEIVE_USER,
       payload: res.data.body
     })
+    console.log('login', res.data.body);
+    debugger
   })
 }
 

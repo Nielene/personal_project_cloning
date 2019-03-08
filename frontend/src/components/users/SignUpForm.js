@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../css/users/SighUpForm.css'
 import { createUser } from '../../actions/userActions'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 // import swal from 'sweetalert';
 
 const mapStateToProps = state => ({
@@ -75,8 +77,25 @@ class SighUpForm extends Component {
     console.log(this.state);
     console.log('props', this.props);
     console.log(this.props.users);
+
+    const linkToPostFormLink = () => {
+      return (
+
+        <div className='theLinks'>
+          <div className='textLink'>
+            <h3><Link to='/signup'>Sign Up</Link></h3>
+          </div>
+          <div className='linkLink'>
+            <h3><Link to='/login'>Log In</Link></h3>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className='formDiv' id='postFormTextForm'>
+
+        {linkToPostFormLink()}
 
 
         <form onSubmit={this.onSubmit}>
@@ -90,10 +109,11 @@ class SighUpForm extends Component {
             <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
           </div>
 
-          <div className='inputs text'>
+          <div className='inputs title'>
             <label>Password: </label>
-            <textarea name='password' onChange={this.onChange} value={this.state.password} />
-          </div>
+            <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
+
+        </div>
 
 
           <div className='inputs submit'>

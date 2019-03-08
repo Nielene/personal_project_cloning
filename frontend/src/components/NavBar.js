@@ -23,10 +23,10 @@ export const NavBar = () => {
                 <Link to=''><h4>**username**</h4></Link>
               </div>
               <div className='loginButton'>
-                <Link to='/users/signup'><button><h4>Sign Up</h4></button></Link>
+                <Link to='/signup'><button><h4>Sign Up</h4></button></Link>
               </div>
               <div className='loginButton'>
-                <Link to='/users/login'><button><h4>Login</h4></button></Link>
+                <Link to='/login'><button><h4>Login</h4></button></Link>
               </div>
             </div>
           </div>

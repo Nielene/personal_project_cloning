@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../css/users/LoginForm.css'
 import { login } from '../../actions/userActions'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 const mapStateToProps = state => ({
   isLoggedIn: state.users.isLoggedIn,
@@ -51,9 +53,25 @@ class LoginForm extends Component {
 
   render() {
     console.log(this.state);
+
+    const linkToPostFormLink = () => {
+      return (
+
+        <div className='theLinks'>
+          <div className='textLink'>
+            <h3><Link to='/signup'>Sign Up</Link></h3>
+          </div>
+          <div className='linkLink'>
+            <h3><Link to='/login'>Log In</Link></h3>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className='formDiv' id='postFormTextForm'>
 
+        {linkToPostFormLink()}
 
         <form onSubmit={this.onSubmit}>
 

@@ -12,6 +12,7 @@ import PostFormText from './components/posts/PostFormText';
 import PostFormLink from './components/posts/PostFormLink';
 import SinglePost from './components/posts/SinglePost';
 import SingleUserPosts from './components/posts/SingleUserPosts';
+import PostImage from './components/posts/PostImage';
 
 import SingleSubredditPosts from './components/subreddits/SingleSubredditPosts';
 import Subreddits from './components/subreddits/Subreddits';
@@ -29,8 +30,8 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <Switch>
-            <Route path="/users/signup" render={ (props) => <SignUpForm {...props} /> } />
-            <Route path="/users/login" render={ (props) => <LoginForm {...props} /> } />
+            <Route path="/signup" render={ (props) => <SignUpForm {...props} /> } />
+            <Route path="/login" render={ (props) => <LoginForm {...props} /> } />
 
             <Route path="/submitText" render={ (props) => <PostFormText {...props} /> } />
             <Route path="/submitLink" render={ (props) => <PostFormLink {...props} /> } />
@@ -38,6 +39,7 @@ class App extends Component {
             <Route exact path="/subreddits" render={ (props) => <Subreddits {...props} /> } />
             <Route exact path='/post/:id' render={(props)=><SinglePost {...props} /> } />
             <Route exact path='/subredditPosts/:subreddit_id' render= {(props) => <SingleSubredditPosts {...props} /> } />
+            <Route exact path='/post/image' render= {(props) => <PostImage {...props} /> } />
             <Route exact path='/userComments/:user_id' render= {(props) => <SingleUserComments {...props} /> } />
             <Route exact path='/userPosts/:user_id' render= {(props) => <SingleUserPosts {...props} /> } />
 
