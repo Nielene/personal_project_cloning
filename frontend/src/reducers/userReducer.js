@@ -1,5 +1,5 @@
 import { CREATE_USER, ADD_USER, REMOVE_USER, LOGOUT_USER, CHECK_USER, RECEIVE_USER, IS_USER_AUTHENTICATED, CHECK_AUTHENTICATION_STATUS, DEAUTHENTICATE_USER  } from '../actions/types';
-import Auth from "./utils/Auth";
+// import Auth from "./utils/Auth";
 
 const initialState = {
   isLoggedIn: false,

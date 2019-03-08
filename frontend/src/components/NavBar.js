@@ -22,8 +22,11 @@ export const NavBar = () => {
               <div>
                 <Link to=''><h4>**username**</h4></Link>
               </div>
-              <div>
-                <Link to=''><h4>**logout**</h4></Link>
+              <div className='loginButton'>
+                <Link to='/users/signup'><button><h4>Sign Up</h4></button></Link>
+              </div>
+              <div className='loginButton'>
+                <Link to='/users/login'><button><h4>Login</h4></button></Link>
               </div>
             </div>
           </div>

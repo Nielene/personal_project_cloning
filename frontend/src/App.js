@@ -5,7 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import { NavBar } from "./components/NavBar";
 
-import Login from './components/users/Login';
+import SignUpForm from './components/users/SignUpForm';
+import LoginForm from './components/users/LoginForm';
 import Posts from './components/posts/Posts';
 import PostFormText from './components/posts/PostFormText';
 import PostFormLink from './components/posts/PostFormLink';
@@ -28,7 +29,8 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <Switch>
-            <Route path="/login" render={ (props) => <Login {...props} /> } />
+            <Route path="/users/signup" render={ (props) => <SignUpForm {...props} /> } />
+            <Route path="/users/login" render={ (props) => <LoginForm {...props} /> } />
 
             <Route path="/submitText" render={ (props) => <PostFormText {...props} /> } />
             <Route path="/submitLink" render={ (props) => <PostFormLink {...props} /> } />

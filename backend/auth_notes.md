@@ -32,3 +32,6 @@ npm install - if copied and pasted/cloned reed's github (without node_modules)
 - npm start   (or node bin/www or ns)   or nodemon bin/www - change in package.json so will update automatically
 - psql -f re_reddit.sql
 - node seed.js
+
+
+returning in postgres - google it.

@@ -61,3 +61,12 @@ img {
   margin-top: 38px;
   margin-bottom: 0px;
 }
+
+.loginButton button {
+  height: 20px;
+  margin-top: 38px;
+}
+.loginButton h4 {
+  height: 20px;
+  margin-top: 0px;
+}

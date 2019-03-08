@@ -8,19 +8,20 @@ function createUser(req, res, next) {
   let queryString = 'INSERT INTO users';
 
   if ( !(req.body.karma_points) ) {
-    queryString += "(username, password_digest) VALUES (${username}, ${password_digest})"
+    queryString += "(username, password_digest) VALUES (${username}, ${password_digest}) RETURNING * "
   } else {
-    queryString += "(username, password_digest) VALUES (${username}, ${password_digest})"
+    queryString += "(username, password_digest) VALUES (${username}, ${password_digest}) RETURNING * "
   }
 
-  db.none(
+  db.one(
     queryString,
     // "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
     { username: req.body.username, password_digest: hash }
   )
-    .then(() => {
+    .then((data) => {
       res.status(200).json({
-        message: "Registration successful."
+        message: "Registration successful.",
+        body: data
       });
     })
     .catch(err => {
