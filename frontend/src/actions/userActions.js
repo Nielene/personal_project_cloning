@@ -1,6 +1,8 @@
 import { CREATE_USER, ADD_USER, REMOVE_USER, CHECK_USER, RECEIVE_USER, LOGOUT_USER, DEAUTHENTICATE_USER, CHECK_AUTHENTICATION_STATUS } from './types';
 import axios from 'axios';
 
+import Auth from "../utils/Auth";
+
 // import, FETCH_SINGLE_POST
 
 export const createUser = (userCredentialsObject) => dispatch => {
@@ -19,55 +21,55 @@ export const createUser = (userCredentialsObject) => dispatch => {
 
 export const login = (user) => dispatch => {
   // debugger
-  axios.post('/users/login', user)
+  let username = user.username;
+  let password = user.password;
+  Auth.authenticateUser(user.username)
+  axios.post('/users/login', {username, password} )
   .then((res) => {
     dispatch ({
       type: RECEIVE_USER,
-      payload: res.data.body
+      payload: res.data
     })
-    console.log('login', res.data.body);
-    debugger
+    console.log('login', res.data);
+    // debugger
+  })
+  .then (() => {
+    dispatch (checkAuthenticateStatus(username))
+    // debugger
   })
 }
 
+export const checkAuthenticateStatus = (user) => dispatch => {
+  // let username = user.username;
+  // let password = user.password;
+  // debugger
+  // axios.post('/users/isLoggedIn', {username, password})
+  axios.post('/users/isLoggedIn')
+  .then((res) => {
+    console.log('res line 50', res.data.username.username);
+    // debugger
+    if (res.data.username.username === Auth.getToken()) {
+      dispatch ({
+        type: RECEIVE_USER,
+        payload: Auth.isUserAuthenticated()
+      })
+    } else if (user.data.username) {
+      this.logout();
+    } else {
+      Auth.deauthenticateUser();
+    }
+  })
+}
+
+// in the Console: choose Application tab instead; go to Local Storage under Storage and click on http://localhost:3000. should then see Key / Value table.
 
 export const logout = (id) => dispatch => {
   // console.log('postActions.js: fetching Single Post');
-    axios.post(`/users/logout`)
-    .then((res) => {
-      // console.log('res.data.body', res.data.body);
-      // debugger
-      dispatch ({
-        type: LOGOUT_USER ,
-        // DEAUTHENTICATE_USER,
-        payload: res.data.body
-      })
-      // .then (() => {
-      //   dispatch ({
-      //     type: CHECK_USER,
-      //     // CHECK_AUTHENTICATION_STATUS,
-      //     payload: res.data.body
-      //   })
-      // })
-    })
+  axios.post(`/users/logout`)
+  .then(() => {
+    Auth.deauthenticateUser();
+  })
+  .then(() => {
+    dispatch(checkAuthenticateStatus())
+  })
 }
-
-// export const checkAuthenticateStatus = () => dispatch => {
-//   // console.log('postActions.js: fetching action is beign called');
-//   axios.get('/users/isLoggedIn')
-//   .then(res => {
-//     // console.log('postActions.js: res.data.posts', res.data.posts);
-//     if (res.data.username === Auth.getToken()) {
-//
-//       dispatch ({
-//         type: RECEIVE_USER,
-//         payload: res.data.posts
-//       })
-//     } else if (res.data.username) {
-//       dispatch ( {
-//         type: ,
-//         payload:
-//       })
-//     }
-//   })
-// }
