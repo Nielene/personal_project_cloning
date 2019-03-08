@@ -25,7 +25,8 @@ class LoginForm extends Component {
     }
 
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitLogin = this.onSubmitLogin.bind(this);
+    this.onSubmitLogout = this.onSubmitLogout.bind(this);
 
   }
 
@@ -38,7 +39,7 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e) {
+  onSubmitLogin(e) {
     e.preventDefault();
 
     const loginUser = {
@@ -49,10 +50,27 @@ class LoginForm extends Component {
     // Call Action (postActions)
     this.props.login(loginUser)
 
+
+    const welcomeMessage = function() {
+      alert(
+        `You are now LoggedIn to ReReddit! \n
+        Welcome, ` + loginUser.username + '!'
+      )
+    }
+    welcomeMessage();
+
   }
+
+  onSubmitLogout(e) {
+    this.props.logout();
+    this.props.checkAuthenticateStatus()
+  }
+
+
 
   render() {
     console.log(this.state);
+
 
     const linkToPostFormLink = () => {
       return (
@@ -73,7 +91,7 @@ class LoginForm extends Component {
 
         {linkToPostFormLink()}
 
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmitLogin}>
 
           <div className='submitATextOrLinkHeading'>
             <h3>Login</h3>
@@ -93,6 +111,8 @@ class LoginForm extends Component {
           <div className='inputs submit'>
             <button type='submit'>Submit</button>
           </div>
+
+
         </form>
       </div>
 

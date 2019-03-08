@@ -20,7 +20,7 @@ export const NavBar = () => {
 
             <div className='usernameAndLogin'>
               <div>
-                <Link to=''><h4>**username**</h4></Link>
+                <Link to=''><h4>      </h4></Link>
               </div>
               <div className='loginButton'>
                 <Link to='/signup'><button><h4>Sign Up</h4></button></Link>

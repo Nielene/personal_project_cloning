@@ -1,9 +1,6 @@
 import { CREATE_USER, ADD_USER, REMOVE_USER, CHECK_USER, RECEIVE_USER, LOGOUT_USER, DEAUTHENTICATE_USER, CHECK_AUTHENTICATION_STATUS } from './types';
 import axios from 'axios';
-
 import Auth from "../utils/Auth";
-
-// import, FETCH_SINGLE_POST
 
 export const createUser = (userCredentialsObject) => dispatch => {
   axios.post ('/users/new', userCredentialsObject)
