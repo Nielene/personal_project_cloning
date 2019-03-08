@@ -13,6 +13,18 @@ import { fetchMySubreddits } from '../../actions/subredditActions';
 
 
 class Subreddits extends Component {
+  constructor() {
+    super();
+    this.state = {
+      subscribeButton: 'unsubscribe',
+      locationShowing: false
+
+    }
+  }
+
+  toggleShowing = e => {
+    this.setState({ locationShowing: !this.state.locationShowing });
+  };
 
   componentDidMount() {
     console.log('Subreddits.js, this.props', this.props);
@@ -31,15 +43,28 @@ class Subreddits extends Component {
   }
 
   render () {
+    const { locationShowing } = this.state;
+
     console.log('Subreddits.js: {subredditItems}');
     const faker = require('faker');
 
 
     const subredditItems = this.props.subredditList.map(subreddit => (
       <div className='subscribeButtonAndSubredLink'>
-        <div className='subscribeButton'>
-          <button type='submit'><h4>subscribe</h4></button>
-        </div>
+        {/*
+
+          <div className='subscribeButton'>
+          <button type='submit' ><h4>{"unsubscribe" ? "subscribe" : "unsubscribe"}</h4></button>
+          </div>
+          */}
+          <div className='subscribeButton'>
+
+            <button onClick={this.toggleShowing}>
+              {locationShowing ? "Subscribe" : "Unsubscribe"}
+            </button>
+          </div>
+
+
         <div className='titleSummaryMiniInfo'>
           <div className='subredditLink'>
             <h3 key={subreddit.id} value={'/subredditPosts/' + subreddit.id}><Link to={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</Link></h3>
