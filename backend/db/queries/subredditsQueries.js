@@ -20,7 +20,7 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
   let subredditId = parseInt(req.params.subreddit_id);
   db.any(
     // "SELECT subreddits.*, posts.* FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id WHERE subreddit_id =$1", [subredditId])
-    'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id WHERE subreddits.id =$1', [subredditId])
+    'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id WHERE subreddits.id =$1', [subredditId])
 
   .then(data => {
     res.status(200).json({

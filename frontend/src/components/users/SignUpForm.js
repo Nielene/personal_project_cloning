@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import '../../css/users/SighUpForm.css'
 import { createUser } from '../../actions/userActions'
 import { connect } from 'react-redux';
+// import swal from 'sweetalert';
 
 const mapStateToProps = state => ({
   isLoggedIn: state.users.isLoggedIn,
-  user: {}
+  user: {},
 })
 
 const mapDispatchToProps = dispatch => {
@@ -48,20 +49,32 @@ class SighUpForm extends Component {
     this.props.createUser(addUser)
 
     console.log('display inputs', this.state.username);
+    let newUsername = this.state.username
 
-    const display = () => {
-      return (
-
-        <div>
-          {this.props}
-        </div>
+    var welcome = function() {
+      alert(
+        `Welcome to ReReddit! \n
+        You won t regrettit. \n
+        And if you do... \n
+        You should have read ... \n
+        ... the fine print ` + newUsername
       )
     }
+    welcome();
+
+  //     Swal.fire(
+  //   'Good job!',
+  //   'You clicked the button!',
+  //   'success'
+  // )
+  // npm install sweetalert --save
 
   }
 
   render() {
     console.log(this.state);
+    console.log('props', this.props);
+    console.log(this.props.users);
     return (
       <div className='formDiv' id='postFormTextForm'>
 

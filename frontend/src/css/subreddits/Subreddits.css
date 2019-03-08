@@ -1,3 +1,7 @@
+/* body .subredditPage {
+  background-color: lightyellow;
+} */
+
 .allSubredditsHeading {
   margin-left: 20px;
 }
@@ -71,6 +75,7 @@ div.subredditLink {
 }
 
 .subredditSummary {
+  background-color: lightyellow;
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding-left: 10px;

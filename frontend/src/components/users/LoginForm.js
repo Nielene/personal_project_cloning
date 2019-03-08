@@ -66,9 +66,9 @@ class LoginForm extends Component {
             <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
           </div>
 
-          <div className='inputs text'>
+          <div className='inputs title'>
             <label>Password: </label>
-            <textarea name='password' onChange={this.onChange} value={this.state.password} />
+            <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
           </div>
 
 

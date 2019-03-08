@@ -4,7 +4,7 @@ const { db } = require('../index.js');
 const getAllPosts = (req, res, next) => {
   db.any(
     // 'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
-'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN users ON subreddits.id = users.subreddit_id JOIN posts ON users.id = posts.user_id'
+'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id'
 // SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id
   )
   .then(posts => {

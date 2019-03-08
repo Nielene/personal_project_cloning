@@ -11,17 +11,18 @@ export const createUser = (userCredentialsObject) => dispatch => {
       payload: res.data.body  //  the resoponse that came form the backend with the user
     })
     console.log(res.data.body); //from backend RETURNING, db.one, etc on that INSERT statement
+    console.log(res.data.body.username);
     // debugger      // console -> React -> Provider -> scroll to storeState -> users -> user -> object with info (yay!)
   })
 }
 
 
 export const login = (user) => dispatch => {
-  axios.post('/users/login')
+  axios.post('/users/login', user)
   .then((res) => {
     dispatch ({
       type: RECEIVE_USER,
-      payload: res.data
+      payload: res.data.body
     })
   })
 }

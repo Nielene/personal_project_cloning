@@ -58,7 +58,7 @@ class Subreddits extends Component {
     ))
       // debugger
     return (
-      <div className=''>
+      <div className='subredditPage'>
         <div className="allSubredditsHeading">
           <h3>ALL SUBREDDITS</h3>
         </div>
