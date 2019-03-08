@@ -87,35 +87,37 @@ class LoginForm extends Component {
     }
 
     return (
-      <div className='formDiv' id='postFormTextForm'>
+      <div className='loginPageDiv'>
 
-        {linkToPostFormLink()}
+        <div className='formDiv' id='postFormTextForm'>
 
-        <form onSubmit={this.onSubmitLogin}>
+          {linkToPostFormLink()}
 
-          <div className='submitATextOrLinkHeading'>
-            <h3>Login</h3>
-          </div>
+          <form onSubmit={this.onSubmitLogin}>
 
-          <div className='inputs title'>
-            <label>Username: </label>
-            <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
-          </div>
+            <div className='submitATextOrLinkHeading'>
+              <h3>Login</h3>
+            </div>
 
-          <div className='inputs title'>
-            <label>Password: </label>
-            <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
-          </div>
+            <div className='inputs title'>
+              <label>Username: </label>
+              <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
+            </div>
 
-
-          <div className='inputs submit'>
-            <button type='submit'>Submit</button>
-          </div>
+            <div className='inputs title'>
+              <label>Password: </label>
+              <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
+            </div>
 
 
-        </form>
+            <div className='inputs submit'>
+              <button type='submit'>Submit</button>
+            </div>
+
+
+          </form>
+        </div>
       </div>
-
     )
   }
 

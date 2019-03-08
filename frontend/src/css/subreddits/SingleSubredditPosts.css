@@ -26,6 +26,11 @@
 
 }
 
+.singleSubreddit h3 {
+  color: green;
+}
+
+
 .postItemImage img {
   grid-column: 3;
 

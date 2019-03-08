@@ -1,3 +1,12 @@
+.postHomePageDiv {
+  /* background-image: url('http://bdfjade.com/data/out/117/6205965-pretty-wallpaper.jpg'); */
+  background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,1));
+  height: inherit;
+  margin-top: 0px;
+  padding-top: 10px;
+
+}
+
 /* ---- LinksAndSearchDiv plus PostItems ---- */
 
 .LinksAndSearch_PostItems_Div {
@@ -21,14 +30,18 @@
 .postFormTextLink{
   border-style: groove;
   margin-bottom: 10px;
-  background-color: lightblue;
+  /* background-color: lightgreen; */
+  /* background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,1)); */
+  background-image: linear-gradient(to left, rgba(0,255,0,0.3), rgba(0,255,0,1));
+
   height: 30px;
   padding-top: 5px;
   padding-bottom: 2px;
   padding-left: 5px;
+  border-radius: 10px;
 }
 
-.postFormLinkLink{
+/* .postFormLinkLink{
   border-style: groove;
   background-color: lightblue;
   height: 30px;
@@ -36,7 +49,7 @@
   padding-top: 5px;
   padding-bottom: 2px;
   padding-left: 5px;
-}
+} */
 
 /* --- the searchBar and the 2 Link tags ---  */
 
@@ -44,13 +57,16 @@
   display: flex;
   flex-direction: column;
   border-style: ridge;
+  border-radius: 10px;
   width: 450px;
   height: 200px;
   padding-right: 20px;
   padding-bottom: 20px;
   margin-top: 10px;
   align-items: flex-start;
-  background-color: lightyellow;
+  /* background-color: lightyellow; */
+  background-image: linear-gradient(to left, rgba(0,0,0,1), rgba(255, 255,255,1));
+
 }
 
 .LinksAndSearchDiv {
@@ -71,6 +87,10 @@
   /* display: flex;
   flex-direction: row; */
   margin: 15px;
+  border: 1px solid white;
+  background-image: linear-gradient(to right, rgba(0,255,0,0), rgba(0,255,0,1));
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .postItemCount {
@@ -79,9 +99,52 @@
 }
 
 .postItemVotes {
+  display: flex;
+  flex-direction: column;
   grid-column: 2;
 
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  /* justify-content: center; */
+  align-items: center;
+
+}
+
+.postItemVotes h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+  font-size: 15px
+}
+
+.postItemVotes button {
+  padding: 0px;
+  border: none;
+  width: 0px;
+}
+
+.postItemVotes button span {
+  /* align-items: center; */
+  /* margin-right: 20px; */
+}
+
+.postItemVotes button:hover {
+  background-color: lightgreen;
+  -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+}
+img:last-of-type:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 255, 0, 0.67);
+-moz-box-shadow:    0px 0px 30px 0px rgba(255, 255, 0, 0.67);
+box-shadow:         0px 0px 30px 0px rgba(255, 255, 0, 0.67);
+
+/* box-shadow:         0px 0px 30px 0px rgba(232, 0, 0, 0.67); */
 
 }
 

@@ -32,8 +32,11 @@ class Posts extends Component {
         <div className='postItemCount'>
           <h3> # </h3>
         </div>
+
         <div className='postItemVotes'>
+          <button><span role="img" aria-label="Panda">🔼</span></button>
           <h3>{Math.floor(Math.random() * 10000)}</h3>
+          <button><span role="img" aria-label="Panda">🔽</span></button>
         </div>
 
         <div className='postItemImage'>
@@ -52,6 +55,8 @@ class Posts extends Component {
       </div>
     ))
     return (
+      <div className='postHomePageDiv'>
+
       <div className='LinksAndSearch_PostItems_Div'>
 
         <div className='LinksAndSearchDiv'>
@@ -62,7 +67,7 @@ class Posts extends Component {
               <div className='postFormTextLink'>
                 <Link to={'/submitText'}>Submit a new text post</Link>
               </div>
-              <div className='postFormLinkLink'>
+              <div className='postFormTextLink'>
                 <Link to={'/submitLink'}>Submit a new link</Link>
               </div>
             </div>
@@ -74,6 +79,7 @@ class Posts extends Component {
         <div className='allPostItemsDiv'>
           {postItems}
         </div>
+      </div>
       </div>
     )
   }

@@ -50,11 +50,14 @@ class SingleSubredditPosts extends Component {
     const postItems = this.props.subredditPosts.map(post => (
       <div key={post.id} className ='eachPostItemDiv'>
         <div className='postItemCount'>
-          <h3> # </h3>
+          
         </div>
 
-        <div className='postItemVotes'>
+
+        <div className='postItemVotes singleSubreddit'>
+          <button><span role="img" aria-label="Panda">🔼</span></button>
           <h3>{Math.floor(Math.random() * 10000)}</h3>
+          <button><span role="img" aria-label="Panda">🔽</span></button>
         </div>
 
         <div className='postItemImage'>

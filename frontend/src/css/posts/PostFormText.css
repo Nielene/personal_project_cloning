@@ -1,6 +1,22 @@
+.loginPageDiv {
+  /* background-image: url('http://bdfjade.com/data/out/117/6205965-pretty-wallpaper.jpg'); */
+  background-image: linear-gradient(to bottom left, rgba(0,0,0,0), rgba(0,0,0,1));
+  height: 100vh;
+  margin-top: 0px;
+  padding-top: 10px;
+}
+.signupPageDiv {
+  /* background-image: url('http://bdfjade.com/data/out/117/6205965-pretty-wallpaper.jpg'); */
+  background-image: linear-gradient(to bottom right, rgba(0,0,0,0), rgba(0,0,0,1));
+  height: 100vh;
+  margin-top: 0px;
+  padding-top: 10px;
+}
+
+
 .theLinks {
   margin-left: 50px;
-  margin-top: 10px;
+  margin-top: 0px;
 
   display: flex;
   flex-direction: row;

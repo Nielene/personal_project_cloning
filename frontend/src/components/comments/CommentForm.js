@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import { createComment } from '../../actions/commentActions'//our action;
 import '../../css/comments/CommentForm.css';
+import { Link } from 'react-router-dom';
+
 
 // import { NavLink } from 'react-router-dom'
 // import axios from 'axios';
@@ -13,9 +15,11 @@ class CommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "Nielene",
       body: '',
       date_created: '0 hours ago',
       votes: Math.floor(Math.random() * 2000) + ' points',
+      displayVariable: ''
       // title: '',
       // subreddit_title: '',
       // image_url: '',
@@ -35,38 +39,63 @@ class CommentForm extends Component {
     e.preventDefault();
 
     const addComment = {
-      // post_title: this.state.title,
       comment_body: this.state.body,
-      // image_url: this.state.image_url,
-      // my_subreddit_title: this.state.subreddit_title,
-
-      // post_id
-      // user_id
     }
 
     // Call Action (commentActions)
     this.props.createComment(addComment)
 
+    const displayComment = function() {
+      return (
+        <div>
+          <div className='userVotesAndTime'>
+            <Link to=''><h6>{this.state.username}</h6></Link>
+            <p>{Math.floor(Math.random() * 10000)} points</p>
+            <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+          </div>
+          <div className='commentBody'>
+            <p>{this.state.body}</p>
+          </div>
+        </div>
+      )
+    }
   }
 
   render () {
     console.log(this.state);
     const placeholderText = "We'd appreciate if you remain polite with your comments."
+
     return (
       <div>
+        <div>
 
-        <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit}>
 
-          <div>
-            <label> </label><br />
-            <textarea name='body' onChange={this.onChange} value={this.state.body} placeholder={placeholderText} rows="8" cols="80" />
-          </div>
-          <br />
+            <div>
+              <label> </label><br />
+              <textarea name='body' onChange={this.onChange} value={this.state.body} placeholder={placeholderText} rows="8" cols="80" />
+            </div>
+            <br />
 
-          <button type='submit'>save</button>
-        </form>
+            <button type='submit'>save</button>
+          </form>
+        </div>
+
+
+      <div>
+        <div className='userVotesAndTime'>
+          <Link to=''><h6>{this.state.username}</h6></Link>
+          <p>{Math.floor(Math.random() * 10000)} points</p>
+          <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+        </div>
+        <div className='commentBody'>
+          <p>{this.state.body}</p>
+        </div>
       </div>
-    )
+
+    </div>
+  )
+
   }
 }
 

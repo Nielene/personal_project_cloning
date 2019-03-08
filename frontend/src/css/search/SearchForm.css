@@ -21,7 +21,9 @@
   width: 100px;
   font-family: monospace;
   font-size: 20px;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  background-image: linear-gradient(to left, rgba(0,255,0,0.5), rgba(0,255,0,1));
+
 }
 
 /* not working */

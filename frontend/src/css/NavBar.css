@@ -8,7 +8,10 @@ img {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background: lightblue;
+  /* background: lightblue; */
+  background-image: linear-gradient(to left, rgba(0,255,0,0), rgba(0,255,0,1));
+  background-image: linear-gradient(to left, rgba(0,100,0,1), rgba(0,255,0,1));
+
 }
 
 .logoReReddit {
@@ -62,11 +65,17 @@ img {
   margin-bottom: 0px;
 }
 
+.loginButton {
+  margin-left: 10px;
+}
+
 .loginButton button {
   height: 20px;
   margin-top: 38px;
+  margin-right: 0px;
 }
 .loginButton h4 {
   height: 20px;
   margin-top: 0px;
+  margin-right: 0px;
 }

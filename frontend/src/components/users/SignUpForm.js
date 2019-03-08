@@ -93,36 +93,39 @@ class SighUpForm extends Component {
     }
 
     return (
-      <div className='formDiv' id='postFormTextForm'>
+      <div className='signupPageDiv'>
 
-        {linkToPostFormLink()}
+        <div className='formDiv' id='postFormTextForm'>
+
+          {linkToPostFormLink()}
 
 
-        <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit}>
 
-          <div className='submitATextOrLinkHeading'>
-            <h3>SignUp</h3>
-          </div>
+            <div className='submitATextOrLinkHeading'>
+              <h3>SignUp</h3>
+            </div>
 
-          <div className='inputs title'>
-            <label>Username: </label>
-            <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
-          </div>
+            <div className='inputs title'>
+              <label>Username: </label>
+              <input type='text' name='username' onChange={this.onChange} value={this.state.username} />
+            </div>
 
-          <div className='inputs title'>
-            <label>Password: </label>
-            <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
+            <div className='inputs title'>
+              <label>Password: </label>
+              <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
 
+            </div>
+
+
+            <div className='inputs submit'>
+              <button type='submit'>Submit</button>
+            </div>
+
+
+
+          </form>
         </div>
-
-
-          <div className='inputs submit'>
-            <button type='submit'>Submit</button>
-          </div>
-
-
-
-        </form>
       </div>
 
     )
