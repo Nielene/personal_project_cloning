@@ -11,7 +11,7 @@ export const NavBar = () => {
       <SubredditDropDown />
       <div className = 'NavLinkDiv' >
           <div className='logoReReddit_usernameAndLogin'>
-            <NavLink to={'/'}>
+            <NavLink to={'/'} style={{ textDecoration: 'none' }}>
               <div className='logoReReddit'>
                 <img alt='' height='50' width='50' src='http://i.imgur.com/sdO8tAw.png' />
                 <h4>ReReddit</h4>

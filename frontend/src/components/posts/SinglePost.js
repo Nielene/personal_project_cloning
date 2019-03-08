@@ -38,8 +38,8 @@ class SinglePost extends Component {
         <div >
           <div className='eachPostItemDiv'>
 
-            
-            <div className='postItemVotes'>
+
+            <div className='postItemVotes singleSubreddit'>
               <button><span role="img" aria-label="Panda">🔼</span></button>
               <h3>{Math.floor(Math.random() * 10000)}</h3>
               <button><span role="img" aria-label="Panda">🔽</span></button>

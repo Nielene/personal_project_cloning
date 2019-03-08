@@ -65,6 +65,13 @@ class PostFormText extends Component {
     // Call Action (postActions)
     this.props.createPost(addPost)
 
+    const welcomeMessage = function() {
+      alert(
+        `Your Text Post has been submitted. `
+      )
+    }
+    welcomeMessage();
+
   }
 
   render () {
@@ -88,6 +95,8 @@ class PostFormText extends Component {
       ))
 
     return (
+      <div className='signupPageDiv'>
+
       <div className='formDiv' id='postFormTextForm'>
 
         {linkToPostFormLink()}
@@ -128,6 +137,7 @@ class PostFormText extends Component {
             <button type='submit'>Submit</button>
           </div>
         </form>
+      </div>
       </div>
     )
   }

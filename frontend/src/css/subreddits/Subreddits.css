@@ -4,6 +4,8 @@
 
 .allSubredditsHeading {
   margin-left: 20px;
+  color: green;
+  font-size: 20px;
 }
 
 .subscribeInstructions p {
@@ -11,8 +13,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 1px solid orange;
-  background-color: yellow;
+  border: 2px solid green;
+  border-radius: 10px;
+  /* background-color: yellow; */
+  background-image: linear-gradient(to left, rgba(0,255,0,1), rgba(0,255,0,0));
+
   /* height: 40px; */
   width: 50%;
   padding: 10px;
@@ -75,7 +80,8 @@ div.subredditLink {
 }
 
 .subredditSummary {
-  background-color: lightyellow;
+  background-image: linear-gradient(to left, rgba(0,100,0,1), rgba(0,255,0,1));
+
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding-left: 10px;

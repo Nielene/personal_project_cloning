@@ -54,6 +54,13 @@ class PostFormLink extends Component {
     // Call Action (postActions)
     this.props.createPost(addPost)
 
+    const welcomeMessage = function() {
+      alert(
+        `Your Link Post has been submitted. `
+      )
+    }
+    welcomeMessage();
+
   }
 
   render () {
@@ -78,6 +85,8 @@ class PostFormLink extends Component {
       ))
 
     return (
+      <div className='loginPageDiv'>
+
       <div className = 'formDiv' id='postFormLinkForm'>
 
         {linkToPostFormLink()}
@@ -124,6 +133,8 @@ class PostFormLink extends Component {
 
         </form>
       </div>
+      </div>
+
     )
   }
 }

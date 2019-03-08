@@ -50,7 +50,7 @@ class Subreddits extends Component {
 
 
     const subredditItems = this.props.subredditList.map(subreddit => (
-      <div className='subscribeButtonAndSubredLink'>
+      <div className='subscribeButtonAndSubredLink eachPostItemDiv'>
         {/*
 
           <div className='subscribeButton'>

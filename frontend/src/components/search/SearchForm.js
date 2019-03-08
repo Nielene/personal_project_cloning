@@ -42,7 +42,7 @@ class SearchForm extends Component {
     }
 
     // Call Action (postActions)
-    this.props.search(searchBody)
+    // this.props.search(searchBody)
 
   }
 
@@ -66,9 +66,9 @@ class SearchForm extends Component {
   }
 }
 
-SearchForm.propTypes = {
-  search: PropTypes.func.isRequired
-}
+// SearchForm.propTypes = {
+//   search: PropTypes.func.isRequired
+// }
 
 // export default connect(null, { search })(SearchForm);
 export default SearchForm;

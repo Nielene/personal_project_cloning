@@ -30,10 +30,10 @@ class Posts extends Component {
 
       <div key={post.id} className='eachPostItemDiv'>
         <div className='postItemCount'>
-          <h3> # </h3>
+          <h3>  </h3>
         </div>
 
-        <div className='postItemVotes'>
+        <div className='postItemVotes '>
           <button><span role="img" aria-label="Panda">🔼</span></button>
           <h3>{Math.floor(Math.random() * 10000)}</h3>
           <button><span role="img" aria-label="Panda">🔽</span></button>
@@ -44,11 +44,11 @@ class Posts extends Component {
         </div>
 
         <div className='postItemBody'>
-          <Link to={'/post/'+ post.id}> <p>{post.post_title}</p></Link>
+          <Link to={'/post/'+ post.id } style={{ textDecoration: 'none' }} > <p>{post.post_title}</p></Link>
           {/*<p>{post.post_body}</p>*/}
-          <h6>submitted {Math.floor(Math.random() * 24)}  hours ago by <Link to={'/userPosts/' + post.user_id}> {post.username}</Link> to <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link> </h6>
+          <h6>submitted {Math.floor(Math.random() * 24)}  hours ago by <Link to={'/userPosts/' + post.user_id} style={{ textDecoration: 'none' }}> {post.username}</Link> to <Link to={'/subredditPosts/' + post.subreddit_id} style={{ textDecoration: 'none' }}>{post.my_subreddit_title}</Link> </h6>
           <div>
-            <Link to={'/post/' + post.id}> <h6>{Math.floor(Math.random() * 1000)} comments</h6> </Link>
+            <Link to={'/post/' + post.id} style={{ textDecoration: 'none' }}> <h6>{Math.floor(Math.random() * 1000)} comments</h6> </Link>
           </div>
         </div>
 
@@ -65,10 +65,10 @@ class Posts extends Component {
             <br />
             <div className='postFormLinks'>
               <div className='postFormTextLink'>
-                <Link to={'/submitText'}>Submit a new text post</Link>
+                <Link to={'/submitText'} style={{ textDecoration: 'none' }}><p>Submit a new text post</p></Link>
               </div>
               <div className='postFormTextLink'>
-                <Link to={'/submitLink'}>Submit a new link</Link>
+                <Link to={'/submitLink'} style={{ textDecoration: 'none' }}><p>Submit a new link</p></Link>
               </div>
             </div>
           </div>

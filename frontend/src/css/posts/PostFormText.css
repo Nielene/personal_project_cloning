@@ -1,13 +1,17 @@
 .loginPageDiv {
   /* background-image: url('http://bdfjade.com/data/out/117/6205965-pretty-wallpaper.jpg'); */
-  background-image: linear-gradient(to bottom left, rgba(0,0,0,0), rgba(0,0,0,1));
+  /* background-image: linear-gradient(to bottom left, rgba(0,0,0,0), rgba(0,0,0,1)); */
+  background-image: linear-gradient(to bottom , rgba(255,255,0,0.5), rgba(0,255,0,1));
   height: 100vh;
   margin-top: 0px;
   padding-top: 10px;
 }
 .signupPageDiv {
   /* background-image: url('http://bdfjade.com/data/out/117/6205965-pretty-wallpaper.jpg'); */
-  background-image: linear-gradient(to bottom right, rgba(0,0,0,0), rgba(0,0,0,1));
+  /* background-image: linear-gradient(to bottom , rgba(255,255,0,1), rgba(0,100,0,1)); */
+  background-image: linear-gradient(to bottom , rgba(255,255,0,1), rgba(0,255,0,1));
+
+
   height: 100vh;
   margin-top: 0px;
   padding-top: 10px;
@@ -37,7 +41,10 @@
   border-radius: 10px;
   /* padding: 0px; */
   padding-right: 15px;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  /* background-image: linear-gradient(to bottom right, rgba(0,255,0,0), rgba(0,255,0,1)); */
+  background-image: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(0,255,0,1));
+
   font-family: monospace;
   /* height: 30px; */
 }
@@ -51,7 +58,11 @@
   border-style: groove;
   border-radius: 10px;
   padding-right: 15px;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  /* background-image: linear-gradient(to bottom right, rgba(0,255,0,0), rgba(0,255,0,1)); */
+  background-image: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(0,255,0,1));
+
+
   font-family: monospace;
   /* height: 30px; */
 }
@@ -77,7 +88,9 @@
   border-radius: 15px;
   padding: 15px;
   width: 500px;
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  background-image: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(0,255,0,1));
+
 }
 
 form .inputs {

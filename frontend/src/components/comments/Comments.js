@@ -32,7 +32,7 @@ class Comments extends Component {
 
 
       const commentItems = this.props.comments.map(comment => (
-      <div key={comment.id}>
+      <div key={comment.id} className =''>
 
         <div className='userVotesAndTime'>
           <Link to=''><h6>{comment.username}</h6></Link>
@@ -54,7 +54,7 @@ class Comments extends Component {
           {/* // <h1>Comments</h1> */}
           <div>
             <div className= 'commentFormDiv'>
-              
+
               <CommentForm />
             </div>
             {commentItems}

@@ -26,13 +26,17 @@ img {
   margin-bottom: 5px;
 
 }
-.logoReReddit h4 {
+ .logoReReddit h4 {
   margin-left: 10px;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
   font-family: sans-serif;
+  color: rgb(0,60,0);
+  /* text-decoration: none; */
 }
+
+
 
 .LinksAndSearch {
   display: flex;
