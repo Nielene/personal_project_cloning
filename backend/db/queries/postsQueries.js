@@ -4,7 +4,7 @@ const { db } = require('../index.js');
 const getAllPosts = (req, res, next) => {
   db.any(
     // 'SELECT posts.*, subreddits.my_subreddit_title FROM posts JOIN subreddits ON posts.subreddit_id = subreddits.id'
-'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id'
+'SELECT users.*, subreddits.*, posts.* FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id ORDER BY posts.id DESC'
 // SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id
   )
   .then(posts => {
@@ -66,12 +66,15 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
   let queryString = "INSERT INTO posts ";
 
   if (req.body.image_url) {
-    queryString +=   "(image_url, post_title, subreddit_id) VALUES(${image_url}, ${post_title}, ${subreddit_id} )"
+    queryString +=   "(image_url, post_title, subreddit_id, user_id) VALUES(${image_url}, ${post_title}, ${subreddit_id}, ${user_id} )"
   } else if (req.body.post_body) {
-    queryString +=   "(post_body, post_title, subreddit_id) VALUES(${post_body}, ${post_title}, ${subreddit_id} )"
+    queryString +=   "(post_body, post_title, subreddit_id, user_id) VALUES(${post_body}, ${post_title}, ${subreddit_id}, ${user_id} )"
   }
 
-  db.none(queryString, req.body)
+  db.none(queryString, {
+    ...req.body,
+    user_id: req.user.id // if user is loogged in , you alwyas have req.user - which contains the user. i copied this from isLoggedIn (usersQueries)
+  })
   // db.none("INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES( ${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title} )",
   //   req.body)
   .then(() => {

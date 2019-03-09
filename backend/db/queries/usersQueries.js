@@ -29,6 +29,8 @@ function createUser(req, res, next) {
       res.status(500).json({
         message: err
       });
+      // console.log(err);
+      next();
     });
 }
 

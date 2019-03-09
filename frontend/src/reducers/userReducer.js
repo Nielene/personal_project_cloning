@@ -1,4 +1,4 @@
-import { LOGOUT_USER, RECEIVE_USER  } from '../actions/types';
+import { REMOVE_USER, RECEIVE_USER  } from '../actions/types';
 // import Auth from "./utils/Auth";
 
 const initialState = {
@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
         isLoggedIn: true,
         user: action.payload
       }
-    case LOGOUT_USER:
+    case REMOVE_USER:
     // console.log('postReducer: FETCH_POSTS: reducer');
     return {
       ...state,

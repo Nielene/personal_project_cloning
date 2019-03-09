@@ -27,6 +27,8 @@ class PostFormLink extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  
+
   componentDidMount() {
     console.log('PostFormLink.js, this.props', this.props);
     this.props.fetchMySubreddits();
@@ -48,7 +50,7 @@ class PostFormLink extends Component {
       post_title: this.state.title,
       post_body: this.state.body,
       image_url: this.state.image_url,
-      my_subreddit_title: this.state.subreddit_title,
+      subreddit_id: this.state.subreddit_id,
     }
 
     // Call Action (postActions)
@@ -66,6 +68,9 @@ class PostFormLink extends Component {
   render () {
 
     console.log(this.state);
+    console.log(this.props);
+    console.log(this.props.newPost.post_title);
+    console.log(this.state.title);
     const linkToPostFormLink = () => {
       return (
 
@@ -99,13 +104,13 @@ class PostFormLink extends Component {
 
           <div  className='inputs title'>
             <label>url: </label>
-            <input type='text' name='image_url' onChange={this.onChange} value={this.state.image_url} />
+            <input type='text' name='image_url' onChange={this.onChange} value={this.props.newPost.image_url} />
           </div>
 
 
           <div className='inputs title'>
             <label>title: </label>
-            <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
+            <input type='text' name='title' onChange={this.onChange} value={this.props.newPost.title} />
           </div>
 
 

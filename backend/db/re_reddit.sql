@@ -18,7 +18,7 @@ CREATE TABLE subreddits (
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(240),
+  username VARCHAR(240) UNIQUE,
   password_digest VARCHAR NOT NULL,
   -- post_id INT REFERENCES posts(id) ON DELETE CASCADE,
   karma_points INT

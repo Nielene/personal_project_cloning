@@ -9,11 +9,11 @@ for (let i = 0; i < subreddits.length; i++) {
 }
 
 let users = [];
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 10; i++) {
   let username = faker.internet.userName();
   let password_digest = faker.internet.password();
   // let post_id = Math.floor(Math.random() * 100) + 1;
-  let karma_points = Math.floor(Math.random() * 1000);
+  let karma_points = Math.floor(Math.random() * 10);
   // let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   // let str = `( '${username}', ${post_id}, ${karma_points} )`
   let str = `( '${username}', '${password_digest}', ${karma_points} )`
@@ -21,49 +21,49 @@ for (let i = 0; i < 50; i++) {
 }
 
 let posts = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 10; i++) {
   let post_title = faker.lorem.sentence();
   let post_body = faker.lorem.sentences();
   let image_url = faker.random.image()
   // let image_url = faker.image.imageUrl();
   // let subreddit_id =
   let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
-  let user_id = Math.floor(Math.random() * 50) + 1;
+  let user_id = Math.floor(Math.random() * 10) + 1;
   let str = `('${post_title}', '${post_body}', '${image_url}', ${subreddit_id}, ${user_id} )`
   posts.push(str)
 }
 
 let comments = [];
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 10; i++) {
   let comment_body = faker.lorem.sentences();
-  let post_id = Math.floor(Math.random() * 100) + 1;
-  let user_id = Math.floor(Math.random() * 50) + 1;
+  let post_id = Math.floor(Math.random() * 10) + 1;
+  let user_id = Math.floor(Math.random() * 10) + 1;
   let str = "( '" + comment_body + "', " + post_id + ", " + user_id + " )"
   comments.push(str)
 }
 
 let subreddit_posts = [];
-for (let i = 0; i < 100; i++) {
-  let post_id = Math.floor(Math.random() * 100) + 1;
+for (let i = 0; i < 10; i++) {
+  let post_id = Math.floor(Math.random() * 10) + 1;
   let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   let str = `(  ${post_id}, ${subreddit_id} )`
   subreddit_posts.push(str)
 }
 
 let user_subreddits_subscriptions = [];
-for (let i = 0; i < 100; i++) {
-  let user_id = Math.floor(Math.random() * 50) + 1;
+for (let i = 0; i < 10; i++) {
+  let user_id = Math.floor(Math.random() * 10) + 1;
   let subreddit_id = Math.floor(Math.random() * subredditsSql.length) + 1;
   let str = `(  ${user_id}, ${subreddit_id} )`
   user_subreddits_subscriptions.push(str)
 }
 
 let up_down_votes = [];
-for (let i = 0; i < 100; i++) {
-  let initial_count = Math.floor(Math.random() * 1000) + 1;
+for (let i = 0; i < 10; i++) {
+  let initial_count = Math.floor(Math.random() * 10) + 1;
   let vote_type;
     ( Boolean(Math.round(Math.random())) <= 0.5 ) ? type = 'up' : type = 'down';
-  let post_id = Math.floor(Math.random() * 100) + 1;
+  let post_id = Math.floor(Math.random() * 10) + 1;
   let str = `( ${initial_count}, '${vote_type}', ${post_id} )`
   up_down_votes.push(str)
 }

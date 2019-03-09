@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { createPost } from '../../actions/postActions'//our action;
+// import { createPost } from '../../actions/postActions'//our action;
 import '../../css/posts/PostFormText.css';
 import { withRouter } from "react-router";
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
+import { createPost } from '../../actions/postActions';
 
 
-import postFormLink from './PostFormLink';
+// import postFormLink from './PostFormLink';
 
 
 // import { NavLink } from 'react-router-dom'
@@ -39,6 +40,7 @@ class PostFormText extends Component {
   componentDidMount() {
     console.log('PostFormText.js, this.props', this.props);
     this.props.fetchMySubreddits();
+    // this.props.createPost(postData)
   }
 
   updateSubreddit = e => {
@@ -59,7 +61,7 @@ class PostFormText extends Component {
       post_title: this.state.title,
       post_body: this.state.body,
       image_url: this.state.image_url,
-      my_subreddit_title: this.state.subreddit_title,
+      subreddit_id: this.state.subreddit_id,
     }
 
     // Call Action (postActions)
@@ -76,6 +78,8 @@ class PostFormText extends Component {
 
   render () {
     console.log(this.state);
+    console.log(this.props);
+    console.log(this.props.post_title);
     const linkToPostFormLink = () => {
       return (
 
