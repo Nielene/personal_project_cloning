@@ -12,6 +12,7 @@ export const fetchPosts = () => dispatch => {
         type: FETCH_POSTS,
         payload: res.data.posts
       })
+      // debugger
     })
 }
 
@@ -25,6 +26,7 @@ export const fetchSinglePost = (id) => dispatch => {
         type: FETCH_SINGLE_POST,
         payload: res.data.body
       })
+      // debugger
     })
 }
 

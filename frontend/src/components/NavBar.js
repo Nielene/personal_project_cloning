@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import SubredditDropDown from './subreddits/SubredditDropDown'
 import '../css/NavBar.css';
+
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { login } from '../actions/userActions'
 
-export const NavBar = () => {
-  return (
-    <nav>
-      <SubredditDropDown />
-      <div className = 'NavLinkDiv' >
+
+
+const mapStateToProps = state => ({
+  isLoggedIn: state.users.isLoggedIn,
+  user: state.users.user
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (user) => dispatch(login(user))
+  }
+}
+
+
+
+class NavBar extends Component {
+  render() {
+    console.log('isLoggedIn', this.props.isLoggedIn); // true
+    console.log('login', this.props.login);
+    console.log('user.username', this.props.user.username); //'Thomas'
+
+    return (
+      <nav>
+        <SubredditDropDown />
+        <div className = 'NavLinkDiv' >
           <div className='logoReReddit_usernameAndLogin'>
             <NavLink to={'/'} style={{ textDecoration: 'none' }}>
               <div className='logoReReddit'>
@@ -20,7 +43,7 @@ export const NavBar = () => {
 
             <div className='usernameAndLogin'>
               <div>
-                <Link to=''><h4>      </h4></Link>
+                <Link to=''><h4>   {this.props.user.username}   </h4></Link>
               </div>
               <div className='loginButton'>
                 <Link to='/signup'><button><h4>Sign Up</h4></button></Link>
@@ -30,7 +53,12 @@ export const NavBar = () => {
               </div>
             </div>
           </div>
-      </div>
-    </nav>
-  )
+        </div>
+      </nav>
+    )
+
+  }
+
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

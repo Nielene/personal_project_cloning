@@ -20,14 +20,15 @@ class PostFormLink extends Component {
       image_url: '',
       date_created: Math.floor(Math.random() * 24) + ' hours ago',
       votes: 1,
-      post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
+      post_type: 'link',
+      // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  
+
 
   componentDidMount() {
     console.log('PostFormLink.js, this.props', this.props);
@@ -51,6 +52,7 @@ class PostFormLink extends Component {
       post_body: this.state.body,
       image_url: this.state.image_url,
       subreddit_id: this.state.subreddit_id,
+      post_type: this.state.post_type,
     }
 
     // Call Action (postActions)
@@ -123,8 +125,7 @@ class PostFormLink extends Component {
                     {/* // <select onChange='window.location.href=this.value'> */}
                     <option>MY SUBREDDITS</option>
                     {subredditItems}
-                    <hr />
-                    <option value={'/Subreddits/'}>EDIT SUBSCRIPTIONS</option>
+
                   </select>
                 </div>
               </div>

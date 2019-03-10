@@ -13,6 +13,7 @@ router.delete('/:id', db.deleteSingleUser);   // DELETE   http://localhost:3000/
 router.get('/:user_id', db.getSingleUser);
 
 //auth login:
+// router.post("/new", db.createUser, passport.authenticate("local", {}), db.loginUser);
 router.post("/new", db.createUser);
 router.post("/login", passport.authenticate("local", {}), db.loginUser);
 router.post("/isLoggedIn", db.isLoggedIn);

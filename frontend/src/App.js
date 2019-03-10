@@ -3,7 +3,7 @@ import './css/App.css';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
-import { NavBar } from "./components/NavBar";
+import NavBar from "./components/NavBar";
 
 import SignUpForm from './components/users/SignUpForm';
 import LoginForm from './components/users/LoginForm';

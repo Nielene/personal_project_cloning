@@ -12,7 +12,7 @@ export const createUser = (userCredentialsObject) => dispatch => {
     // })
     console.log(res.data.body); //from backend RETURNING, db.one, etc on that INSERT statement
     console.log(res.data.body.username);
-    debugger      // console -> React -> Provider -> scroll to storeState -> users -> user -> object with info (yay!)
+    // debugger      // console -> React -> Provider -> scroll to storeState -> users -> user -> object with info (yay!)
   })
 
 }
@@ -33,7 +33,7 @@ export const login = (user) => dispatch => {    // ACTION FUNCITONS
     // debugger
   })
   // .then (() => {
-  //   dispatch (checkAuthenticateStatus(username)) // REDUNDANT AND UNNECESSARY. SHOULD TRUST THAT THE login FUNCITNO 200 MESSAGE IS ENOUGH.
+  //   dispatch (checkAuthenticateStatus(username))     // REDUNDANT AND UNNECESSARY. SHOULD TRUST THAT THE login FUNCITNO 200 MESSAGE IS ENOUGH.
   //   // debugger
   // })
 }

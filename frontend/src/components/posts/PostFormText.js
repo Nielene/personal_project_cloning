@@ -15,7 +15,7 @@ import { createPost } from '../../actions/postActions';
 
 // import { NavLink } from 'react-router-dom'
 // import axios from 'axios';
-// const faker = require('faker');
+const faker = require('faker');
 
 
 
@@ -27,10 +27,11 @@ class PostFormText extends Component {
       title: '',
       body: '',
       subreddit_id: 1,
-      image_url: '',
+      image_url: faker.image.imageUrl(),
       date_created: Math.floor(Math.random() * 24) + ' hours ago',
       votes: 1,
-      post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
+      post_type: 'text',
+      // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
     }
 
     this.onChange = this.onChange.bind(this);
@@ -62,17 +63,27 @@ class PostFormText extends Component {
       post_body: this.state.body,
       image_url: this.state.image_url,
       subreddit_id: this.state.subreddit_id,
+      post_type: this.state.post_type,
     }
 
     // Call Action (postActions)
     this.props.createPost(addPost)
 
+    // const linkToHomePage = () => {
+    //   return <Link to=''></Link>
+    //
+    // }
+
     const welcomeMessage = function() {
-      alert(
-        `Your Text Post has been submitted. `
-      )
+      alert(`Your Text Post has been submitted. `)
     }
     welcomeMessage();
+
+    // const linkToHomePage = () => {
+    //   return <Link to=''></Link>
+    //
+    // }
+    // linkToHomePage();
 
   }
 
@@ -113,12 +124,12 @@ class PostFormText extends Component {
 
           <div className='inputs title'>
             <label>Title: </label>
-            <input type='text' name='title' onChange={this.onChange} value={this.state.title} />
+            <input type='text' name='title' onChange={this.onChange} value={this.props.newPost.title} />
           </div>
 
           <div className='inputs text'>
             <label>Text: </label>
-            <textarea name='body' onChange={this.onChange} value={this.state.body} />
+            <textarea name='body' onChange={this.onChange} value={this.props.newPost.body} />
           </div>
 
           <div className='inputs subreddit'>
@@ -130,8 +141,7 @@ class PostFormText extends Component {
                     {/* // <select onChange='window.location.href=this.value'> */}
                     <option>MY SUBREDDITS</option>
                     {subredditItems}
-                    <hr />
-                    <option value={'/Subreddits/'}>EDIT SUBSCRIPTIONS</option>
+
                   </select>
                 </div>
               </div>
