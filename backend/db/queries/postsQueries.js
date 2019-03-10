@@ -62,10 +62,24 @@ const getAllPostsBySingleUser = (req, res, next) => {
                                   JOIN table3 ON table2.primarykey = table3.foreignkey*/
 
 const createNewPostInSingleSubreddit = (req, res, next) => {
-  db.none("INSERT INTO posts(post_title, post_body, image_url, post_type, post_time, subreddit_id, user_id) VALUES( ${post_title}, ${post_body}, ${image_url}, ${post_type}, ${subreddit_id}, ${user_id} )", {
+
+  let queryString = "INSERT INTO posts ";
+
+  if (req.body.image_url) {
+    queryString +=   "(image_url, post_title, post_type, post_time, subreddit_id, user_id) VALUES(${image_url}, ${post_title}, ${post_type}, ${post_time}, ${subreddit_id}, ${user_id} )"
+  } else if (req.body.post_body) {
+    queryString +=   "(post_body, post_title, post_type, post_time, subreddit_id, user_id, image_url) VALUES(${post_body}, ${post_title}, ${post_type}, ${post_time}, ${subreddit_id}, ${user_id}, ${image_url} )"
+  }
+
+  db.none(queryString, {
     ...req.body,
     user_id: req.user.id // if user is loogged in , you alwyas have req.user - which contains the user. i copied this from isLoggedIn (usersQueries) line 47.
   })
+
+  // db.none("INSERT INTO posts(post_title, post_body, image_url, post_type, post_time, subreddit_id, user_id) VALUES( ${post_title}, ${post_body}, ${image_url}, ${post_type}, ${subreddit_id}, ${user_id} )", {
+  //   ...req.body,
+  //   user_id: req.user.id // if user is loogged in , you alwyas have req.user - which contains the user. i copied this from isLoggedIn (usersQueries) line 47.
+  // })
   .then(() => {
     res.status(200).json({
       status: 'success',
@@ -125,6 +139,7 @@ module.exports = { getAllPosts, getSinglePost, getAllPostsBySingleUser, createNe
   //   ...req.body,
   //   user_id: req.user.id // if user is loogged in , you alwyas have req.user - which contains the user. i copied this from isLoggedIn (usersQueries) line 47.
   // })
+
 
 //---------------------------------------------
 // localhost:3000/posts/  GIVES ME THIS:
