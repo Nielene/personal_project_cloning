@@ -20,10 +20,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    createUser: (userObj) => dispatch(createUser(userObj)),
-    login: (userObj) => dispatch(login(userObj)),
+    // createUser: (userObj) => dispatch(createUser(userObj)),
+    // login: (userObj) => dispatch(login(userObj)),
     checkAuthenticateStatus: () => dispatch(checkAuthenticateStatus()),
-    logout: (id) => dispatch(logout(id)),
+    logout: () => dispatch(logout()),
 
     // checkAuthenticateStatus: (userObj) => dispatch(checkAuthenticateStatus(userObj))
   }
@@ -33,10 +33,6 @@ const mapDispatchToProps = dispatch => {
 
 
 class NavBar extends Component {
-  // state = {
-  //   isLoggedIn: false,
-  //   username: '',
-  // }
 
   componentDidMount () {
     console.log(this.props)
@@ -47,6 +43,24 @@ class NavBar extends Component {
     // this.props.checkAuthenticateStatus(this.props.user);
     // debugger
   }
+
+
+  onSubmitLogout = (e) => {
+    e.preventDefault();
+
+    console.log("Hello?")
+
+    this.props.logout();
+
+    const goodbyeMessage = function () {
+      alert(
+        `You are now logged out! \n
+        Come back soon!`
+      )
+    }
+    goodbyeMessage();
+  }
+
 
   render() {
      // console.log('isLoggedIn', this.props.isLoggedIn); // true
@@ -70,11 +84,16 @@ class NavBar extends Component {
                 <Link to=''><h4>   {this.props.user.username}   </h4></Link>
               </div>
               <div className='loginButton'>
-                <Link to='/signup'><button><h4>"Sign Up" </h4></button></Link>
+                <Link to='/signup'><button><h4>Sign Up </h4></button></Link>
               </div>
               <div className='loginButton'>
                 <Link to='/login'><button><h4>Login</h4></button></Link>
               </div>
+
+              <div className='loginButton' >
+                <button onClick={this.onSubmitLogout}><h4>Logout</h4></button>
+              </div>
+
             </div>
           </div>
         </div>
