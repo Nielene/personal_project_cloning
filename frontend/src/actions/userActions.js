@@ -53,13 +53,14 @@ export const checkAuthenticateStatus = () => dispatch => {
   axios.post('/users/isLoggedIn')
   .then((res) => {
     //  console.log('res line 50', res.data.username.username);
-    debugger
-    if (res.data.username.username === Auth.getToken()) {
+    console.log("RESPONSE", res.data)
+    if (res.data.username.username && res.data.username.username === Auth.getToken()) {
+      console.log("HELLO", res.data.username.username, Auth.getToken())
       dispatch ({
         type: RECEIVE_USER,
-        payload: Auth.isUserAuthenticated()
+        payload: res.data.username
       })
-    } else if (res.data.username) {
+    } else if (res.data.username.username) {
       logout()
     } else {
       Auth.deauthenticateUser();

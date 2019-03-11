@@ -27,7 +27,7 @@ function createUser(req, res, next) {
     .catch(err => {
        console.log(err, 'Log of err');
       res.status(500).json({
-        message: err
+        message: "User already exists."
       });
       //  console.log(err);
       next();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -105,17 +105,18 @@ class Subreddits extends Component {
   }
 }
 
-Subreddits.propTypes = {
-  fetchMySubreddits: PropTypes.func.isRequired,
-  subreddits: PropTypes.array.isRequired,
-  newPost: PropTypes.object
-}
+// Subreddits.propTypes = {
+//   fetchMySubreddits: PropTypes.func.isRequired,
+//   subreddits: PropTypes.array.isRequired,
+//   newPost: PropTypes.object
+// }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+  return ({
   subredditList: state.subreddits.subredditList,
-  newPost: state.subreddits.item,
-  // selectedId: ownProps.match.params.id
-})
+  newPost: state.subreddits.item
+  })
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
@@ -124,4 +125,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 // export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);
-export default withRouter(connect(mapStateToProps, mapDispatchToProps )(Subreddits));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Subreddits));

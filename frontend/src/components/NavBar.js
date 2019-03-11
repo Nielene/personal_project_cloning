@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
   return {
     createUser: (userObj) => dispatch(createUser(userObj)),
     login: (userObj) => dispatch(login(userObj)),
-    checkAuthenticateStatus: () => checkAuthenticateStatus(),
+    checkAuthenticateStatus: () => dispatch(checkAuthenticateStatus()),
     logout: (id) => dispatch(logout(id)),
 
     // checkAuthenticateStatus: (userObj) => dispatch(checkAuthenticateStatus(userObj))
@@ -33,12 +33,13 @@ const mapDispatchToProps = dispatch => {
 
 
 class NavBar extends Component {
-  state = {
-    isLoggedIn: false,
-    username: '',
-  }
+  // state = {
+  //   isLoggedIn: false,
+  //   username: '',
+  // }
 
   componentDidMount () {
+    console.log(this.props)
     // this.props.createUser(this.props.user);
     // this.props.login(this.props.user);
     this.props.checkAuthenticateStatus();
@@ -69,7 +70,7 @@ class NavBar extends Component {
                 <Link to=''><h4>   {this.props.user.username}   </h4></Link>
               </div>
               <div className='loginButton'>
-                <Link to='/signup'><button><h4>Sign Up</h4></button></Link>
+                <Link to='/signup'><button><h4>"Sign Up" </h4></button></Link>
               </div>
               <div className='loginButton'>
                 <Link to='/login'><button><h4>Login</h4></button></Link>
