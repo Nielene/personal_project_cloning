@@ -38,14 +38,15 @@ export const checkAuthenticateStatus = () => dispatch => {
     } else if (res.data.username) {
       logout()
     } else {
-      Auth.deauthenticateUser();
+      dispatch({
+        type: REMOVE_USER
+      })
     }
   })
 }
 
 
 export const logout = () => dispatch => {
-  console.log("LOGOUT")
   axios.post(`/users/logout`)
   .then(() => {
     Auth.deauthenticateUser();
