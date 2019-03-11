@@ -81,7 +81,7 @@ class NavBar extends Component {
 
             <div className='usernameAndLogin'>
               <div>
-                <Link to=''><h4>   {this.props.user.username}   </h4></Link>
+                <Link to=''><h4>   {this.props.isLoggedIn ? this.props.user.username : null }   </h4></Link>
               </div>
               <div className='loginButton'>
                 <Link to='/signup'><button><h4>Sign Up </h4></button></Link>
