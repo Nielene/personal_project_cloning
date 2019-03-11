@@ -18,7 +18,7 @@ class PostFormLink extends Component {
       body: '',
       subreddit_id: 1,
       image_url: '',
-      date_created: Math.floor(Math.random() * 24) + ' hours ago',
+      post_time: Math.floor(Math.random() * 24) + ' hours ago',
       votes: 1,
       post_type: 'link',
       // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),

@@ -18,7 +18,7 @@ class SearchForm extends Component {
       // body: '',
       // subreddit_title: '',
       // image_url: '',
-      // date_created: Math.floor(Math.random() * 24) + ' hours ago',
+      // post_time: Math.floor(Math.random() * 24) + ' hours ago',
       // votes: 1,
       // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
     }

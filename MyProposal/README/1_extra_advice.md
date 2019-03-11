@@ -178,7 +178,7 @@ UPDATE posts SET body='something new' WHERE id=3;
 ```
 
 
-db.none("INSERT INTO posts (post_title,post_body, image_url, date_created, votes) VALUES " + posts + ";")
+db.none("INSERT INTO posts (post_title,post_body, image_url, post_time, votes) VALUES " + posts + ";")
 .then(() => {
   db.none("INSERT INTO up_down_votes (initial_count, type, post_id) VALUES " + up_down_votes + ";")
 })

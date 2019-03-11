@@ -6,7 +6,7 @@ column name          | data type | details
 id                   | integer   | not null, primary key
 post_title           | string    | not null, indexed, unique
 user_id              | integer   | not null, foreign key
-date_created         | integer   | not null
+post_time         | integer   | not null
 votes                | integer   | not null     - only one per user - toggle
 comments             | string    | not null     - XXXX no need for post to point to multi comments
 type (gif, v, text)  | string    | not null
@@ -90,7 +90,7 @@ post_id         | integer   | not null, foreign key
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-date_created    | string    | not null
+post_time    | string    | not null
 creator_id      | integer   | not null, foreign key (user_id)
 <!-- moderator_ids   | integer   | not null, foreign key (user_id) -->
 num_of_users    | integer   | not null
