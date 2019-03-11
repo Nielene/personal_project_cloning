@@ -65,10 +65,10 @@ const createNewPostInSingleSubreddit = (req, res, next) => {
 
   let queryString = "INSERT INTO posts ";
 
-  if (req.body.image_url) {
-    queryString +=   "(image_url, post_title, post_type, post_time, subreddit_id, user_id) VALUES(${image_url}, ${post_title}, ${post_type}, ${post_time}, ${subreddit_id}, ${user_id} )"
-  } else if (req.body.post_body) {
+  if (req.body.post_body) {
     queryString +=   "(post_body, post_title, post_type, post_time, subreddit_id, user_id, image_url) VALUES(${post_body}, ${post_title}, ${post_type}, ${post_time}, ${subreddit_id}, ${user_id}, ${image_url} )"
+  } else if (req.body.image_url) {
+    queryString +=   "(image_url, post_title, post_type, post_time, subreddit_id, user_id) VALUES(${image_url}, ${post_title}, ${post_type}, ${post_time}, ${subreddit_id}, ${user_id} )"
   }
 
   db.none(queryString, {
