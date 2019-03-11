@@ -28,7 +28,7 @@ class PostFormText extends Component {
       body: '',
       subreddit_id: 1,
       image_url: faker.image.imageUrl(),
-      post_time: Math.floor(Math.random() * 24) + ' hours ago',
+      post_time: Math.floor(Math.random() * 24),
       votes: 1,
       post_type: 'text',
       // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
