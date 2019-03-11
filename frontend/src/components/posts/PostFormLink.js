@@ -7,7 +7,7 @@ import '../../css/posts/PostFormLink.css';
 import { withRouter } from "react-router";
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
-import postFormText from './PostFormText';
+// import postFormText from './PostFormText';
 
 
 class PostFormLink extends Component {
@@ -107,7 +107,7 @@ class PostFormLink extends Component {
 
           <div  className='inputs title'>
             <label>url: </label>
-            <input type='text' name='image_url' onChange={this.onChange} value={this.props.newPost.image_url} />
+            <input type='text' name='image_url' onChange={this.onChange} value={this.state.image_url} />
           </div>
 
 
