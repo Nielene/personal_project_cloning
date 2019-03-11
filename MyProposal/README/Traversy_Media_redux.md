@@ -91,7 +91,7 @@ inside actions folder, will make postActions.js
 
   - postReducer:
 - in teh switch statement, in the case of 'FETCH_POSTS' , let's see if that's being called;
-- console.log('reducer')
+-  console.log('reducer')
 
 - it's returning the state with the items tha are being called.
 - we need to get the items from the state using a thing called 'mapStateToProps';

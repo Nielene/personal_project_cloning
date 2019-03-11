@@ -8,15 +8,15 @@ import { fetchPosts } from '../../actions/postActions';
 import { Link } from 'react-router-dom';
 import SearchForm from '../search/SearchForm';
 import '../../css/posts/Posts.css';
-import postFormText from './PostFormText';
+// import postFormText from './PostFormText';
 
 
 
 class Posts extends Component {
 
   componentDidUpdate(prevProps) {
-    console.log('Posts.js CURRENT PROPS', this.props);
-    console.log('Posts.js PREVIOUS PROPS', prevProps)
+     // console.log('Posts.js CURRENT PROPS', this.props);
+     // console.log('Posts.js PREVIOUS PROPS', prevProps)
     // debugger
     if (prevProps.match.params.post_id !== this.props.match.params.post_id) {
       this.props.fetchPosts(this.props.match.params.post_id)
@@ -24,7 +24,7 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    console.log('Posts.js');
+     // console.log('Posts.js');
     // debugger
     this.props.fetchPosts();
   }
@@ -37,8 +37,8 @@ class Posts extends Component {
   // }
 
   render () {
-    // console.log('Posts.js: {postItems}', this.props.posts);
-    console.log("ALL PROPS: ", this.props)
+    //  console.log('Posts.js: {postItems}', this.props.posts);
+     // console.log("ALL PROPS: ", this.props)
     const postItems = this.props.posts.map(post => (
 
       <div key={post.id} className='eachPostItemDiv'>

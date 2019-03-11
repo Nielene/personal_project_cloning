@@ -31,7 +31,7 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
-    // console.log('LoginForm.js, this.props', this.props);
+    //  console.log('LoginForm.js, this.props', this.props);
     // this.props.login(user);
   }
 
@@ -69,7 +69,7 @@ class LoginForm extends Component {
 
 
   render() {
-    console.log(this.state);
+     // console.log(this.state);
 
 
     const linkToPostFormLink = () => {

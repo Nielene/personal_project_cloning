@@ -35,7 +35,7 @@ const getAllPostsfromSingleSubreddit = (req, res, next) => {
       status: 'error',
       message: 'YOU ARE NOT GETTING ALL POSTS FROM THIS SUBREDDIT!'
     })
-    console.log(err);
+     console.log(err);
     next();
   });
 }

@@ -25,11 +25,11 @@ function createUser(req, res, next) {
       });
     })
     .catch(err => {
-      console.log(err, 'Log of err');
+       console.log(err, 'Log of err');
       res.status(500).json({
         message: err
       });
-      // console.log(err);
+      //  console.log(err);
       next();
     });
 }
@@ -94,7 +94,7 @@ const deleteSingleUser = ( req, res, next ) => {
       status: 'error',
       message: 'You did NOT delete this User.'
     })
-    console.log(err);
+     console.log(err);
     next();
   })
 }

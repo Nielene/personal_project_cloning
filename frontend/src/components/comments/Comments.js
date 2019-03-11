@@ -14,7 +14,7 @@ import CommentForm from './CommentForm';
 class Comments extends Component {
 
   componentDidMount() {
-    console.log('MY COMMENT ID', this.props);
+     // console.log('MY COMMENT ID', this.props);
     // this.props.fetchComments(this.props.match.params.post_id);
     this.props.fetchComments(this.props.match.params.id);
   }
@@ -26,9 +26,9 @@ class Comments extends Component {
   // }
 
   render () {
-    console.log('Comments.js: {commentItems} this.props', this.props);
-    console.log('Comments.js: {commentItems} this.props.comments', this.props.comments);
-    // console.log('Comments.js: {commentItems} this.props.match.params.post_id', this.props.match.params.post_id);
+     // console.log('Comments.js: {commentItems} this.props', this.props);
+     // console.log('Comments.js: {commentItems} this.props.comments', this.props.comments);
+    //  console.log('Comments.js: {commentItems} this.props.match.params.post_id', this.props.match.params.post_id);
 
 
       const commentItems = this.props.comments.map(comment => (

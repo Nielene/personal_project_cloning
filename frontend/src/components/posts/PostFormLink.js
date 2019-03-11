@@ -31,12 +31,12 @@ class PostFormLink extends Component {
 
 
   componentDidMount() {
-    console.log('PostFormLink.js, this.props', this.props);
+     // console.log('PostFormLink.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
   updateSubreddit = e => {
-    // console.log('e.target.value', e.target.value);
+    //  console.log('e.target.value', e.target.value);
     // this.props.history.push(e.target.value)
   }
 
@@ -70,10 +70,10 @@ class PostFormLink extends Component {
 
   render () {
 
-    console.log(this.state);
-    console.log(this.props);
-    console.log(this.props.newPost.post_title);
-    console.log(this.state.title);
+     // console.log(this.state);
+     // console.log(this.props);
+     // console.log(this.props.newPost.post_title);
+     // console.log(this.state.title);
     const linkToPostFormLink = () => {
       return (
 
@@ -189,7 +189,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostForm
 //
 // axios.post('/posts',  addPost )
 // .then(res => {
-//   console.log(res);
+//    console.log(res);
 //   // debugger
 // })
 
@@ -198,7 +198,7 @@ export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostForm
 
 // axios.post('http://jsonplaceholder.typicode.com/posts', {title: this.state.title, body: this.state.body})
 // .then(res => {
-//   console.log(res);
+//    console.log(res);
 //   // debugger
 // })
 
@@ -217,6 +217,6 @@ export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostForm
 //   body: JSON.stringify(addPost)
 // })
 // .then(res => res.json())
-// .then(data => console.log(data))
+// .then(data =>  console.log(data))
 
 //========================

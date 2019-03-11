@@ -14,7 +14,7 @@ import { fetchMySubreddits } from '../../actions/subredditActions';
 class Subreddits extends Component {
 
   componentDidMount() {
-    console.log('SubredditDropDown.js, this.props', this.props);
+     // console.log('SubredditDropDown.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
@@ -25,12 +25,12 @@ class Subreddits extends Component {
   // }
 
   updateSubreddit = e => {
-    console.log('e.target.value', e.target.value);
+     // console.log('e.target.value', e.target.value);
     this.props.history.push(e.target.value)
   }
 
   render () {
-    console.log('Subreddits.js: {subredditItems}');
+     // console.log('Subreddits.js: {subredditItems}');
     const subredditItems = this.props.subredditList.map(subreddit => (
         <option key={subreddit.id} value={'/subredditPosts/' + subreddit.id}>{subreddit.my_subreddit_title}</option>
       ))

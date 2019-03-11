@@ -22,7 +22,7 @@ const getAllCommentsForSinglePost = (req, res, next) => {
       status: 'error',
       message: 'YOU ARE NOT GETTING ALL COMMENTS FOR THIS POST!'
     })
-    console.log(err);
+     console.log(err);
     next();
   });
 }
@@ -50,7 +50,7 @@ const getAllCommentsBySingleUser = (req, res, next) => {
       status: 'error',
       message: 'YOU ARE NOT GETTING ALL COMMENTS FOR THIS USER!'
     })
-    console.log(err);
+     console.log(err);
     next();
   });
 }
@@ -60,17 +60,19 @@ const getAllCommentsBySingleUser = (req, res, next) => {
 // WANT TO USER POST_ID AS A PARAMS ??????
 const createCommentForSinglePost = (req, res, next) => {
 
-  let queryString = "INSERT INTO comments ";
+  // let queryString = "INSERT INTO comments ";
+  //
+  // if (req.body.post_id) {
+  //   queryString +=   "(post_id, comment_body) VALUES(${post_id}, ${comment_body} )"
+  // } else if (req.body.user_id && req.body.post_id) {
+  //   queryString +=   "(user_id, post_id, comment_body) VALUES(${user_id}, ${post_id}, ${comment_body} )"
+  // }
+  // db.none(queryString, req.body)
 
-  if (req.body.post_id) {
-    queryString +=   "(post_id, comment_body) VALUES(${post_id}, ${comment_body} )"
-  } else if (req.body.user_id && req.body.post_id) {
-    queryString +=   "(user_id, post_id, comment_body) VALUES(${user_id}, ${post_id}, ${comment_body} )"
-  }
-
-  db.none(queryString, req.body)
-  // db.none("INSERT INTO posts(post_title, post_body, image_url, my_subreddit_title ) VALUES( ${post_title}, ${post_body}, ${image_url}, ${my_subreddit_title} )",
-  //   req.body)
+  db.none("INSERT INTO comments(user_id, post_id, comment_body ) VALUES( ${user_id}, ${post_id}, ${comment_body} )", {
+    ...req.body,
+    user_id: req.user.id,
+  })
   .then(() => {
     res.status(200).json({
       status: 'success',
@@ -95,7 +97,7 @@ const deleteComment = (req, res, next) => {
       status: 'error',
       message: 'You did NOT delete any Comment.'
     })
-    console.log(err);
+     console.log(err);
     next();
   })
 }

@@ -10,7 +10,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case FETCH_SUBREDDITS:
-      console.log('subredditReducer: FETCH_SUBREDDITS: reducer');
+       // console.log('subredditReducer: FETCH_SUBREDDITS: reducer');
       return {
         ...state,
         subredditList: action.payload

@@ -17,22 +17,22 @@ import '../../css/subreddits/SingleSubredditPosts.css';
 class SingleSubredditPosts extends Component {
 
   componentDidUpdate(prevProps) {
-    console.log('CURRENT PROPS', this.props);
-    console.log('PREVIOUS PROPS', prevProps)
+     // console.log('CURRENT PROPS', this.props);
+     // console.log('PREVIOUS PROPS', prevProps)
     if (prevProps.match.params.subreddit_id !== this.props.match.params.subreddit_id) {
       this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
     }
   }
 
   componentDidMount() {
-    console.log('SingleSubredditPosts.js: this.props.match.params.id', this.props.match.params.subreddit_id);
+     // console.log('SingleSubredditPosts.js: this.props.match.params.id', this.props.match.params.subreddit_id);
     // debugger
     this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
     // this.props.fetchMySubreddits()
   }
 
   render () {
-    console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
+     // console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
 
     {/*
       const subredditTitle = this.props.subredditPosts.map(post => (
@@ -43,14 +43,14 @@ class SingleSubredditPosts extends Component {
       </div>
       ))
 
-      console.log('subredditTitle', subredditTitle);
+       console.log('subredditTitle', subredditTitle);
       */}
 
 
     const postItems = this.props.subredditPosts.map(post => (
       <div key={post.id} className ='eachPostItemDiv'>
         <div className='postItemCount'>
-          
+
         </div>
 
 
@@ -126,7 +126,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(SingleSubredditPosts
   //       searchInput: '',
   //       selectedPerson: SearchResult
   //     })
-  //     // console.log('selectedPerson', this.state.selectedPerson);
+  //     //  console.log('selectedPerson', this.state.selectedPerson);
   //   }
 
 

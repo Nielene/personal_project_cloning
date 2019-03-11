@@ -8,7 +8,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case FETCH_COMMENTS:
-      console.log('comemntReducer: FETCH_COMMENTS: reducer');
+       // console.log('comemntReducer: FETCH_COMMENTS: reducer');
       return {
         ...state,
         items: action.payload

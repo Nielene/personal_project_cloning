@@ -95,7 +95,7 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
   })
 })
 .catch(err => {
-  console.log(err);
+   console.log(err);
 })
 
 
@@ -116,7 +116,7 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
 //   })
 // })
 // .catch(err => {
-//   console.log(err);
+//    console.log(err);
 // })
 
 
@@ -130,7 +130,7 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
 
 // db.none("INSERT INTO up_down_votes (initial_count, vote_type, post_id) VALUES " + up_down_votes + ";")
 // .catch(err => {
-//   console.log(err);
+//    console.log(err);
 // })
 
 // db.none("INSERT INTO posts (post_title,post_body, image_url, post_time, votes) VALUES " + posts + ";")
@@ -138,5 +138,5 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
 //   db.none("INSERT INTO up_down_votes (initial_count, vote_type, post_id) VALUES " + up_down_votes + ";")
 // })
 // .catch(err => {
-//   console.log(err);
+//    console.log(err);
 // })

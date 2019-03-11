@@ -6,7 +6,10 @@ import '../css/NavBar.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { login } from '../actions/userActions'
+import { createUser } from '../actions/userActions';
+import { login } from '../actions/userActions';
+import { checkAuthenticateStatus } from '../actions/userActions';
+import { logout } from '../actions/userActions';
 
 
 
@@ -17,17 +20,37 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (user) => dispatch(login(user))
+    createUser: (userObj) => dispatch(createUser(userObj)),
+    login: (userObj) => dispatch(login(userObj)),
+    checkAuthenticateStatus: () => checkAuthenticateStatus(),
+    logout: (id) => dispatch(logout(id)),
+
+    // checkAuthenticateStatus: (userObj) => dispatch(checkAuthenticateStatus(userObj))
   }
 }
 
 
 
+
 class NavBar extends Component {
+  state = {
+    isLoggedIn: false,
+    username: '',
+  }
+
+  componentDidMount () {
+    // this.props.createUser(this.props.user);
+    // this.props.login(this.props.user);
+    this.props.checkAuthenticateStatus();
+    // this.props.logout(this.props.user);
+    // this.props.checkAuthenticateStatus(this.props.user);
+    // debugger
+  }
+
   render() {
-    console.log('isLoggedIn', this.props.isLoggedIn); // true
-    console.log('login', this.props.login);
-    console.log('user.username', this.props.user.username); //'Thomas'
+     // console.log('isLoggedIn', this.props.isLoggedIn); // true
+     // console.log('login', this.props.login);
+     // console.log('user.username', this.props.user.username); //'Thomas'
 
     return (
       <nav>

@@ -4,10 +4,10 @@ import axios from 'axios';
 // import, FETCH_SINGLE_POST
 
 export const fetchComments = (post_id) => dispatch => {
-  console.log('commentActions.js: fetching action is beign called');
+   // console.log('commentActions.js: fetching action is beign called');
   axios.get(`/comments/${post_id}`)
   .then(res => {
-    console.log('commentActions.js: res.data.comments', res.data.comments);
+     // console.log('commentActions.js: res.data.comments', res.data.comments);
     dispatch ({
       type: FETCH_COMMENTS,
       payload: res.data.post_comments
@@ -16,10 +16,10 @@ export const fetchComments = (post_id) => dispatch => {
 }
 
 // export const fetchSinglePost = (id) => dispatch => {
-//   console.log('postActions.js: fetching Single Post');
+//    console.log('postActions.js: fetching Single Post');
 //     axios.get(`/posts/${id}`)
 //     .then(res => {
-//       console.log('res.data.body', res.data.body);
+//        console.log('res.data.body', res.data.body);
 //       // debugger
 //       dispatch ({
 //         type: FETCH_SINGLE_POST,
@@ -29,7 +29,7 @@ export const fetchComments = (post_id) => dispatch => {
 // }
 
 export const createComment = (commentData) => dispatch => {
-  console.log('commentActions.js: comment created: action called');
+   // console.log('commentActions.js: comment created: action called');
   axios.post(`/comments/`,  commentData)
   .then(comment => {
     // debugger
@@ -42,7 +42,7 @@ export const createComment = (commentData) => dispatch => {
 }
 
 // export const createPost = (postData) => dispatch => {
-//   console.log('postActions.js: post created: action called');
+//    console.log('postActions.js: post created: action called');
 //   axios.post('/posts',  postData)
 //   .then(post => {
 //     // debugger
@@ -57,10 +57,10 @@ export const createComment = (commentData) => dispatch => {
 
 
 // export const fetchSinglePost = (id) => dispatch => {
-//   console.log('commentActions.js: fetching Single Post');
+//    console.log('commentActions.js: fetching Single Post');
 //     axios.get(`/comments/${id}`)
 //     .then(res => {
-//       console.log('res.data.body', res.data.body);
+//        console.log('res.data.body', res.data.body);
 //       // debugger
 //       dispatch ({
 //         type: FETCH_SINGLE_POST,

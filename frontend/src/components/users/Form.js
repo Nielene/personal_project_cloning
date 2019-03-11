@@ -32,7 +32,7 @@
 //   }
 //
 //   componentDidMount() {
-//     // console.log('LoginForm.js, this.props', this.props);
+//     //  console.log('LoginForm.js, this.props', this.props);
 //     // this.props.login(user);
 //   }
 //
@@ -54,7 +54,7 @@
 //   }
 //
 //   render() {
-//     console.log(this.state);
+//      console.log(this.state);
 //
 //     const linkToPostFormLink = () => {
 //       return (

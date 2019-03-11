@@ -10,8 +10,9 @@ export const createUser = (userCredentialsObject) => dispatch => {
     //   type: RECEIVE_USER,
     //   payload: res.data.body  //  the resoponse that came form the backend with the user
     // })
-    console.log(res.data.body); //from backend RETURNING, db.one, etc on that INSERT statement
-    console.log(res.data.body.username);
+
+     // console.log(res.data.body); //from backend RETURNING, db.one, etc on that INSERT statement
+     // console.log(res.data.body.username);
     // debugger      // console -> React -> Provider -> scroll to storeState -> users -> user -> object with info (yay!)
   })
 
@@ -22,14 +23,14 @@ export const login = (user) => dispatch => {    // ACTION FUNCITONS
   // debugger
   let username = user.username;
   let password = user.password;
-  Auth.authenticateUser(user.username)
   axios.post('/users/login', {username, password} )
   .then((res) => {
     dispatch ({
       type: RECEIVE_USER,     // ACTION OBJECTS - ARE SYNCHRONOUSE
       payload: res.data
     })
-    console.log('login', res.data);
+    Auth.authenticateUser(user.username)
+     // console.log('login', res.data);
     // debugger
   })
   // .then (() => {
@@ -44,22 +45,22 @@ export const login = (user) => dispatch => {    // ACTION FUNCITONS
 // A SYNC ACTION IS ALWAYS GOING TO BE AN OBJECT. ASYNC ACTION IS ALWAYS A FUCNTION.
 
 
-export const checkAuthenticateStatus = (user) => dispatch => {
+export const checkAuthenticateStatus = () => dispatch => {
   // let username = user.username;
   // let password = user.password;
   // debugger
   // axios.post('/users/isLoggedIn', {username, password})
   axios.post('/users/isLoggedIn')
   .then((res) => {
-    console.log('res line 50', res.data.username.username);
-    // debugger
+    //  console.log('res line 50', res.data.username.username);
+    debugger
     if (res.data.username.username === Auth.getToken()) {
       dispatch ({
         type: RECEIVE_USER,
         payload: Auth.isUserAuthenticated()
       })
-    } else if (user.data.username) {
-      this.logout();
+    } else if (res.data.username) {
+      logout()
     } else {
       Auth.deauthenticateUser();
     }
@@ -68,8 +69,9 @@ export const checkAuthenticateStatus = (user) => dispatch => {
 
 // in the Console: choose Application tab instead; go to Local Storage under Storage and click on http://localhost:3000. should then see Key / Value table.
 
-export const logout = (id) => dispatch => {
-  // console.log('postActions.js: fetching Single Post');
+
+export const logout = () => dispatch => {
+  //  console.log('postActions.js: fetching Single Post');
   axios.post(`/users/logout`)
   .then(() => {
     Auth.deauthenticateUser();

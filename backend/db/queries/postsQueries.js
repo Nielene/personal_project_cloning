@@ -51,7 +51,7 @@ const getAllPostsBySingleUser = (req, res, next) => {
       status: 'error',
       message: 'YOU ARE NOT GETTING ALL POSTS FOR THIS USER!'
     })
-    console.log(err);
+     console.log(err);
     next();
   });
 }
@@ -104,7 +104,7 @@ const deleteOwnPost = (req, res, next) => {
       status: 'error',
       message: 'You did NOT delete any Post.'
     })
-    console.log(err);
+     console.log(err);
     next();
   })
 }
@@ -184,7 +184,7 @@ module.exports = { getAllPosts, getSinglePost, getAllPostsBySingleUser, createNe
 //       status: 'error',
 //       message: 'YOU ARE NOT GETTING ALL POSTS FROM THIS SUBREDDIT!'
 //     })
-//     console.log(err);
+//      console.log(err);
 //     next();
 //   });
 // }

@@ -17,8 +17,8 @@ const mapDispatchToProps = dispatch => {
 class SingleUserPosts extends Component {
 
   // componentDidUpdate(prevProps) {
-  //   console.log('CURRENT PROPS', this.props);
-  //   console.log('PREVIOUS PROPS', prevProps)
+  //    console.log('CURRENT PROPS', this.props);
+  //    console.log('PREVIOUS PROPS', prevProps)
   //   if (prevProps.match.params.user_id !== this.props.match.params.user_id) {
   //     this.props.fetchUserPosts(this.props.match.params.user_id)
   //   }
@@ -31,7 +31,7 @@ class SingleUserPosts extends Component {
   render() {
     {/*
 
-      // console.log(this.props.userPosts);
+      //  console.log(this.props.userPosts);
       // // debugger
       // const postItems = this.props.userPosts.map(post => (
       //

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { createComment } from '../../actions/commentActions'//our action;
 import '../../css/comments/CommentForm.css';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 
@@ -15,11 +16,11 @@ class CommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "Nielene",
-      body: '',
-      post_time: '0 hours ago',
+      // username: "Nielene",
       votes: Math.floor(Math.random() * 2000) + ' points',
-      displayVariable: ''
+      post_time: Math.floor(Math.random() * 24),
+      body: '',
+      // displayVariable: ''
       // title: '',
       // subreddit_title: '',
       // image_url: '',
@@ -45,24 +46,27 @@ class CommentForm extends Component {
     // Call Action (commentActions)
     this.props.createComment(addComment)
 
-    const displayComment = function() {
-      return (
-        <div>
-          <div className='userVotesAndTime'>
-            <Link to=''><h6>{this.state.username}</h6></Link>
-            <p>{Math.floor(Math.random() * 10000)} points</p>
-            <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-          </div>
-          <div className='commentBody'>
-            <p>{this.state.body}</p>
-          </div>
-        </div>
-      )
-    }
+
+    // const displayComment = function() {
+    //   return (
+    //     <div>
+    //       <div className='userVotesAndTime'>
+    //         <Link to=''><h6>{this.state.username}</h6></Link>
+    //         <p>{Math.floor(Math.random() * 10000)} points</p>
+    //         <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
+    //       </div>
+    //       <div className='commentBody'>
+    //         <p>{this.state.body}</p>
+    //       </div>
+    //     </div>
+    //   )
+    // }
+
+
   }
 
   render () {
-    console.log(this.state);
+     // console.log(this.state);
     const placeholderText = "We'd appreciate if you remain polite with your comments."
 
     return (
@@ -73,7 +77,7 @@ class CommentForm extends Component {
 
             <div>
               <label> </label><br />
-              <textarea name='body' onChange={this.onChange} value={this.state.body} placeholder={placeholderText} rows="8" cols="80" />
+              <textarea name='body' onChange={this.onChange} value={this.props.newComment.body} placeholder={placeholderText} rows="8" cols="80" />
             </div>
             <br />
 
@@ -81,29 +85,32 @@ class CommentForm extends Component {
           </form>
         </div>
 
-
-      <div>
-        <div className='userVotesAndTime'>
-          <Link to=''><h6>{this.state.username}</h6></Link>
-          <p>{Math.floor(Math.random() * 10000)} points</p>
-          <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-        </div>
-        <div className='commentBody'>
-          <p>{this.state.body}</p>
-        </div>
       </div>
-
-    </div>
-  )
+    )
 
   }
 }
 
-CommentForm.propTypes = {
-  createComment: PropTypes.func.isRequired
+
+const mapStateToProps = state => ({
+  newComment: state.posts.item,
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createComment: (commentData) => dispatch(createComment(commentData)),
+  }
 }
 
-export default connect(null, { createComment })(CommentForm);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommentForm))
+
+// CommentForm.propTypes = {
+//   createComment: PropTypes.func.isRequired
+// }
+//
+// export default connect(null, { createComment })(withRouter(CommentForm));
 
 
 
@@ -122,7 +129,7 @@ export default connect(null, { createComment })(CommentForm);
 //
 // axios.post('/posts',  addPost )
 // .then(res => {
-//   console.log(res);
+//    console.log(res);
 //   // debugger
 // })
 
@@ -131,7 +138,7 @@ export default connect(null, { createComment })(CommentForm);
 
 // axios.post('http://jsonplaceholder.typicode.com/posts', {title: this.state.title, body: this.state.body})
 // .then(res => {
-//   console.log(res);
+//    console.log(res);
 //   // debugger
 // })
 
@@ -150,6 +157,6 @@ export default connect(null, { createComment })(CommentForm);
 //   body: JSON.stringify(addPost)
 // })
 // .then(res => res.json())
-// .then(data => console.log(data))
+// .then(data =>  console.log(data))
 
 //========================

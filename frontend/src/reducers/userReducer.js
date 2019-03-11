@@ -17,7 +17,7 @@ export default function(state = initialState, action) {
         user: action.payload
       }
     case REMOVE_USER:
-    // console.log('postReducer: FETCH_POSTS: reducer');
+    //  console.log('postReducer: FETCH_POSTS: reducer');
     return {
       ...state,
       isLoggedIn: false,

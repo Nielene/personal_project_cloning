@@ -183,7 +183,7 @@ db.none("INSERT INTO posts (post_title,post_body, image_url, post_time, votes) V
   db.none("INSERT INTO up_down_votes (initial_count, type, post_id) VALUES " + up_down_votes + ";")
 })
 .catch(err => {
-  console.log(err);
+   console.log(err);
 })
 
 

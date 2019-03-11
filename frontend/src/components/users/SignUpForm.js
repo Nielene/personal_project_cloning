@@ -31,7 +31,7 @@ class SighUpForm extends Component {
   }
 
   componentDidMount() {
-    // console.log('SighUpForm.js, this.props', this.props);
+    //  console.log('SighUpForm.js, this.props', this.props);
     // this.props.createUser(user);
   }
 
@@ -50,7 +50,7 @@ class SighUpForm extends Component {
     // Call Action (postActions)
     this.props.createUser(addUser)
 
-    console.log('display inputs', this.state.username);
+     // console.log('display inputs', this.state.username);
     let newUsername = this.state.username
 
     var welcome = function() {
@@ -74,9 +74,9 @@ class SighUpForm extends Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log('props', this.props);
-    console.log(this.props.users);
+     // console.log(this.state);
+     // console.log('props', this.props);
+     // console.log(this.props.users);
 
     const linkToPostFormLink = () => {
       return (

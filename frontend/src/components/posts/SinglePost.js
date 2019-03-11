@@ -16,8 +16,8 @@ class SinglePost extends Component {
   //   }
   // }
 
-  // console.log('SinglePost.js: display single post');
-  // console.log('@', props, props.post)
+  //  console.log('SinglePost.js: display single post');
+  //  console.log('@', props, props.post)
   // const post = props.post;
   componentDidMount() {
     // this.props.fetchSinglePost(this.props.match.params.id);
@@ -28,9 +28,9 @@ class SinglePost extends Component {
   }
 
   render() {
-    console.log('PARAMS??', this.props)
-    console.log('PARAMS??2', this.props.post)
-    console.log('PARAMS??3', this.props.match.params.id)
+     // console.log('PARAMS??', this.props)
+     // console.log('PARAMS??2', this.props.post)
+     // console.log('PARAMS??3', this.props.match.params.id)
 
     // return (
     //   <div>single post</div>

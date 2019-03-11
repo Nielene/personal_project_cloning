@@ -27,7 +27,7 @@ class Subreddits extends Component {
   };
 
   componentDidMount() {
-    console.log('Subreddits.js, this.props', this.props);
+     // console.log('Subreddits.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
@@ -38,14 +38,14 @@ class Subreddits extends Component {
   // }
 
   updateSubreddit = e => {
-    console.log('e.target.value', e.target.value);
+     // console.log('e.target.value', e.target.value);
     this.props.history.push(e.target.value)
   }
 
   render () {
     const { locationShowing } = this.state;
 
-    console.log('Subreddits.js: {subredditItems}');
+     // console.log('Subreddits.js: {subredditItems}');
     const faker = require('faker');
 
 
