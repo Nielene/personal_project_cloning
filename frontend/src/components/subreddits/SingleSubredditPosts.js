@@ -1,58 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import { fetchSubredditPosts } from '../../actions/subredditActions';
-import { fetchMySubreddits } from '../../actions/subredditActions';
 import '../../css/subreddits/SingleSubredditPosts.css';
 
-
-// import Comments from '../components/Comments'
-
-// {/*
-//   const postItems = this.props.posts.filter(post => {
-//     return post.my_subreddit_title.toLowerCase() === (state.posts.items.my_subreddit_title.toLowerCase())
-// //   */}
 
 class SingleSubredditPosts extends Component {
 
   componentDidUpdate(prevProps) {
-     // console.log('CURRENT PROPS', this.props);
-     // console.log('PREVIOUS PROPS', prevProps)
     if (prevProps.match.params.subreddit_id !== this.props.match.params.subreddit_id) {
       this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
     }
   }
 
   componentDidMount() {
-     // console.log('SingleSubredditPosts.js: this.props.match.params.id', this.props.match.params.subreddit_id);
-    // debugger
     this.props.fetchSubredditPosts(this.props.match.params.subreddit_id)
-    // this.props.fetchMySubreddits()
   }
 
   render () {
-     // console.log('SingleSubredditPosts.js: this.props.posts', this.props.posts);
-
-    {/*
-      const subredditTitle = this.props.subredditPosts.map(post => (
-      <div key={post.id} className=''>
-      <div>
-      <Link to={'/subredditPosts/' + post.subreddit_id}>{post.my_subreddit_title}</Link>
-      </div>
-      </div>
-      ))
-
-       console.log('subredditTitle', subredditTitle);
-      */}
-
-
     const postItems = this.props.subredditPosts.map(post => (
       <div key={post.id} className ='eachPostItemDiv'>
         <div className='postItemCount'>
 
         </div>
-
 
         <div className='postItemVotes singleSubreddit'>
           <button><span role="img" aria-label="Panda">🔼</span></button>
@@ -75,11 +45,7 @@ class SingleSubredditPosts extends Component {
 
     return (
       <div>
-
         <div>
-          {/*
-            SUBREDDIT TITLE HERE!!!!!!!!!!{subredditTitle}
-            */}
           {postItems}
         </div>
       </div>
@@ -91,20 +57,55 @@ class SingleSubredditPosts extends Component {
 
 const mapStateToProps = state => ({
   subredditPosts: state.subreddits.subredditPosts
-  // subredditList: state.subreddits.subredditList
 })
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchSubredditPosts: (id) => dispatch(fetchSubredditPosts(id))
-    // fetchMySubreddits: () => dispatch(fetchMySubreddits())
   }
 }
 
-// export default connect(mapStateToProps, {fetchSinglePost})(SinglePost);
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSubredditPosts);
 
-//---------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

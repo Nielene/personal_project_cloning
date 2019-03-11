@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // import swal from 'sweetalert';
+// npm install sweetalert --save
+
 
 const mapStateToProps = state => ({
   isLoggedIn: state.users.isLoggedIn,
@@ -31,7 +33,6 @@ class SighUpForm extends Component {
   }
 
   componentDidMount() {
-    //  console.log('SighUpForm.js, this.props', this.props);
     // this.props.createUser(user);
   }
 
@@ -47,10 +48,8 @@ class SighUpForm extends Component {
       password: this.state.password,
     }
 
-    // Call Action (postActions)
     this.props.createUser(addUser)
 
-     // console.log('display inputs', this.state.username);
     let newUsername = this.state.username
 
     var welcome = function() {
@@ -69,14 +68,10 @@ class SighUpForm extends Component {
   //   'You clicked the button!',
   //   'success'
   // )
-  // npm install sweetalert --save
 
   }
 
   render() {
-     // console.log(this.state);
-     // console.log('props', this.props);
-     // console.log(this.props.users);
 
     const linkToPostFormLink = () => {
       return (
@@ -99,7 +94,6 @@ class SighUpForm extends Component {
 
           {linkToPostFormLink()}
 
-
           <form onSubmit={this.onSubmit}>
 
             <div className='submitATextOrLinkHeading'>
@@ -114,23 +108,17 @@ class SighUpForm extends Component {
             <div className='inputs title'>
               <label>Password: </label>
               <input type='text' name='password' onChange={this.onChange} value={this.state.password} />
-
             </div>
-
 
             <div className='inputs submit'>
               <button type='submit'>Submit</button>
             </div>
 
-
-
           </form>
         </div>
       </div>
-
     )
   }
-
 }
 
 

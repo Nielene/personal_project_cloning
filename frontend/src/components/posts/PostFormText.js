@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import { createPost } from '../../actions/postActions'//our action;
 import '../../css/posts/PostFormText.css';
 import { withRouter } from "react-router";
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
 import { createPost } from '../../actions/postActions';
 
-
-// import postFormLink from './PostFormLink';
-
-
-// import { NavLink } from 'react-router-dom'
-// import axios from 'axios';
 const faker = require('faker');
-
-
 
 
 class PostFormText extends Component {
@@ -39,17 +29,8 @@ class PostFormText extends Component {
   }
 
   componentDidMount() {
-     // console.log('PostFormText.js, this.props', this.props);
     this.props.fetchMySubreddits();
-    // this.props.createPost(postData)
   }
-
-  updateSubreddit = e => {
-    //  console.log('e.target.value', e.target.value);
-    // this.props.history.push(e.target.value)
-  }
-
-
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -67,31 +48,18 @@ class PostFormText extends Component {
       post_time: this.state.post_time,
     }
 
-    // Call Action (postActions)
-    this.props.createPost(addPost)
+    this.props.createPost(addPost)        //   Call Action (postActions)
 
-    // const linkToHomePage = () => {
-    //   return <Link to=''></Link>
-    //
-    // }
 
     const welcomeMessage = function() {
       alert(`Your Text Post has been submitted. `)
     }
     welcomeMessage();
 
-    // const linkToHomePage = () => {
-    //   return <Link to=''></Link>
-    //
-    // }
-    // linkToHomePage();
-
   }
 
   render () {
-     // console.log(this.state);
-     // console.log(this.props);
-     // console.log(this.props.post_title);
+
     const linkToPostFormLink = () => {
       return (
 
@@ -158,13 +126,8 @@ class PostFormText extends Component {
   }
 }
 
-// PostFormText.propTypes = {
-//   createPost: PropTypes.func.isRequired
-// }
-// export default connect(null, { createPost })(PostFormText);
 
 const mapStateToProps = state => ({
-  // posts: state.posts.items,
   newPost: state.posts.newPost,
   subredditList: state.subreddits.subredditList,
 
@@ -181,6 +144,49 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostFormText));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // updateSubreddit = e => {
+  //   //  console.log('e.target.value', e.target.value);
+  //   // this.props.history.push(e.target.value)
+  // }
 
 // <input type='text' name='subreddit_title' onChange={this.onChange} value={this.state.subreddit_title} placeholder='subreddit title'/>
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { createPost } from '../../actions/postActions'//our action;
@@ -7,7 +6,6 @@ import '../../css/posts/PostFormLink.css';
 import { withRouter } from "react-router";
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
-// import postFormText from './PostFormText';
 
 
 class PostFormLink extends Component {
@@ -28,16 +26,8 @@ class PostFormLink extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-
-
   componentDidMount() {
-     // console.log('PostFormLink.js, this.props', this.props);
     this.props.fetchMySubreddits();
-  }
-
-  updateSubreddit = e => {
-    //  console.log('e.target.value', e.target.value);
-    // this.props.history.push(e.target.value)
   }
 
   onChange(e) {
@@ -56,8 +46,7 @@ class PostFormLink extends Component {
       post_time: this.state.post_time,
     }
 
-    // Call Action (postActions)
-    this.props.createPost(addPost)
+    this.props.createPost(addPost)        //  CALL ACTION (postActions)
 
     const welcomeMessage = function() {
       alert(
@@ -70,10 +59,6 @@ class PostFormLink extends Component {
 
   render () {
 
-     // console.log(this.state);
-     // console.log(this.props);
-     // console.log(this.props.newPost.post_title);
-     // console.log(this.state.title);
     const linkToPostFormLink = () => {
       return (
 
@@ -123,7 +108,6 @@ class PostFormLink extends Component {
               <div className='subredditDropDownDivInSubmitForms'>
                 <div className="subredditDropDownDiv2">
                   <select className="subredditDropDown" onChange={this.onChange} name='subreddit_id' value={this.props.selectedId} >
-                    {/* // <select onChange='window.location.href=this.value'> */}
                     <option>MY SUBREDDITS</option>
                     {subredditItems}
 
@@ -147,7 +131,6 @@ class PostFormLink extends Component {
 }
 
 const mapStateToProps = state => ({
-  // posts: state.posts.items,
   newPost: state.posts.newPost,
   subredditList: state.subreddits.subredditList,
 
@@ -164,6 +147,52 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps )(withRouter(PostFormLink));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// updateSubreddit = e => {
+//   //  console.log('e.target.value', e.target.value);
+//   // this.props.history.push(e.target.value)
+// }
 
 
 // PostFormLink.propTypes = {

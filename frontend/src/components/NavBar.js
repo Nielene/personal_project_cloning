@@ -6,8 +6,6 @@ import '../css/NavBar.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { createUser } from '../actions/userActions';
-import { login } from '../actions/userActions';
 import { checkAuthenticateStatus } from '../actions/userActions';
 import { logout } from '../actions/userActions';
 
@@ -20,12 +18,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // createUser: (userObj) => dispatch(createUser(userObj)),
-    // login: (userObj) => dispatch(login(userObj)),
     checkAuthenticateStatus: () => dispatch(checkAuthenticateStatus()),
     logout: () => dispatch(logout()),
-
-    // checkAuthenticateStatus: (userObj) => dispatch(checkAuthenticateStatus(userObj))
   }
 }
 
@@ -35,13 +29,7 @@ const mapDispatchToProps = dispatch => {
 class NavBar extends Component {
 
   componentDidMount () {
-    console.log(this.props)
-    // this.props.createUser(this.props.user);
-    // this.props.login(this.props.user);
     this.props.checkAuthenticateStatus();
-    // this.props.logout(this.props.user);
-    // this.props.checkAuthenticateStatus(this.props.user);
-    // debugger
   }
 
 
@@ -63,9 +51,6 @@ class NavBar extends Component {
 
 
   render() {
-     // console.log('isLoggedIn', this.props.isLoggedIn); // true
-     // console.log('login', this.props.login);
-     // console.log('user.username', this.props.user.username); //'Thomas'
 
     return (
       <nav>

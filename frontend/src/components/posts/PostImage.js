@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSinglePost } from '../../actions/postActions';
-
-// import Comments from '../comments/Comments'
 import '../../css/posts/SinglePost.css';
 
+
 const faker = require('faker')
+
 
 class PostImage extends Component {
 
@@ -20,7 +19,6 @@ class PostImage extends Component {
         <div >
           <div className='eachPostItemDiv'>
             <img src={faker.image.image()} alt='' height='50' width='50' />
-
           </div>
 
         </div>
@@ -36,15 +34,44 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchSinglePost: () => dispatch(fetchSinglePost)
-    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
     fetchSinglePost: (id) => dispatch(fetchSinglePost(id))
   }
 }
 
 
-// export default connect(mapStateToProps, {fetchSinglePost})(SinglePost);
 export default connect(mapStateToProps, mapDispatchToProps)(PostImage);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //---------------------------
 

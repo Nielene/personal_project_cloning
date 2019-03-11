@@ -4,13 +4,11 @@ const initialState = {
   subredditList: [],
   subredditPosts: [],
   item: {},
-  // subreddit_posts: [],
 }
 
 export default function(state = initialState, action) {
   switch(action.type) {
     case FETCH_SUBREDDITS:
-       // console.log('subredditReducer: FETCH_SUBREDDITS: reducer');
       return {
         ...state,
         subredditList: action.payload
@@ -24,6 +22,40 @@ export default function(state = initialState, action) {
       return state;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // //NORMALIZE FETCH_SUBREDDIT_POSTS:

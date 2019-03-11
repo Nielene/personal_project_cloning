@@ -9,32 +9,14 @@ import '../../css/posts/SinglePost.css';
 
 
 class SinglePost extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     postImage: ''
-  //   }
-  // }
 
-  //  console.log('SinglePost.js: display single post');
-  //  console.log('@', props, props.post)
-  // const post = props.post;
   componentDidMount() {
-    // this.props.fetchSinglePost(this.props.match.params.id);
-    // fetchSinglePost(this.props.match.params.id)
     this.props.fetchSinglePost(this.props.match.params.id);
     this.props.fetchPosts();
 
   }
 
   render() {
-     // console.log('PARAMS??', this.props)
-     // console.log('PARAMS??2', this.props.post)
-     // console.log('PARAMS??3', this.props.match.params.id)
-
-    // return (
-    //   <div>single post</div>
-    // )
 
     if (this.props.post.id) {
       return (
@@ -59,7 +41,6 @@ class SinglePost extends Component {
                 <Link to=''>{this.props.post.username}</Link>
 
                 <Link to=''>{this.props.newPost.my_subreddit_title}</Link>
-                {/*  */}
               </h5>
 
               <div>
@@ -100,16 +81,52 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchSinglePost: () => dispatch(fetchSinglePost)
-    // fetchSinglePost: (id) => dispatch(fetchSinglePost(this.props.match.params.id))
     fetchSinglePost: (id) => dispatch(fetchSinglePost(id)),
     fetchPosts: () => dispatch(fetchPosts()),
   }
 }
 
 
-// export default connect(mapStateToProps, {fetchSinglePost})(SinglePost);
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePost);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //---------------------------
 

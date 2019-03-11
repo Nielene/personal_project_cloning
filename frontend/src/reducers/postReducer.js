@@ -10,12 +10,11 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case FETCH_POSTS:
-       // console.log('postReducer: FETCH_POSTS: reducer');
       return {
         ...state,
         items: action.payload
       }
-    case FETCH_SINGLE_POST:  // note
+    case FETCH_SINGLE_POST:
       return {
         items: [...state.items],
         item: action.payload
@@ -35,5 +34,5 @@ export default function(state = initialState, action) {
   }
 }
 
-// action.type and action.payload both came from postActions.
-// now, need to implement this in the Post component.
+// NOTES:        // action.type and action.payload both came from postActions.
+                // now, need to implement this in the Post component.

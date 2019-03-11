@@ -18,7 +18,6 @@ import SingleSubredditPosts from './components/subreddits/SingleSubredditPosts';
 import Subreddits from './components/subreddits/Subreddits';
 
 import SingleUserComments from './components/comments/SingleUserComments';
-// import PostFormLink from './components/PostFormLink';
 
 import store from './store'
 
@@ -53,17 +52,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
-
-// <Switch>
-//   <Route path = '/posts/new/text' component = {PostFormText} />
-//   <Route path = '/posts/new/link' component = {PostFormLink} />
-// </Switch>
-
-  // <Posts />
-// <PostFormLink />
-// <hr />
-//

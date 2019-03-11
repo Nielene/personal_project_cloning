@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import { createComment } from '../../actions/commentActions'//our action;
 import '../../css/comments/CommentForm.css';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 
-
-// import { NavLink } from 'react-router-dom'
-// import axios from 'axios';
-// const faker = require('faker');
 
 class CommentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // username: "Nielene",
       votes: Math.floor(Math.random() * 2000) + ' points',
       post_time: Math.floor(Math.random() * 24),
       body: '',
-      // displayVariable: ''
-      // title: '',
-      // subreddit_title: '',
-      // image_url: '',
-      // post_time: Math.floor(Math.random() * 24) + ' hours ago',
       // post_type: Math.floor(Math.random() * ['gif', 'video', 'text', 'wiki', 'image'].length),
     }
 
@@ -36,37 +23,17 @@ class CommentForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+
   onSubmit(e) {
     e.preventDefault();
-
     const addComment = {
       comment_body: this.state.body,
     }
-
-    // Call Action (commentActions)
-    this.props.createComment(addComment)
-
-
-    // const displayComment = function() {
-    //   return (
-    //     <div>
-    //       <div className='userVotesAndTime'>
-    //         <Link to=''><h6>{this.state.username}</h6></Link>
-    //         <p>{Math.floor(Math.random() * 10000)} points</p>
-    //         <p>{Math.floor(Math.random() * 24) + ' hours ago'} </p>
-    //       </div>
-    //       <div className='commentBody'>
-    //         <p>{this.state.body}</p>
-    //       </div>
-    //     </div>
-    //   )
-    // }
-
-
+    this.props.createComment(addComment)      // CALL ACTION (commentActions)
   }
 
+
   render () {
-     // console.log(this.state);
     const placeholderText = "We'd appreciate if you remain polite with your comments."
 
     return (
@@ -87,7 +54,6 @@ class CommentForm extends Component {
 
       </div>
     )
-
   }
 }
 
@@ -102,9 +68,43 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommentForm))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // CommentForm.propTypes = {
 //   createComment: PropTypes.func.isRequired

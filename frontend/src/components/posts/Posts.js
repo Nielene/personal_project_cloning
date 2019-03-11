@@ -1,44 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/postActions';
-// import { createPost } from '../../actions/postActions'; unnessary////////
-// import PropTypes from 'prop-types';
-// import axios from 'axios'
-
 import { Link } from 'react-router-dom';
 import SearchForm from '../search/SearchForm';
 import '../../css/posts/Posts.css';
-// import postFormText from './PostFormText';
 
 
 
 class Posts extends Component {
 
   componentDidUpdate(prevProps) {
-     // console.log('Posts.js CURRENT PROPS', this.props);
-     // console.log('Posts.js PREVIOUS PROPS', prevProps)
-    // debugger
+
     if (prevProps.match.params.post_id !== this.props.match.params.post_id) {
       this.props.fetchPosts(this.props.match.params.post_id)
     }
   }
 
   componentDidMount() {
-     // console.log('Posts.js');
-    // debugger
+
     this.props.fetchPosts();
   }
 
-// CAUSES ERROR:
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.newPost) {
-  //     this.props.posts.unshift(nextProps.newPost)
-  //   }
-  // }
-
   render () {
-    //  console.log('Posts.js: {postItems}', this.props.posts);
-     // console.log("ALL PROPS: ", this.props)
     const postItems = this.props.posts.map(post => (
 
       <div key={post.id} className='eachPostItemDiv'>
@@ -94,7 +77,6 @@ class Posts extends Component {
         </div>
 
 
-        {/* <h1>Posts</h1> */}
         <div className='allPostItemsDiv'>
           {postItems}
         </div>
@@ -103,12 +85,6 @@ class Posts extends Component {
     )
   }
 }
-
-// Posts.propTypes = {
-//   fetchPosts: PropTypes.func.isRequired,
-//   posts: PropTypes.array.isRequired,
-//   newPost: PropTypes.object
-// }
 
 
 const mapStateToProps = state => ({
@@ -119,8 +95,61 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPosts: () => dispatch(fetchPosts()),
-    // createPost: (postData) => dispatch(createPost(postData))
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps )(Posts);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CAUSES ERROR:
+// componentWillReceiveProps(nextProps) {
+//   if (nextProps.newPost) {
+//     this.props.posts.unshift(nextProps.newPost)
+//   }
+// }
+
+
+// Posts.propTypes = {
+//   fetchPosts: PropTypes.func.isRequired,
+//   posts: PropTypes.array.isRequired,
+//   newPost: PropTypes.object
+// }

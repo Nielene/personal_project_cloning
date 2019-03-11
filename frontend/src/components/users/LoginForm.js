@@ -31,8 +31,7 @@ class LoginForm extends Component {
   }
 
   componentDidMount() {
-    //  console.log('LoginForm.js, this.props', this.props);
-    // this.props.login(user);
+
   }
 
   onChange(e) {
@@ -47,7 +46,6 @@ class LoginForm extends Component {
       password: this.state.password,
     }
 
-    // Call Action (postActions)
     this.props.login(loginUser)
 
 
@@ -69,8 +67,6 @@ class LoginForm extends Component {
 
 
   render() {
-     // console.log(this.state);
-
 
     const linkToPostFormLink = () => {
       return (

@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import '../../css/subreddits/Subreddits.css';
 
 import { fetchMySubreddits } from '../../actions/subredditActions';
-// import faker from '../../actions/subredditActions';
-
-// import { SingleSubredditPosts } from './SingleSubredditPosts'
-// import axios from 'axios'
 
 
 class Subreddits extends Component {
@@ -27,36 +22,20 @@ class Subreddits extends Component {
   };
 
   componentDidMount() {
-     // console.log('Subreddits.js, this.props', this.props);
     this.props.fetchMySubreddits();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   // if (nextProps.newPost) {
-  //   //   this.props.subredditList.unshift(nextProps.newPost)
-  //   // }
-  // }
 
   updateSubreddit = e => {
-     // console.log('e.target.value', e.target.value);
     this.props.history.push(e.target.value)
   }
 
   render () {
     const { locationShowing } = this.state;
-
-     // console.log('Subreddits.js: {subredditItems}');
     const faker = require('faker');
-
 
     const subredditItems = this.props.subredditList.map(subreddit => (
       <div className='subscribeButtonAndSubredLink eachPostItemDiv'>
-        {/*
-
-          <div className='subscribeButton'>
-          <button type='submit' ><h4>{"unsubscribe" ? "subscribe" : "unsubscribe"}</h4></button>
-          </div>
-          */}
           <div className='subscribeButton'>
 
             <button onClick={this.toggleShowing}>
@@ -81,7 +60,8 @@ class Subreddits extends Component {
 
       </div>
     ))
-      // debugger
+
+
     return (
       <div className='subredditPage'>
         <div className="allSubredditsHeading">
@@ -93,7 +73,6 @@ class Subreddits extends Component {
           </p>
         </div>
         <div className=""  >
-          {/* // <select onChange='window.location.href=this.value'> */}
           {subredditItems}
         </div>
       </div>
@@ -105,11 +84,6 @@ class Subreddits extends Component {
   }
 }
 
-// Subreddits.propTypes = {
-//   fetchMySubreddits: PropTypes.func.isRequired,
-//   subreddits: PropTypes.array.isRequired,
-//   newPost: PropTypes.object
-// }
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -124,5 +98,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-// export default connect(mapStateToProps, { fetchMySubreddits } )(Subreddits);
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Subreddits));
