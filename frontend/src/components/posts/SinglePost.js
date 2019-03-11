@@ -26,7 +26,7 @@ class SinglePost extends Component {
 
             <div className='postItemVotes singleSubreddit'>
               <button><span role="img" aria-label="Panda">🔼</span></button>
-              <h3>{Math.floor(Math.random() * 10000)}</h3>
+              <h3>{this.props.post.post_votes}</h3>
               <button><span role="img" aria-label="Panda">🔽</span></button>
             </div>
 

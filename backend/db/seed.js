@@ -3,6 +3,7 @@ const faker = require('faker');
 
 let subreddits = ['WHYWERETHEYFILMING', 'YESYESYESNO', 'YESYESYESYESNO', 'FUNNYANDSAD', 'HOLDMYCOSMO', 'CONFUSING_PERSPECTIVE']
 let my_subreddit_title = subreddits[Math.floor(Math.random() * subreddits.length)];
+
 let subredditsList = [];
 for (let i = 0; i < subreddits.length; i++) {
   subredditsList.push( `('${subreddits[i]}')` )
@@ -12,13 +13,14 @@ let users = [];
 for (let i = 0; i < 10; i++) {
   let username = faker.internet.userName();
   let password_digest = faker.internet.password();
-  // let post_id = Math.floor(Math.random() * 100) + 1;
-  let karma_points = Math.floor(Math.random() * 10);
-  // let subreddit_id = Math.floor(Math.random() * subredditsList.length) + 1;
-  // let str = `( '${username}', ${post_id}, ${karma_points} )`
+
+  let karma_points = Math.floor(Math.random() * 1000);
+
   let str = `( '${username}', '${password_digest}', ${karma_points} )`
   users.push(str)
 }
+
+let comments = [];
 
 let posts = [];
 for (let i = 0; i < 10; i++) {
@@ -27,17 +29,20 @@ for (let i = 0; i < 10; i++) {
   let image_url = faker.random.image();
   let post_type = faker.database.type();
   let post_time = Math.floor(Math.random() * 24);
-  // let image_url = faker.image.imageUrl();
-  // let subreddit_id =
+
+  let post_votes = Math.floor(Math.random() * 1000);
+  let post_comments_count = comments.length + 1;
+
   let subreddit_id = Math.floor(Math.random() * subredditsList.length) + 1;
   let user_id = Math.floor(Math.random() * 10) + 1;
-  let str = `('${post_title}', '${post_body}', '${image_url}', '${post_type}', '${post_time}', ${subreddit_id}, ${user_id} )`
+  let str = `('${post_title}', '${post_body}', '${image_url}', '${post_type}', '${post_time}', ${post_votes}, ${post_comments_count}, ${subreddit_id}, ${user_id} )`
   posts.push(str)
 }
 
-let comments = [];
-for (let i = 0; i < 10; i++) {
+// let comments = [];
+for (let i = 0; i < 100; i++) {
   let comment_body = faker.lorem.sentences();
+
   let post_id = Math.floor(Math.random() * 10) + 1;
   let user_id = Math.floor(Math.random() * 10) + 1;
   let str = "( '" + comment_body + "', " + post_id + ", " + user_id + " )"
@@ -82,7 +87,7 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
 .then(() => {
   db.none("INSERT INTO users(username, password_digest, karma_points) VALUES " + users + ";")
   .then(() => {
-    db.none("INSERT INTO posts (post_title, post_body, image_url, post_type, post_time, subreddit_id, user_id) VALUES " + posts + ";")
+    db.none("INSERT INTO posts (post_title, post_body, image_url, post_type, post_time, post_votes, post_comments_count, subreddit_id, user_id) VALUES " + posts + ";")
     .then(() => {
       db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
       .then(() => {

@@ -31,7 +31,7 @@ class Posts extends Component {
 
         <div className='postItemVotes '>
           <button><span role="img" aria-label="Panda">🔼</span></button>
-          <h3>{Math.floor(Math.random() * 10000)}</h3>
+          <h3>{post.post_votes}</h3>
           <button><span role="img" aria-label="Panda">🔽</span></button>
         </div>
 
@@ -48,7 +48,7 @@ class Posts extends Component {
           </h6>
           <div>
             <Link to={'/post/' + post.id} style={{ textDecoration: 'none' }}>
-              <h6>{Math.floor(Math.random() * 1000)} comments</h6>
+              <h6>{post.post_comments_count} comments</h6>
               <h6>{'/' + post.post_type}</h6>
             </Link>
           </div>
