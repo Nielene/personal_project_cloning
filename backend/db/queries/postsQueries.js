@@ -21,7 +21,8 @@ const getAllPosts = (req, res, next) => {
 // http://localhost:3000/posts/1
 const getSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.id);
-  db.one('SELECT * FROM posts JOIN users ON users.id = posts.user_id WHERE posts.id=$1', [postId])
+  db.one('SELECT users.*, subreddits.*, posts.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= $1 GROUP BY users.id, subreddits.id, posts.id ORDER BY posts.post_votes DESC', [postId])
+  // db.one('SELECT * FROM posts JOIN users ON users.id = posts.user_id WHERE posts.id=$1', [postId])
   .then(data => {
     res.status(200)
     .json({
