@@ -33,7 +33,7 @@ CREATE TABLE posts (
   post_type TEXT,
   post_time INT,
   post_votes INT,
-  post_comments_count INT,
+  -- post_comments_count INT,
   -- comments TEXT NOT NULL,
   subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE,
   user_id INT REFERENCES users(id) ON DELETE CASCADE

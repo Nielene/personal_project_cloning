@@ -48,7 +48,7 @@ class Posts extends Component {
           </h6>
           <div>
             <Link to={'/post/' + post.id} style={{ textDecoration: 'none' }}>
-              <h6>{post.post_comments_count} comments</h6>
+              <h6>{post.count} comments</h6>
               <h6>{'/' + post.post_type}</h6>
             </Link>
           </div>

@@ -20,7 +20,7 @@ for (let i = 0; i < 10; i++) {
   users.push(str)
 }
 
-let comments = [];
+// let comments = [];
 
 let posts = [];
 for (let i = 0; i < 10; i++) {
@@ -31,15 +31,14 @@ for (let i = 0; i < 10; i++) {
   let post_time = Math.floor(Math.random() * 24);
 
   let post_votes = Math.floor(Math.random() * 1000);
-  let post_comments_count = comments.length + 1;
 
   let subreddit_id = Math.floor(Math.random() * subredditsList.length) + 1;
   let user_id = Math.floor(Math.random() * 10) + 1;
-  let str = `('${post_title}', '${post_body}', '${image_url}', '${post_type}', '${post_time}', ${post_votes}, ${post_comments_count}, ${subreddit_id}, ${user_id} )`
+  let str = `('${post_title}', '${post_body}', '${image_url}', '${post_type}', '${post_time}', ${post_votes}, ${subreddit_id}, ${user_id} )`
   posts.push(str)
 }
 
-// let comments = [];
+let comments = [];
 for (let i = 0; i < 100; i++) {
   let comment_body = faker.lorem.sentences();
 
@@ -87,7 +86,7 @@ db.none("INSERT INTO subreddits (my_subreddit_title) VALUES" + subredditsList + 
 .then(() => {
   db.none("INSERT INTO users(username, password_digest, karma_points) VALUES " + users + ";")
   .then(() => {
-    db.none("INSERT INTO posts (post_title, post_body, image_url, post_type, post_time, post_votes, post_comments_count, subreddit_id, user_id) VALUES " + posts + ";")
+    db.none("INSERT INTO posts (post_title, post_body, image_url, post_type, post_time, post_votes, subreddit_id, user_id) VALUES " + posts + ";")
     .then(() => {
       db.none("INSERT INTO comments(comment_body, post_id, user_id) VALUES " + comments + ";")
       .then(() => {
