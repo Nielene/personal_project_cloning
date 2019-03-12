@@ -45,7 +45,7 @@ class SinglePost extends Component {
 
               <div>
                 <Link to={'/post/' + this.props.post.id}>
-                  <h6>{Math.floor(Math.random() * 1000)} comments</h6>
+                  <h6>{this.props.post.count} comments</h6>
                   <h6>{'/' + this.props.post.post_type}</h6>
               </Link>
               </div>
