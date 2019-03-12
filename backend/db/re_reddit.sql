@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS subreddit_posts;
 
 CREATE TABLE subreddits (
   id SERIAL PRIMARY KEY,
-  my_subreddit_title TEXT
+  my_subreddit_title TEXT,
 
 );
 
@@ -21,8 +21,9 @@ CREATE TABLE users (
   username VARCHAR(240) UNIQUE,
   password_digest VARCHAR NOT NULL,
   -- post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-  karma_points INT
   -- subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
+  karma_points INT,
+  -- up_down_vote_id INT,
 );
 
 CREATE TABLE posts (
@@ -59,6 +60,7 @@ CREATE TABLE subreddit_posts (
   subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
 );
 
+-- need this to get sub to work (reed)
 CREATE TABLE user_subreddits_subscriptions (
   id SERIAL PRIMARY KEY,
   user_id INT REFERENCES users(id) ON DELETE SET NULL,

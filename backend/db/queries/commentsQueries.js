@@ -6,8 +6,11 @@ const { db } = require('../index.js');
 const getAllCommentsForSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.post_id);
   db.any(
+    "SELECT users.*, subreddits.*, posts.*, comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= $1 GROUP BY users.id, subreddits.id, posts.id, comments.id  ORDER BY posts.post_votes DESC", [postId])
+    // "SELECT users.*, subreddits.*, posts.* , comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= 1 GROUP BY users.id, subreddits.id, posts.id, comments.id", [postId])
+    // "SELECT users.*, comments.*, posts.*, COUNT(comments.id)  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1 GROUP BY users.id, comments.id, posts.id", [postId])
+    // "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1", [postId])
     // "SELECT posts.*, comments.* FROM comments JOIN posts ON comments.post_id = posts.id WHERE post_id =$1", [postId])
-    "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1", [postId])
 
   .then(data => {
     res.status(200).json({

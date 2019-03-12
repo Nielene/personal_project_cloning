@@ -17,7 +17,6 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-
     this.props.fetchPosts();
   }
 
