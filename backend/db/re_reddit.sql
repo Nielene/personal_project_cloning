@@ -3,16 +3,16 @@ CREATE DATABASE re_reddit;
 
 \c re_reddit;
 
-DROP TABLE IF EXISTS subreddits;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS up_down_votes;
-DROP TABLE IF EXISTS subreddit_posts;
+-- DROP TABLE IF EXISTS subreddits;
+-- DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS posts;
+-- DROP TABLE IF EXISTS comments;
+-- DROP TABLE IF EXISTS up_down_votes;
+-- DROP TABLE IF EXISTS subreddit_posts;
 
 CREATE TABLE subreddits (
   id SERIAL PRIMARY KEY,
-  my_subreddit_title TEXT,
+  my_subreddit_title TEXT
 
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE users (
   password_digest VARCHAR NOT NULL,
   -- post_id INT REFERENCES posts(id) ON DELETE CASCADE,
   -- subreddit_id INT REFERENCES subreddits(id) ON DELETE CASCADE
-  karma_points INT,
+  karma_points INT
   -- up_down_vote_id INT,
 );
 

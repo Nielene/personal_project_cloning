@@ -6,7 +6,7 @@ column name          | data type | details
 id                   | integer   | not null, primary key
 post_title           | string    | not null, indexed, unique
 user_id              | integer   | not null, foreign key
-post_time         | integer   | not null
+post_time            | integer   | not null
 votes                | integer   | not null     - only one per user - toggle
 comments             | string    | not null     - XXXX no need for post to point to multi comments
 type (gif, v, text)  | string    | not null

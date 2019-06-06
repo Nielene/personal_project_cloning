@@ -46,7 +46,7 @@ class Posts extends Component {
             <Link to={'/subredditPosts/' + post.subreddit_id} style={{ textDecoration: 'none' }}>{' ' + post.my_subreddit_title}</Link>
           </h6>
           <div>
-            <Link to={'/post/' + post.id} style={{ textDecoration: 'none' }}>
+            <Link to={'/postComments/' + post.id} style={{ textDecoration: 'none' }}>
               <h6>{post.count} comments</h6>
               <h6>{'/' + post.post_type}</h6>
             </Link>

@@ -7,7 +7,7 @@ const getAllCommentsForSinglePost = (req, res, next) => {
   let postId = parseInt(req.params.post_id);
   db.any(
     "SELECT users.*, subreddits.*, posts.*, comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= $1 GROUP BY users.id, subreddits.id, posts.id, comments.id  ORDER BY posts.post_votes DESC", [postId])
-    // "SELECT users.*, subreddits.*, posts.* , comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= 1 GROUP BY users.id, subreddits.id, posts.id, comments.id", [postId])
+    // "SELECT users.*, subreddits.*, posts.* , comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE posts.id= $1 GROUP BY users.id, subreddits.id, posts.id, comments.id", [postId])
     // "SELECT users.*, comments.*, posts.*, COUNT(comments.id)  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1 GROUP BY users.id, comments.id, posts.id", [postId])
     // "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE posts.id =$1", [postId])
     // "SELECT posts.*, comments.* FROM comments JOIN posts ON comments.post_id = posts.id WHERE post_id =$1", [postId])
@@ -38,7 +38,8 @@ const getAllCommentsBySingleUser = (req, res, next) => {
     // "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
     // "SELECT users.*, comments.* FROM comments JOIN users ON comments.user_id = users.id WHERE user_id =$1", [userId])
     // "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE comments.user_id =$1", [userId])
-    "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE users.id =$1", [userId])
+    // "SELECT users.*, comments.*, posts.*  FROM users JOIN posts ON users.id = posts.user_id JOIN comments ON posts.id = comments.post_id WHERE users.id =$1", [userId])
+    "SELECT users.*, subreddits.*, posts.*, comments.*, COUNT(comments.id) FROM subreddits JOIN posts ON subreddits.id = posts.subreddit_id JOIN users ON users.id = posts.user_id JOIN comments ON users.id = comments.user_id WHERE users.id= $1 GROUP BY users.id, subreddits.id, posts.id, comments.id  ORDER BY posts.post_votes DESC", [userId])
 
   .then(data => {
     res.status(200).json({
@@ -74,6 +75,7 @@ const createCommentForSinglePost = (req, res, next) => {
 
   db.none("INSERT INTO comments(user_id, post_id, comment_body ) VALUES( ${user_id}, ${post_id}, ${comment_body} )", {
     ...req.body,
+    post_id: req.params.post_id,
     user_id: req.user.id,
   })
   .then(() => {
